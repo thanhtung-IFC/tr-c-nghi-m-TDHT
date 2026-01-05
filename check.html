@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra Model Gemini</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        input { padding: 10px; width: 300px; }
+        button { padding: 10px 20px; cursor: pointer; background: #4F46E5; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h2>🕵️ Công cụ Tìm Model Gemini</h2>
+    <p>Dán API Key của bạn vào đây để xem danh sách model hợp lệ:</p>
+    
+    <input type="text" id="apiKey" placeholder="Dán API Key (AIza...) vào đây">
+    <button onclick="checkModels()">Kiểm tra ngay</button>
+
+    <h3>Kết quả:</h3>
+    <pre id="output">...</pre>
+
+    <script>
+        async function checkModels() {
+            const key = document.getElementById('apiKey').value.trim();
+            const output = document.getElementById('output');
+            
+            if (!key) { alert("Chưa nhập Key!"); return; }
+            output.innerText = "Đang kết nối tới Google...";
+
+            try {
+                // Gọi API lấy danh sách model
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${key}`);
+                const data = await res.json();
+
+                if (data.error) {
+                    output.innerHTML = `<span class="error">❌ LỖI: ${data.error.message}</span>`;
+                } else {
+                    // Lọc ra các model có thể tạo nội dung (generateContent)
+                    const validModels = data.models
+                        .filter(m => m.supportedGenerationMethods.includes("generateContent"))
+                        .map(m => m.name.replace("models/", "")); // Lấy tên ngắn gọn
+
+                    output.innerHTML = `<span class="success">✅ KẾT NỐI THÀNH CÔNG!</span>\n\nDanh sách Model bạn có thể dùng:\n` + 
+                                       validModels.map(m => `- ${m}`).join("\n");
+                }
+            } catch (e) {
+                output.innerHTML = `<span class="error">❌ LỖI KẾT NỐI: ${e.message}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
