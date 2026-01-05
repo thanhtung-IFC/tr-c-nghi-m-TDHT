@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm Vibe by Tùng</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="quiz-header">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="stats">
+                <span id="question-number">Câu 1/10</span>
+                <span id="score-display">Điểm: 0</span>
+            </div>
+        </div>
+
+        <div class="quiz-body">
+            <h2 id="question-text">Đang tải câu hỏi...</h2>
+            
+            <div class="options-list" id="options-container">
+                </div>
+        </div>
+
+        <div class="quiz-footer">
+            <button id="next-btn" class="btn-primary" disabled>Tiếp theo</button>
+        </div>
+    </div>
+
+    <div class="result-modal hidden" id="result-modal">
+        <div class="result-content">
+            <h3>Hoàn thành! 🎉</h3>
+            <p>Bạn đã trả lời đúng <span id="final-score">0</span> câu.</p>
+            <button class="btn-primary" onclick="location.reload()">Làm lại</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
