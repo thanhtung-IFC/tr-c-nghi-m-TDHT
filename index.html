@@ -8,68 +8,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div id="home-screen" class="container home-container">
         <h1 class="app-title">🎓 VIBE LEARNING HUB</h1>
-        <p class="app-subtitle">Chọn môn học để bắt đầu luyện tập ngay!</p>
-        
+        <p class="app-subtitle">Chọn môn học để bắt đầu:</p>
         <div id="subject-list" class="subject-grid"></div>
     </div>
 
-    <div id="quiz-app" class="container hidden">
-        <div class="top-bar">
-            <button id="back-home-btn" class="btn-icon">🏠 Home</button>
-            <h3 id="current-subject-name">Tên môn học</h3>
-            <button id="shuffle-btn" class="btn-icon" title="Trộn câu hỏi">🔀 Trộn đề</button>
-        </div>
-
-        <div class="quiz-header">
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
+    <div id="quiz-app" class="quiz-wrapper hidden">
+        
+        <div class="quiz-main">
+            <div class="top-bar">
+                <button id="back-home-btn" class="btn-icon">🏠 Home</button>
+                <h3 id="current-subject-name">Môn học</h3>
             </div>
-            <div class="stats">
-                <span id="question-number">Đang tải...</span>
-                <span id="score-display">Điểm: 0</span>
-            </div>
-        </div>
 
-        <div class="quiz-body">
-            <h2 id="question-text">Đang tải dữ liệu...</h2>
-            <div class="options-list" id="options-container">
+            <div class="quiz-header">
+                <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+                <div class="stats">
+                    <span id="page-indicator">Trang 1/5</span>
+                    <span id="score-display">...</span>
                 </div>
-        </div>
-
-        <div class="quiz-footer">
-            <div id="ai-explanation" class="hidden">
-                <div class="ai-header">
-                    <span class="ai-icon">✨</span> <strong>Gemini giải thích:</strong>
-                </div>
-                <div id="ai-content">Đang suy nghĩ...</div>
             </div>
 
-            <div class="button-group">
-                <button id="explain-btn" class="btn-secondary hidden">✨ Giải thích bằng AI</button>
-                <button id="next-btn" class="btn-primary" disabled>Tiếp theo</button>
+            <div id="quiz-list" class="quiz-list-container">
+                </div>
+
+            <div class="quiz-footer">
+                <div class="button-group">
+                    <button id="prev-page-btn" class="btn-secondary hidden">⬅️ Trang trước</button>
+                    <button id="next-page-btn" class="btn-primary">Trang sau ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-sidebar">
+            <div id="timer-box" class="timer-card hidden">
+                <span class="timer-icon">⏳</span>
+                <span id="timer-text">00:00</span>
+            </div>
+
+            <button id="submit-now-btn" class="btn-submit-exam hidden">📝 NỘP BÀI NGAY</button>
+
+            <div class="palette-container">
+                <h4>Danh sách câu hỏi</h4>
+                <div id="question-palette" class="palette-grid"></div>
+                <div class="palette-note">
+                    <span class="note-item"><span class="dot done"></span>Đã làm</span>
+                    <span class="note-item"><span class="dot current"></span>Trang này</span>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="result-modal hidden" id="result-modal">
         <div class="result-content">
-            <h3>Hoàn thành! 🎉</h3>
-            <p>Kết quả của bạn:</p>
+            <h3 id="result-title">Kết quả thi</h3>
             <div class="final-score-box">
+                <div id="final-score-text" style="font-size: 1rem; color: #666;">Điểm số</div>
                 <span id="final-score">0/0</span>
             </div>
+            <p id="exam-feedback" style="margin-bottom: 20px; font-weight: bold; color: #4F46E5;"></p>
             <div class="modal-buttons">
-                <button class="btn-primary" onclick="restartQuiz()">Làm lại bài này</button>
+                <button class="btn-primary" onclick="restartQuiz()">Làm lại</button>
                 <button class="btn-secondary" onclick="goHome()">Chọn môn khác</button>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <div id="ai-modal" class="result-modal hidden" style="z-index: 60; background: rgba(0,0,0,0.5);">
+        <div class="result-content" style="max-width: 500px; text-align: left;">
+            <h3 style="color: #d97706;">✨ Gemini Giải thích</h3>
+            <div id="ai-modal-content" style="line-height: 1.6; margin: 15px 0;">Đang tải...</div>
+            <button class="btn-secondary" onclick="document.getElementById('ai-modal').classList.add('hidden')">Đóng</button>
+        </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
