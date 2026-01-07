@@ -15,9 +15,13 @@
     </div>
 
     <div id="quiz-app" class="quiz-wrapper hidden">
+        
         <div class="quiz-main">
             <div class="top-bar">
-                <button id="back-home-btn" class="btn-icon">🏠 Home</button>
+                <div style="display: flex; gap: 10px;">
+                    <button id="back-home-btn" class="btn-icon">🏠 Home</button>
+                    <button id="shuffle-btn" class="btn-icon hidden">🔀 Trộn đề</button>
+                </div>
                 <h3 id="current-subject-name">Môn học</h3>
             </div>
 
@@ -26,17 +30,17 @@
                 <div class="mode-grid">
                     <div class="mode-card exam-card" onclick="selectMode('exam')">
                         <div class="mode-icon">⏱️</div>
-                        <div class="mode-info"><h3>Thi thử 100 câu</h3><p>Áp lực thời gian. Chấm điểm hệ 10.</p></div>
+                        <div class="mode-info"><h3>Thi thử 100 câu</h3><p>50 phút. Chấm điểm hệ 10.</p></div>
                     </div>
                     <div class="mode-card practice-card" onclick="selectMode('practice')">
                         <div class="mode-icon">📚</div>
-                        <div class="mode-info"><h3>Luyện tập</h3><p>Thoải mái ôn tập theo chủ đề.</p></div>
+                        <div class="mode-info"><h3>Luyện tập</h3><p>Ôn tập theo chủ đề. Có AI hỗ trợ.</p></div>
                     </div>
                 </div>
             </div>
 
             <div id="chapter-selection" class="hidden">
-                <h3 style="text-align: center; color: #4F46E5; margin-bottom: 20px;">Chọn nội dung</h3>
+                <h3 style="text-align: center; color: #4F46E5; margin-bottom: 20px;">Chọn nội dung luyện tập</h3>
                 <div id="chapter-list" class="chapter-grid"></div>
                 <button class="btn-secondary" style="width:100%; margin-top:20px" onclick="backToModeSelect()">⬅️ Quay lại</button>
             </div>
@@ -85,24 +89,22 @@
         </div>
     </div>
 
+    <div id="exit-modal" class="result-modal hidden" style="z-index: 70;">
+        <div class="result-content" style="max-width: 400px;">
+            <h3 style="color: #EF4444; margin-bottom: 15px;">⚠️ Xác nhận thoát?</h3>
+            <p style="color: #4B5563; margin-bottom: 25px;">Tiến độ bài làm sẽ bị mất. Bạn có chắc chắn muốn về trang chủ?</p>
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="closeExitModal()">Hủy bỏ</button>
+                <button class="btn-primary" style="background: #EF4444; border: none;" onclick="confirmExit()">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+
     <div id="ai-modal" class="result-modal hidden" style="z-index: 60; background: rgba(0,0,0,0.5);">
         <div class="result-content" style="max-width: 500px; text-align: left;">
             <h3 style="color: #d97706;">✨ Gemini Giải thích</h3>
             <div id="ai-modal-content" style="line-height: 1.6; margin: 15px 0;">Đang tải...</div>
             <button class="btn-secondary" onclick="document.getElementById('ai-modal').classList.add('hidden')">Đóng</button>
-        </div>
-    </div>
-
-    <div id="exit-modal" class="result-modal hidden" style="z-index: 70;">
-        <div class="result-content" style="max-width: 400px;">
-            <h3 style="color: #EF4444; margin-bottom: 15px;">⚠️ Xác nhận thoát?</h3>
-            <p style="color: #4B5563; margin-bottom: 25px;">
-                Mọi tiến độ bài làm hiện tại sẽ bị mất.<br>Bạn có chắc chắn muốn về trang chủ?
-            </p>
-            <div class="modal-buttons">
-                <button class="btn-secondary" onclick="closeExitModal()">Hủy bỏ</button>
-                <button class="btn-primary" style="background: #EF4444; border: none;" onclick="confirmExit()">Đồng ý thoát</button>
-            </div>
         </div>
     </div>
 
