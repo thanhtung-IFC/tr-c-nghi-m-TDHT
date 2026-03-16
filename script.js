@@ -1,11 +1,11 @@
 /**
- * SCRIPT.JS - PHIÊN BẢN TỐI ƯU HÓA (CLEAN VERSION)
+ * SCRIPT.JS
  */
 
-// --- CẤU HÌNH API KEY ---
+// --- API KEY ---
 let AI_API_KEY = localStorage.getItem("user_groq_key");
 if (!AI_API_KEY) {
-    let inputKey = prompt("Nhập Groq API Key (gsk_...) để dùng tính năng AI:");
+    let inputKey = prompt("Nhập API Key (gsk_...) để dùng tính năng AI:");
     if (inputKey && inputKey.trim() !== "") {
         AI_API_KEY = inputKey.trim();
         localStorage.setItem("user_groq_key", AI_API_KEY); 
@@ -23,7 +23,7 @@ let isExamMode = false;
 let isReviewMode = false;
 let timerInterval;
 
-// --- DOM ELEMENTS (Lấy 1 lần dùng mãi mãi) ---
+// --- DOM ELEMENTS ---
 const els = {
     home: document.getElementById('home-screen'),
     quizApp: document.getElementById('quiz-app'),
