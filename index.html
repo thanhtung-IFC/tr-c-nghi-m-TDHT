@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="home-screen" class="container home-container">
-        <h1 class="app-title">🎓 VIBE LEARNING HUB</h1>
+        <h1 class="app-title">🎓 Trắc ngiệm ôn thi </h1>
         <p class="app-subtitle">Chọn môn học để bắt đầu:</p>
         <div id="subject-list" class="subject-grid"></div>
     </div>
@@ -92,7 +92,7 @@
     <div id="exit-modal" class="result-modal hidden" style="z-index: 70;">
         <div class="result-content" style="max-width: 400px;">
             <h3 style="color: #EF4444; margin-bottom: 15px;">⚠️ Xác nhận thoát?</h3>
-            <p style="color: #4B5563; margin-bottom: 25px;">Tiến độ bài làm sẽ bị mất. Bạn có chắc chắn muốn về trang chủ?</p>
+            <p style="color: #4B5563; margin-bottom: 25px;">Tiến độ bài làm sẽ bị reload. Bạn có chắc chắn muốn về trang chủ?</p>
             <div class="modal-buttons">
                 <button class="btn-secondary" onclick="closeExitModal()">Hủy bỏ</button>
                 <button class="btn-primary" style="background: #EF4444; border: none;" onclick="confirmExit()">Đồng ý</button>
@@ -102,7 +102,7 @@
 
     <div id="ai-modal" class="result-modal hidden" style="z-index: 60; background: rgba(0,0,0,0.5);">
         <div class="result-content" style="max-width: 500px; text-align: left;">
-            <h3 style="color: #d97706;">✨ Gemini Giải thích</h3>
+            <h3 style="color: #d97706;">✨ AI Giải thích</h3>
             <div id="ai-modal-content" style="line-height: 1.6; margin: 15px 0;">Đang tải...</div>
             <button class="btn-secondary" onclick="document.getElementById('ai-modal').classList.add('hidden')">Đóng</button>
         </div>
