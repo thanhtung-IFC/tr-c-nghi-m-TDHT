@@ -66,14 +66,28 @@ async function initHome() {
     
     try {
         const querySnapshot = await getDocs(collection(db, "questions"));
-        const questionsList = [];
+        
+        // Xóa data ảo, chuẩn bị đón data thật
+        subjectsData = {
+            "TDHT": { name: "Tư duy Hệ thống", icon: "🧠", description: "Bách khoa toàn thư TDHT.", questions: [] }
+        };
+
         querySnapshot.forEach((doc) => {
-            questionsList.push({ dbId: doc.id, ...doc.data() });
+            const q = { dbId: doc.id, ...doc.data() };
+            const subjCode = q.subjectCode || "TDHT"; // Backwards compatibility cho các câu hỏi cũ đã up
+            
+            // Nếu phát hiện mã môn mới, tự động khởi tạo Môn học đó
+            if(!subjectsData[subjCode]) {
+                subjectsData[subjCode] = { name: `Môn ${subjCode}`, icon: "📚", description: "Ngân hàng câu hỏi.", questions: [] };
+            }
+            subjectsData[subjCode].questions.push(q);
         });
         
-        // Sắp xếp lại theo id
-        questionsList.sort((a, b) => a.id - b.id);
-        subjectsData["TDHT"].questions = questionsList;
+        // Sắp xếp ID gọn gàng cho từng môn
+        Object.keys(subjectsData).forEach(key => {
+            subjectsData[key].questions.sort((a, b) => a.id - b.id);
+        });
+
     } catch (error) {
         console.error("Lỗi khi tải dữ liệu Firebase:", error);
         els.subjectList.innerHTML = '<div style="color:#DC2626; text-align:center; padding: 20px;">❌ Lỗi kết nối CSDL. Vui lòng thử lại sau!</div>';
