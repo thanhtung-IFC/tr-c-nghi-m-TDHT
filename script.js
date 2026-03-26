@@ -1,14 +1,24 @@
 /**
  * SCRIPT.JS
  */
+import { db, collection, getDocs } from './firebase-config.js';
+
+let subjectsData = {
+    "TDHT": {
+        name: "Tư duy Hệ thống",
+        icon: "🧠",
+        description: "Ngân hàng câu hỏi tự động cập nhật.",
+        questions: []
+    }
+};
 
 // --- API KEY ---
 let AI_API_KEY = localStorage.getItem("user_groq_key");
 if (!AI_API_KEY) {
-    let inputKey = prompt("Nhập API Key (gsk_...) để dùng tính năng AI:");
+    let inputKey = prompt("Nhập API Key (gsk_...) để dùng Grok AI :");
     if (inputKey && inputKey.trim() !== "") {
         AI_API_KEY = inputKey.trim();
-        localStorage.setItem("user_groq_key", AI_API_KEY); 
+        localStorage.setItem("user_groq_key", AI_API_KEY);
     }
 }
 
@@ -51,9 +61,26 @@ const els = {
 };
 
 // --- 1. KHỞI TẠO TRANG CHỦ ---
-function initHome() {
+async function initHome() {
+    els.subjectList.innerHTML = '<div style="text-align:center; padding: 20px; font-weight: bold; color: #4F46E5;">Đang tải dữ liệu từ Cloud... ⏳</div>';
+    
+    try {
+        const querySnapshot = await getDocs(collection(db, "questions"));
+        const questionsList = [];
+        querySnapshot.forEach((doc) => {
+            questionsList.push({ dbId: doc.id, ...doc.data() });
+        });
+        
+        // Sắp xếp lại theo id
+        questionsList.sort((a, b) => a.id - b.id);
+        subjectsData["TDHT"].questions = questionsList;
+    } catch (error) {
+        console.error("Lỗi khi tải dữ liệu Firebase:", error);
+        els.subjectList.innerHTML = '<div style="color:#DC2626; text-align:center; padding: 20px;">❌ Lỗi kết nối CSDL. Vui lòng thử lại sau!</div>';
+        return;
+    }
+
     els.subjectList.innerHTML = '';
-    if (typeof subjectsData === 'undefined') return;
     for (const [key, subject] of Object.entries(subjectsData)) {
         const card = document.createElement('div');
         card.classList.add('subject-card');
@@ -75,7 +102,7 @@ function loadSubject(key) {
     if (!subject) return;
     currentQuizData = subject.questions;
     els.currentSubjectName.innerText = subject.name;
-    
+
     // Chuyển màn hình
     els.home.classList.add('hidden');
     els.quizApp.classList.remove('hidden');
@@ -158,16 +185,16 @@ function startExamMode() {
     let fullList = [...currentQuizData];
     shuffleArray(fullList);
     activeQuestions = fullList.slice(0, Math.min(100, fullList.length));
-    
+
     els.quizArea.classList.remove('hidden');
     els.sidebar.classList.remove('hidden');
     els.timerBox.classList.remove('hidden');
     els.submitBtn.classList.remove('hidden');
     els.shuffleBtn.classList.add('hidden'); // Ẩn nút trộn khi thi
-    
-    if(!els.currentSubjectName.innerText.includes("(THI THỬ)")) 
+
+    if (!els.currentSubjectName.innerText.includes("(THI THỬ)"))
         els.currentSubjectName.innerText += " (THI THỬ)";
-        
+
     startQuizLogic(activeQuestions);
     startTimer(50 * 60);
 }
@@ -189,13 +216,13 @@ function loadPage() {
         const card = document.createElement('div'); card.classList.add('question-card');
         const categoryHtml = q.category ? `<span class="q-tag">${q.category}</span>` : '';
         card.innerHTML = `<div class="question-title"><span style="color:#4F46E5">Câu ${i + 1}:</span> ${categoryHtml} ${q.question}</div>`;
-        
+
         const optsDiv = document.createElement('div');
         for (const [key, value] of Object.entries(q.options)) {
-            const optDiv = document.createElement('div'); 
-            optDiv.classList.add('option-item'); 
+            const optDiv = document.createElement('div');
+            optDiv.classList.add('option-item');
             optDiv.innerText = `${key}. ${value}`;
-            
+
             // Logic Style (Tô màu)
             if (isReviewMode) {
                 optDiv.classList.add('disabled');
@@ -212,10 +239,10 @@ function loadPage() {
 
         // Nút AI
         if (!isExamMode || isReviewMode) {
-            const aiBtn = document.createElement('button'); 
-            aiBtn.classList.add('btn-ai-small'); 
+            const aiBtn = document.createElement('button');
+            aiBtn.classList.add('btn-ai-small');
             aiBtn.innerText = "✨ Giải thích";
-            aiBtn.onclick = () => callGroqExplanation(i); 
+            aiBtn.onclick = () => callGroqExplanation(i);
             card.appendChild(aiBtn);
         }
         els.quizList.appendChild(card);
@@ -224,15 +251,15 @@ function loadPage() {
     // Nút phân trang
     els.prevBtn.classList.toggle('hidden', currentPage === 0);
     if (currentPage === totalPages - 1) {
-        if (isExamMode && !isReviewMode) { 
-            els.nextBtn.innerText = "NỘP BÀI 📝"; 
-            els.nextBtn.style.background = "#DC2626"; 
-        } else { 
-            els.nextBtn.classList.add('hidden'); 
+        if (isExamMode && !isReviewMode) {
+            els.nextBtn.innerText = "NỘP BÀI 📝";
+            els.nextBtn.style.background = "#DC2626";
+        } else {
+            els.nextBtn.classList.add('hidden');
         }
     } else {
-        els.nextBtn.innerText = "Trang sau ➡️"; 
-        els.nextBtn.style.background = "#4F46E5"; 
+        els.nextBtn.innerText = "Trang sau ➡️";
+        els.nextBtn.style.background = "#4F46E5";
         els.nextBtn.classList.remove('hidden');
     }
     updatePalette();
@@ -242,9 +269,9 @@ function handleOptionClick(index, selectedKey, el, qData, container) {
     if (isReviewMode) return;
     Array.from(container.children).forEach(op => {
         op.classList.remove('selected', 'correct', 'wrong');
-        if(!isExamMode) op.classList.add('disabled');
+        if (!isExamMode) op.classList.add('disabled');
     });
-    
+
     userAnswers[index] = selectedKey;
 
     if (isExamMode) {
@@ -265,13 +292,13 @@ els.nextBtn.onclick = () => {
     if (currentPage < totalPages - 1) {
         currentPage++; loadPage();
     } else if (isExamMode && !isReviewMode) {
-        if(confirm("Xác nhận nộp bài?")) submitExam();
+        if (confirm("Xác nhận nộp bài?")) submitExam();
     }
 };
 els.prevBtn.onclick = () => { if (currentPage > 0) { currentPage--; loadPage(); } };
 
 els.shuffleBtn.onclick = () => {
-    if(confirm("Trộn lại câu hỏi và làm lại từ đầu?")) {
+    if (confirm("Trộn lại câu hỏi và làm lại từ đầu?")) {
         let newShuffled = [...shuffledQuestions];
         shuffleArray(newShuffled);
         startQuizLogic(newShuffled);
@@ -288,19 +315,19 @@ function submitExam() {
     isReviewMode = true;
     let score = 0;
     shuffledQuestions.forEach((q, index) => { if (userAnswers[index] === q.answer) score++; });
-    
+
     els.resultModal.classList.remove('hidden');
     const finalScoreEl = document.getElementById('final-score');
     const modalButtons = document.querySelector('.modal-buttons');
     const oldReviewBtn = document.getElementById('review-exam-btn');
-    if(oldReviewBtn) oldReviewBtn.remove();
+    if (oldReviewBtn) oldReviewBtn.remove();
 
     if (isExamMode) {
         let scaleScore = Math.round((score / shuffledQuestions.length) * 10 * 10) / 10;
-        document.getElementById('final-score-text').innerText = "Điểm hệ 10"; 
+        document.getElementById('final-score-text').innerText = "Điểm hệ 10";
         finalScoreEl.innerText = scaleScore;
         document.getElementById('exam-feedback').innerText = `Đúng ${score}/${shuffledQuestions.length} câu.`;
-        
+
         const reviewBtn = document.createElement('button');
         reviewBtn.id = 'review-exam-btn';
         reviewBtn.className = 'btn-secondary';
@@ -384,7 +411,7 @@ async function callGroqExplanation(index) {
     try {
         const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST", headers: { "Content-Type": "application/json", "Authorization": `Bearer ${AI_API_KEY}` },
-            body: JSON.stringify({ model: "llama-3.3-70b-versatile", messages: [{role:"user", content:`Giải thích ngắn gọn tại sao đáp án đúng là ${q.answer} cho câu hỏi: ${q.question}`}] })
+            body: JSON.stringify({ model: "llama-3.3-70b-versatile", messages: [{ role: "user", content: `Giải thích ngắn gọn tại sao đáp án đúng là ${q.answer} cho câu hỏi: ${q.question}` }] })
         });
         const data = await res.json(); els.aiContent.innerText = data.choices?.[0]?.message?.content || "Lỗi AI.";
     } catch (e) { els.aiContent.innerText = "Lỗi: " + e.message; }

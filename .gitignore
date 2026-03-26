@@ -1,0 +1,6 @@
+# Bỏ qua các file Admin và Tool nhập liệu (Vì lý do bảo mật, không được đưa lên Github)
+admin.html
+push_data_to_firebase.html
+converter.html
+check.html
+data.js
