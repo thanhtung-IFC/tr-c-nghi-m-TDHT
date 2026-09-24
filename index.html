@@ -3,66 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Learning Hub</title>
+    <title>GDQP và AN</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="home-screen" class="container home-container">
-        <h1 class="app-title">🎓 Trắc ngiệm ôn thi </h1>
-        <p class="app-subtitle">Chọn môn học để bắt đầu:</p>
+        <h1 class="app-title">🎓 GDQP và AN</h1>
+        <p class="app-subtitle">Chọn nội dung ôn tập:</p>
         <div id="subject-list" class="subject-grid"></div>
     </div>
 
     <div id="quiz-app" class="quiz-wrapper hidden">
-        
         <div class="quiz-main">
             <div class="top-bar">
-                <div style="display: flex; gap: 10px;">
-                    <button id="back-home-btn" class="btn-icon">🏠 Home</button>
-                    <button id="shuffle-btn" class="btn-icon hidden">🔀 Trộn đề</button>
+                <div class="top-actions">
+                    <button id="back-home-btn" class="btn-icon" type="button">🏠 Trang chủ</button>
+                    <button id="shuffle-btn" class="btn-icon hidden" type="button">🔀 Trộn đề</button>
                 </div>
                 <h3 id="current-subject-name">Môn học</h3>
             </div>
 
+            <div id="part-selection" class="hidden">
+                <h2 class="mode-title">Chọn phần học</h2>
+                <div id="part-list" class="chapter-grid"></div>
+            </div>
+
             <div id="mode-selection" class="hidden">
-                <h2 style="text-align: center; color: #374151; margin-bottom: 30px;">Bạn muốn làm gì hôm nay?</h2>
+                <h2 class="mode-title">Chọn chế độ học</h2>
                 <div class="mode-grid">
-                    <div class="mode-card exam-card" onclick="selectMode('exam')">
-                        <div class="mode-icon">⏱️</div>
-                        <div class="mode-info"><h3>Thi thử 100 câu</h3><p>50 phút. Chấm điểm hệ 10.</p></div>
-                    </div>
-                    <div class="mode-card practice-card" onclick="selectMode('practice')">
+                    <div class="mode-card practice-card" data-mode="practice">
                         <div class="mode-icon">📚</div>
-                        <div class="mode-info"><h3>Luyện tập</h3><p>Ôn tập theo chủ đề. Có AI hỗ trợ.</p></div>
+                        <div class="mode-info">
+                            <h3>Luyện tập</h3>
+                            <p>Ôn tập theo chủ đề.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div id="chapter-selection" class="hidden">
-                <h3 style="text-align: center; color: #4F46E5; margin-bottom: 20px;">Chọn nội dung luyện tập</h3>
+                <h3 class="chapter-title">Chọn nội dung luyện tập</h3>
                 <div id="chapter-list" class="chapter-grid"></div>
-                <button class="btn-secondary" style="width:100%; margin-top:20px" onclick="backToModeSelect()">⬅️ Quay lại</button>
+                <button id="back-mode-btn" class="btn-secondary full-width" type="button">⬅️ Quay lại</button>
             </div>
 
             <div id="quiz-area" class="hidden">
                 <div class="quiz-header">
-                    <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
-                    <div class="stats"><span id="page-indicator">Trang 1/1</span><span id="score-display">...</span></div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="stats">
+                        <span id="page-indicator">Trang 1/1</span>
+                        <span id="score-display">Luyện tập</span>
+                    </div>
                 </div>
                 <div id="quiz-list" class="quiz-list-container"></div>
                 <div class="quiz-footer">
                     <div class="button-group">
-                        <button id="prev-page-btn" class="btn-secondary hidden">⬅️ Trước</button>
-                        <button id="next-page-btn" class="btn-primary">Sau ➡️</button>
+                        <button id="prev-page-btn" class="btn-secondary hidden" type="button">⬅️ Trước</button>
+                        <button id="next-page-btn" class="btn-primary" type="button">Sau ➡️</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="quiz-sidebar" id="sidebar-area">
-            <div id="timer-box" class="timer-card hidden"><span class="timer-icon">⏳</span><span id="timer-text">00:00</span></div>
-            <button id="submit-now-btn" class="btn-submit-exam hidden">📝 NỘP BÀI NGAY</button>
+            <div id="timer-box" class="timer-card hidden">
+                <span class="timer-icon">⏳</span>
+                <span id="timer-text">50:00</span>
+            </div>
+            <button id="submit-now-btn" class="btn-submit-exam hidden" type="button">📝 NỘP BÀI NGAY</button>
             <div class="palette-container">
                 <h4>Danh sách câu hỏi</h4>
                 <div id="question-palette" class="palette-grid"></div>
@@ -74,41 +85,33 @@
         </div>
     </div>
 
-    <div class="result-modal hidden" id="result-modal">
+    <div id="result-modal" class="result-modal hidden">
         <div class="result-content">
             <h3 id="result-title">Kết quả thi</h3>
             <div class="final-score-box">
-                <div id="final-score-text" style="font-size: 1rem; color: #666;">Điểm số</div>
-                <span id="final-score">0/0</span>
+                <div id="final-score-text" class="label-score">Điểm số</div>
+                <span id="final-score">0</span>
             </div>
-            <p id="exam-feedback" style="margin-bottom: 20px; font-weight: bold; color: #4F46E5;"></p>
+            <p id="exam-feedback" class="exam-feedback"></p>
+            <div id="modal-buttons" class="modal-buttons">
+                <button id="restart-btn" class="btn-primary" type="button">Làm lại</button>
+                <button id="home-result-btn" class="btn-secondary" type="button">Chọn môn khác</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="exit-modal" class="result-modal hidden">
+        <div class="result-content small-modal">
+            <h3 class="exit-title">⚠️ Xác nhận thoát?</h3>
+            <p class="exit-message">Tiến độ bài làm sẽ bị reset. Bạn có chắc chắn muốn về trang chủ?</p>
             <div class="modal-buttons">
-                <button class="btn-primary" onclick="restartQuiz()">Làm lại</button>
-                <button class="btn-secondary" onclick="goHome()">Chọn môn khác</button>
+                <button id="close-exit-btn" class="btn-secondary" type="button">Hủy bỏ</button>
+                <button id="confirm-exit-btn" class="btn-primary danger" type="button">Đồng ý</button>
             </div>
         </div>
     </div>
 
-    <div id="exit-modal" class="result-modal hidden" style="z-index: 70;">
-        <div class="result-content" style="max-width: 400px;">
-            <h3 style="color: #EF4444; margin-bottom: 15px;">⚠️ Xác nhận thoát?</h3>
-            <p style="color: #4B5563; margin-bottom: 25px;">Tiến độ bài làm sẽ bị reload. Bạn có chắc chắn muốn về trang chủ?</p>
-            <div class="modal-buttons">
-                <button class="btn-secondary" onclick="closeExitModal()">Hủy bỏ</button>
-                <button class="btn-primary" style="background: #EF4444; border: none;" onclick="confirmExit()">Đồng ý</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="ai-modal" class="result-modal hidden" style="z-index: 60; background: rgba(0,0,0,0.5);">
-        <div class="result-content" style="max-width: 500px; text-align: left;">
-            <h3 style="color: #d97706;">✨ AI Giải thích</h3>
-            <div id="ai-modal-content" style="line-height: 1.6; margin: 15px 0;">Đang tải...</div>
-            <button class="btn-secondary" onclick="document.getElementById('ai-modal').classList.add('hidden')">Đóng</button>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script type="module" src="script.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
