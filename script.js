@@ -91,7 +91,7 @@
         els.currentSubjectName.textContent = subjectsData[code].name;
         els.homeScreen.classList.add('hidden');
         els.quizApp.classList.remove('hidden');
-        showModeSelection();
+        startPracticeMode(currentQuestions);
     }
 
     function showPartSelection() {
