@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ôn tập trắc nghiệm Giáo dục Quốc phòng và An ninh (GDQP & AN)">
     <title>GDQP và AN</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -74,10 +77,21 @@
                 <span id="timer-text">50:00</span>
             </div>
             <button id="submit-now-btn" class="btn-submit-exam hidden" type="button">📝 NỘP BÀI NGAY</button>
+
+            <div id="progress-tracker" class="progress-tracker-card">
+                <h4>📊 Tiến độ làm bài</h4>
+                <div class="tracker-bar-wrap">
+                    <div class="tracker-fill-correct" id="tracker-fill-correct"></div>
+                    <div class="tracker-fill-wrong" id="tracker-fill-wrong"></div>
+                </div>
+                <div class="tracker-stats" id="tracker-stats"></div>
+            </div>
+            <button id="summary-btn" class="btn-summary hidden" type="button">📊 Xem tổng hợp kết quả</button>
+
             <div class="palette-container">
                 <h4>Danh sách câu hỏi</h4>
                 <div id="question-palette" class="palette-grid"></div>
-                <div class="palette-note">
+                <div class="palette-note" id="palette-note">
                     <span class="note-item"><span class="dot done"></span>Đã làm</span>
                     <span class="note-item"><span class="dot current"></span>Trang này</span>
                 </div>
@@ -86,17 +100,8 @@
     </div>
 
     <div id="result-modal" class="result-modal hidden">
-        <div class="result-content">
-            <h3 id="result-title">Kết quả thi</h3>
-            <div class="final-score-box">
-                <div id="final-score-text" class="label-score">Điểm số</div>
-                <span id="final-score">0</span>
-            </div>
-            <p id="exam-feedback" class="exam-feedback"></p>
-            <div id="modal-buttons" class="modal-buttons">
-                <button id="restart-btn" class="btn-primary" type="button">Làm lại</button>
-                <button id="home-result-btn" class="btn-secondary" type="button">Chọn môn khác</button>
-            </div>
+        <div class="result-content result-content-large" id="result-content">
+            <!-- Dynamically filled by JS showResults() -->
         </div>
     </div>
 
