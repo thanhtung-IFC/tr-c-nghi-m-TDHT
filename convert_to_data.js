@@ -54,12 +54,23 @@ function parseWordStyleSection(text, subjectKey) {
     });
   }
 
+  let currentCategory = 'Chương 1';
   return blocks.map((entry, index) => {
-    const body = entry.blockText.replace(/\s+/g, ' ').trim();
-    const headingMatch = body.match(/^(?:BÀI|BAI)\s*(\d+)\s*:\s*/i);
-    const category = headingMatch ? `Chương ${headingMatch[1]}` : 'Chương 1';
-    const normalizedBody = headingMatch ? body.replace(headingMatch[0], '').trim() : body;
-    const firstOptionIndex = normalizedBody.search(/\b[A-D]\s*[,\.]/i);
+    const lines = entry.blockText.split(/\r?\n/);
+    const headingLineIndex = lines.findIndex((line) => /(?:^|\s)(?:BÀI|BAI)\s*\d+\s*:/i.test(line));
+    let bodyLines = lines;
+
+    if (headingLineIndex >= 0) {
+      const headingMatch = lines[headingLineIndex].match(/(?:^|\s)(?:BÀI|BAI)\s*(\d+)\s*:/i);
+      currentCategory = `Chương ${headingMatch[1]}`;
+      bodyLines = lines.slice(headingLineIndex + 1);
+    } else if (index === 0) {
+      bodyLines = lines.filter((line) => !/^\s*Đây\s+là\s+HP\s*[12]\b/i.test(line));
+    }
+
+    const category = currentCategory;
+    const normalizedBody = bodyLines.join(' ').replace(/\s+/g, ' ').trim();
+    const firstOptionIndex = normalizedBody.search(/(?:^|\s)[A-D]\s*[,\.]/i);
 
     if (firstOptionIndex < 0) {
       return null;
@@ -96,12 +107,26 @@ function parseWordStyleSection(text, subjectKey) {
   }).filter(Boolean);
 }
 
+function deduplicateQuestions(questions) {
+  const seen = new Set();
+  return questions.filter((question) => {
+    const key = question.question.toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/g, 'd')
+      .replace(/[^a-z0-9]/g, '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map((question, index) => ({ ...question, id: index + 1 }));
+}
+
 function buildData(rawText) {
   const hpSections = splitHpSections(rawText);
   const subjectMap = {};
 
   hpSections.forEach((section) => {
-    const questions = parseWordStyleSection(section.text, section.key);
+    const questions = deduplicateQuestions(parseWordStyleSection(section.text, section.key));
     const code = section.key;
 
     subjectMap[code] = {

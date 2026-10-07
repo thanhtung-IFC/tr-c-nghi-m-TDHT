@@ -7,7 +7,7 @@ const subjectsData = {
             {
                 "id": 1,
                 "category": "Chương 1",
-                "question": "Đây là HP 1 BÀI 1: Quan điểm cơ bản của Chủ nghĩa Mác-Lênin, tư tưởng Hồ Chí Minh về chiến tranh, quân đội và bảo vệ Tổ quốc Lê-Nin xác định nguyên tắc đoàn kết quân, dân trong xây dựng Hồng quân như thế nào?",
+                "question": "Lê-Nin xác định nguyên tắc đoàn kết quân, dân trong xây dựng Hồng quân như thế nào?",
                 "options": {
                     "A": "Sự đoàn kết gắn bó, nhất trí Hồng quân với nhân dân lao động.",
                     "B": "Sự nhất trí quân - dân và các lực lượng tiến bộ trên toàn thế giới.",
@@ -48,7 +48,7 @@ const subjectsData = {
                     "A": "Là hệ thống thống nhất, quan hệ mật thiết với nhau.",
                     "B": "Quan hệ đan xen, tạo điều kiện cho nhau, bản chất giai cấp là quyết định.",
                     "C": "Là một thể thống nhất, quan hệ chặt chẽ trong quá trình xây dựng quân đội nhân dân.",
-                    "D": "Quan hệ mật thiết với nhau, tạo lên sức mạnh và sự trưởng thành."
+                    "D": "Quan hệ mật thiết với nhau, tạo nên sức mạnh và sự trưởng thành."
                 },
                 "answer": "C"
             },
@@ -60,7 +60,7 @@ const subjectsData = {
                     "A": "Là biết sử dụng mọi vũ khí trang bị để tiến công địch.",
                     "B": "Là tiến công kẻ thù trên mọi lĩnh vực",
                     "C": "Là tiến công địch liên tục, cả ngày lẫn đêm.",
-                    "D": "Là biết sử dụng mọi điều kiện thuân lợi để tiến công địch"
+                    "D": "Là biết sử dụng mọi điều kiện thuận lợi để tiến công địch"
                 },
                 "answer": "B"
             },
@@ -79,12 +79,12 @@ const subjectsData = {
             {
                 "id": 7,
                 "category": "Chương 1",
-                "question": "Trong các yếu tố tạo nên sức mạnh của Quân đội nhân dân, Hồ Chí Minh coi yếu tố con người có vị vai trò như thế nào?",
+                "question": "Trong các yếu tố tạo nên sức mạnh của Quân đội nhân dân, Hồ Chí Minh coi yếu tố con người có vai trò như thế nào?",
                 "options": {
                     "A": "Con người có giác ngộ giữ vai trò quan trọng nhất, chi phối các yếu tố khác.",
                     "B": "Con người là quan trọng cùng với yếu tố quân sự là quyết định.",
                     "C": "Con người với trình độ chính trị cao giữ vững vai trò quyết định.",
-                    "D": "Con người có giác ngộ chính trị giữ vai trò quan trọng tạo lên sức mạnh quân đội."
+                    "D": "Con người có giác ngộ chính trị giữ vai trò quan trọng tạo nên sức mạnh quân đội."
                 },
                 "answer": "C"
             },
@@ -163,53 +163,41 @@ const subjectsData = {
             {
                 "id": 14,
                 "category": "Chương 1",
-                "question": "Một trong những nội dung tư tưởng Hồ Chí Minh về bảo vệ Tổ quốc XHCN là gì?",
-                "options": {
-                    "A": "Bảo vệ Tổ quốc XHCN là tất yếu, khách quan, thể hiện ý chí quyết tâm của nhân dân ta.",
-                    "B": "Bảo vệ Tổ quốc là tất yếu, gắnliền với bảo vệ chế độ XHCN.",
-                    "C": "Bảo vệ Tổ quốc XHCN là nhiêm vụ trong sự nghiệp xây dựng CNXH.",
-                    "D": "Bảo vệ Tổ quốc XHCN là truyền thống của quốc gia, dân tộc, là ý chí của toàn dân"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 15,
-                "category": "Chương 1",
                 "question": "Chủ tịch Hồ Chí Minh xác định yếu tố con người có vai trò như thế nào trong xây dựng Quân đội nhân dân?",
                 "options": {
-                    "A": "Con người cố giác ngộ giữ vai rò quan trọng nhất, chi phối các yếu tố khác.",
+                    "A": "Con người có giác ngộ giữ vai trò quan trọng nhất, chi phối các yếu tố khác.",
                     "B": "Con người là quan trọng cùng với yếu tố quân sự là quyết định.",
                     "C": "Con người với trình độ chính trị cao giữ vai trò quyết định.",
-                    "D": "Con người cố giác ngộ giữ vai rò quan trọng nhất."
+                    "D": "Con người có giác ngộ giữ vai trò quan trọng nhất."
                 },
                 "answer": "C"
             },
             {
-                "id": 16,
+                "id": 15,
                 "category": "Chương 1",
                 "question": "Một trong những nguyên tắc cơ bản xây dựng Hồng quân của Lê nin là gì?",
                 "options": {
                     "A": "Xây dựng quân đội có kỷ luật, có tính chiến đấu cao.",
-                    "B": "Xây dựng quân đội chính qui.",
+                    "B": "Xây dựng quân đội chính quy.",
                     "C": "Xây dựng quân đội hiện đại.",
                     "D": "Xây dựng quân đội hùng mạnh cả về số lượng và chất lượng."
                 },
                 "answer": "B"
             },
             {
-                "id": 17,
+                "id": 16,
                 "category": "Chương 1",
                 "question": "Nguyên tắc cơ bản về xây dựng lực lượng Hồng quân của Lê nin là gì?",
                 "options": {
                     "A": "Sự lãnh đạo của Đảng cộng sản đối với quân đội.",
                     "B": "Giữ vững quan điểm giai cấp trong xây dựng quân đội.",
                     "C": "Tính kỷ luật cao là yếu tố quyết định sức mạnh quân đội",
-                    "D": "Quân đội chính quy, hiện đại, trung thành với giaicấp công nhân và nhân dân lao động"
+                    "D": "Quân đội chính quy, hiện đại, trung thành với giai cấp công nhân và nhân dân lao động"
                 },
                 "answer": "A"
             },
             {
-                "id": 18,
+                "id": 17,
                 "category": "Chương 1",
                 "question": "Để phát huy nhân tố con người trong xây dựng quân đội, Hồ Chí Minh rất coi trọng vấn đề gì?",
                 "options": {
@@ -221,7 +209,7 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 19,
+                "id": 18,
                 "category": "Chương 1",
                 "question": "Hồ Chí Minh xác định vai trò của Đảng trong sự nghiệp bảo vệ Tổ quốc XHCN như thế nào?",
                 "options": {
@@ -233,9 +221,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 20,
+                "id": 19,
                 "category": "Chương 1",
-                "question": "Theo tư tưởng Hồ Chí Minh, trong sức mạnh của toàn dân đánh giặ",
+                "question": "Theo tư tưởng Hồ Chí Minh, trong sức mạnh của toàn dân đánh giặc, vị trí của lực lượng vũ trang nhân dân được xác định như thế nào?",
                 "options": {
                     "A": "Là lực lượng nòng cốt cho nhân dân đánh giặc.",
                     "B": "Là lực lượng xung kích, trụ cột cho toàn dân.",
@@ -245,9 +233,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 21,
+                "id": 20,
                 "category": "Chương 2",
-                "question": "Xây dựng nền QPTD, ANND bảo vệ Tổ quốc Việt Nam XHCN Xây dựng nền quốc phòng toàn dân, an ninh nhân dân gồm những nội dung nào sau đây?",
+                "question": "Xây dựng nền quốc phòng toàn dân, an ninh nhân dân gồm những nội dung nào sau đây?",
                 "options": {
                     "A": "Tiềm lực chính trị, kinh tế, khoa học công nghệ, quân sự an ninh",
                     "B": "Xây dựng hậu phương chiến lược",
@@ -257,8 +245,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 22,
-                "category": "Chương 1",
+                "id": 21,
+                "category": "Chương 2",
                 "question": "Nền quốc phòng toàn dân phát triển theo hướng như thế nào?",
                 "options": {
                     "A": "Nền quốc phòng toàn dân phát triển theo hướng hiện đại",
@@ -269,8 +257,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 23,
-                "category": "Chương 1",
+                "id": 22,
+                "category": "Chương 2",
                 "question": "Xây dựng tiềm lực quân sự, an ninh cần tập trung vào nội dung nào?",
                 "options": {
                     "A": "Bảo đảm tốt vũ khí cho quân đội, công an",
@@ -281,8 +269,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 24,
-                "category": "Chương 1",
+                "id": 23,
+                "category": "Chương 2",
                 "question": "Tiềm lực quốc phòng, an ninh được thể hiện tập trung ở?",
                 "options": {
                     "A": "Tiềm lực chính trị tinh thần, tiềm lực khoa học công nghệ",
@@ -293,8 +281,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 25,
-                "category": "Chương 1",
+                "id": 24,
+                "category": "Chương 2",
                 "question": "Kết hợp chặt chẽ xây dựng tiềm lực QP, AN với thế trận QP, AN để nhằm mục đích gì?",
                 "options": {
                     "A": "Phát huy tối đa sự mạnh của lực",
@@ -305,8 +293,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 26,
-                "category": "Chương 1",
+                "id": 25,
+                "category": "Chương 2",
                 "question": "Một trong những đặc trưng cơ bản của nền quốc phòng toàn dân, an ninh nhân dân là gì?",
                 "options": {
                     "A": "Là nền QPTD, ANND có sức mạnh tổng hợp chiến thắng kẻ thù xâm lược",
@@ -317,8 +305,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 27,
-                "category": "Chương 1",
+                "id": 26,
+                "category": "Chương 2",
                 "question": "Một trong những nội dung cơ bản của xây dựng tiềm lực quốc phòng, an ninh ngày nay là?",
                 "options": {
                     "A": "Xây dựng lực lượng vũ trang nhân dân vững mạnh",
@@ -329,8 +317,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 28,
-                "category": "Chương 1",
+                "id": 27,
+                "category": "Chương 2",
                 "question": "Xây dựng thế trận quốc phòng toàn dân, an ninh nhân dân được hiểu như thế nào?",
                 "options": {
                     "A": "Tổ chức và bố trí các lực lượng vũ trang trên toàn bộ lãnh thổ theo ý đồ chiến lược phòng thủ đất nước",
@@ -341,8 +329,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 29,
-                "category": "Chương 1",
+                "id": 28,
+                "category": "Chương 2",
                 "question": "Tính toàn diện trong xây dựng nền quốc phòng toàn dân, an ninh nhân dân được thể hiện ở nội dung nào sau đây?",
                 "options": {
                     "A": "Cả tiềm lực và thế trận quốc phòng",
@@ -353,8 +341,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 30,
-                "category": "Chương 1",
+                "id": 29,
+                "category": "Chương 2",
                 "question": "Một trong những nội dung cơ bản của nền quốc phòng toàn dân, an nin nhân dân hiện nay là gì?",
                 "options": {
                     "A": "Nền QPTD, ANND do nhân dân lao động làm chủ",
@@ -365,8 +353,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 31,
-                "category": "Chương 1",
+                "id": 30,
+                "category": "Chương 2",
                 "question": "Xây dựng lực lượng quốc phòng, an ninh bao gồm những lực lượng nào?",
                 "options": {
                     "A": "Quân đội, công an và dân quân tự vệ",
@@ -377,8 +365,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 32,
-                "category": "Chương 1",
+                "id": 31,
+                "category": "Chương 2",
                 "question": "Một trong những nội dung cơ bản xây dựng tiềm lực kinh tế trong xây dựng nền quốc phòng toàn dân, an ninh nhân dân là gì ?",
                 "options": {
                     "A": "Kết hợp xây dựng kinh tế và xã hội",
@@ -389,8 +377,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 33,
-                "category": "Chương 1",
+                "id": 32,
+                "category": "Chương 2",
                 "question": "Từ cơ sở nào, chúng ta xác định tính chất toàn dân của nền quốc phòng toàn dân?",
                 "options": {
                     "A": "Từ truyền thống dân tộc trong chiến đấu chống giặc ngoại xâm",
@@ -401,8 +389,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 34,
-                "category": "Chương 1",
+                "id": 33,
+                "category": "Chương 2",
                 "question": "Một trong những biện pháp chủ yếu xây dựng nền quốc phòng toàn dân, an ninh nhân dân là gì?",
                 "options": {
                     "A": "Luôn tăng cường giáo dục ý thức trách nhiệm của công dân về 2 nhiệm vụ chiến lược",
@@ -413,8 +401,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 35,
-                "category": "Chương 1",
+                "id": 34,
+                "category": "Chương 2",
                 "question": "Tính chất toàn dân của nền quốc phòng toàn dân, an ninh nhân dân được biểu hiện tập trung như thế nào?",
                 "options": {
                     "A": "Là nền quốc phòng mang tính giai cấp, nhân dân sâu sắc",
@@ -425,8 +413,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 36,
-                "category": "Chương 1",
+                "id": 35,
+                "category": "Chương 2",
                 "question": "Nội dung xây dựng thế trận quốc phòng toàn dân hiện nay là gì?",
                 "options": {
                     "A": "Phân vùng chiến lược về quốc phòng, an ninh kết hợp với vùng kinh tế, trên cơ sở quy hoạch các vùng dân cư",
@@ -437,8 +425,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 37,
-                "category": "Chương 1",
+                "id": 36,
+                "category": "Chương 2",
                 "question": "Một trong những nội dung cơ bản cần tập trung xây dựng tiềm lực quốc phòng an ninh ngày nay là?",
                 "options": {
                     "A": "Xây dựng tiềm lực kinh tế",
@@ -449,8 +437,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 38,
-                "category": "Chương 1",
+                "id": 37,
+                "category": "Chương 2",
                 "question": "Nội dung quan trọng hàng đầu trong xây dựng thế trận quốc phòng toàn dân, an ninh nhân dân là gì?",
                 "options": {
                     "A": "Tổ chức phòng thủ dân sự và phòng tránh khắc phục hậu quả chiến tranh",
@@ -461,8 +449,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 39,
-                "category": "Chương 1",
+                "id": 38,
+                "category": "Chương 2",
                 "question": "Một trong những mục đích xây dựng nền quốc phòng toàn dân, an ninh nhân dân là gì?",
                 "options": {
                     "A": "Tạo thế chủ động cho sự nghiệp xây dựng và bảo vệ tổ quốc",
@@ -473,8 +461,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 40,
-                "category": "Chương 1",
+                "id": 39,
+                "category": "Chương 2",
                 "question": "Tiềm lực chính trị tinh thần có vai trò như thế nào trong xây dựng tiềm lực quốc phòng, an ninh?",
                 "options": {
                     "A": "Nhân tố quyết định tạo nên sức mạnh quốc phòng, an ninh",
@@ -485,20 +473,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 41,
+                "id": 40,
                 "category": "Chương 3",
-                "question": "Chiến tranh nhân dân BVTQ Việt Nam XHCN Theo tư tưởng Hồ Chí Minh, trong sức mạnh của toàn dân đánh giặ",
-                "options": {
-                    "A": "Là lực lượng nòng cốt cho nhân dân đánh giặc.",
-                    "B": "Là lực lượng xung kích, trụ cột cho toàn dân.",
-                    "C": "Là lực lượng cùng toàn dân đánh giặc.",
-                    "D": "Là lực lượng xung kích, cho toàn dân."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 42,
-                "category": "Chương 1",
                 "question": "Đối tượng trong chiến tranh nhân dân bảo vệ Tổ quốc XHCN là",
                 "options": {
                     "A": "Những lực lượng xâm lược Tổ quốc ta.",
@@ -509,8 +485,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 43,
-                "category": "Chương 1",
+                "id": 41,
+                "category": "Chương 3",
                 "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quốc phải kết hợp kháng chiến với xây dựng, vừa chiến đấu, vừa sản xuất. Lý do vì sao?",
                 "options": {
                     "A": "Việc bảo đảm đời sống nhân dân là rất khó khăn.",
@@ -521,9 +497,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 44,
-                "category": "Chương 1",
-                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quố",
+                "id": 42,
+                "category": "Chương 3",
+                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quốc, thế trận chiến tranh nhân dân được tổ chức rộng khắp thể hiện như thế nào?",
                 "options": {
                     "A": "Cả nước đánh giặc, sử dụng mọi phương tiện để đánh.",
                     "B": "Cả nước đánh giặc phối hợp chặt chẽ với các binh đoàn chủ lực",
@@ -533,8 +509,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 45,
-                "category": "Chương 1",
+                "id": 43,
+                "category": "Chương 3",
                 "question": "Một trong những tính chất chiến tranh nhân dân bảo vệ Tổ quốc là gì?",
                 "options": {
                     "A": "Chiến tranh chính nghĩa, tự vệ.",
@@ -545,9 +521,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 46,
-                "category": "Chương 1",
-                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quố",
+                "id": 44,
+                "category": "Chương 3",
+                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quốc, phải kết hợp đấu tranh quân sự với bảo đảm an ninh chính trị, giữ gìn trật tự an toàn xã hội. Vì một trong những lý do gì?",
                 "options": {
                     "A": "Lực lượng phản động sẽ tiến hành phá hoại, có mưu đồ lật đổ chính quyền ta.",
                     "B": "Lực lượng phản động lợi dụng chiến tranh kết hợp với phản động nước ngoài tập hợp lực lượng.",
@@ -557,23 +533,23 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 47,
-                "category": "Chương 1",
-                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quố",
+                "id": 45,
+                "category": "Chương 3",
+                "question": "Tiến hành chiến tranh nhân dân bảo vệ Tổ quốc, thế trận chiến tranh nhân dân Việt Nam được tổ chức như thế nào?",
                 "options": {
                     "A": "Tổ chức rộng toàn quốc, tập trung ở hướng, khu vực chủ yếu.",
-                    "B": "Tổ chức rộng trên phạm vi cả nước, những có trọng tâm, trọng điểm.",
+                    "B": "Tổ chức rộng trên phạm vi cả nước, nhưng có trọng tâm, trọng điểm.",
                     "C": "Tổ chức theo qui hoạch các vùng kinh tế và bố trí dân cư.",
                     "D": "Tổ chức rộng toàn quốc, tập trung ở hướng, khu vực chủ yếu, quan trọng."
                 },
                 "answer": "B"
             },
             {
-                "id": 48,
-                "category": "Chương 1",
+                "id": 46,
+                "category": "Chương 3",
                 "question": "Thực hiện \"kết hợp đấu tranh quân sự với bảo đảm an ninh chính trị, giữ gìn trật tự, an toàn \", trong chiến tranh nhân dân bảo vệ Tổ quốc thể hiện như thế nào?",
                 "options": {
-                    "A": "Kết hợp cùng với việc xây dựng kế hoạch, xác định các phương án đánh địch cần chuẩn bị kế hoạch chống bạo loan, lật đổ.",
+                    "A": "Kết hợp cùng với việc xây dựng kế hoạch, xác định các phương án đánh địch cần chuẩn bị kế hoạch chống bạo loạn, lật đổ.",
                     "B": "Kết hợp cùng với việc xây dựng kế hoạch, xác định các phương án đánh đich và kế hoạch bảo vệ hậu phương.",
                     "C": "Kết hợp đánh địch và xây dựng lực lượng quân sự địa phương bảo vệ an ninh chính trị, trật tự an toàn xã hội.",
                     "D": "Xây dựng kế hoạch, các phương án kết hợp đánh thù trong giặc ngoài."
@@ -581,20 +557,20 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 49,
-                "category": "Chương 1",
+                "id": 47,
+                "category": "Chương 3",
                 "question": "Nếu chiến tranh xảy ra, chúng ta đánh giá quân địch có điểm yếu cơ bản nào?",
                 "options": {
                     "A": "Vấp phải ý chí chiến đấu kiên cường vì độc lập tự do của dân tộc ta.",
                     "B": "Phải đương đầu với dân tộc Việt Nam có truyền thống chống kẻ thù xâm lược kiên cường bất khuất.",
                     "C": "Phải đối phó với cách đánh năng động sáng tạo của QĐNDVN.",
-                    "D": "Phải đương đầu với dân tộc Việt Nam có truyền thống chống giắc ngoại xâm."
+                    "D": "Phải đương đầu với dân tộc Việt Nam có truyền thống chống giặc ngoại xâm."
                 },
                 "answer": "B"
             },
             {
-                "id": 50,
-                "category": "Chương 1",
+                "id": 48,
+                "category": "Chương 3",
                 "question": "Thế trận chiến tranh là gì?",
                 "options": {
                     "A": "Là sự tổ chức, bố trí lực lượng để tiến hành chiến tranh và hoạt động tác chiến.",
@@ -605,8 +581,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 51,
-                "category": "Chương 1",
+                "id": 49,
+                "category": "Chương 3",
                 "question": "Nhu cầu bảo đảm hậu cần kỹ thuật trong chiến tranh nhân dân bảo vệ Tổ quốc như thế nào?",
                 "options": {
                     "A": "Nhu cầu bảo đảm hậu cần kỹ thuật cho chiến tranh luôn tăng lên.",
@@ -617,8 +593,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 52,
-                "category": "Chương 1",
+                "id": 50,
+                "category": "Chương 3",
                 "question": "Một trong những mục đích của chiến tranh nhân dân bảo vệ Tổ quốc Việt Nam XHCN là gì?",
                 "options": {
                     "A": "Bảo vệ vững chắc độc lập, chủ quyền, thống nhất của Tổ quốc.",
@@ -629,8 +605,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 53,
-                "category": "Chương 1",
+                "id": 51,
+                "category": "Chương 3",
                 "question": "Tiến hành chiến tranh nhân dân, lực lượng toàn dân đánh giặc được tổ chức như thế nào?",
                 "options": {
                     "A": "Được tổ chức thành lực lượng chính trị của quần chúng và lực lượng vũ trang.",
@@ -641,21 +617,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 54,
-                "category": "Chương 1",
-                "question": "Một trong những tính chất chiến tranh nhân dân bảo vệ Tổ quốc là gì?",
-                "options": {
-                    "A": "Là cuộc chiến tranh toàn dân, lực lượng vũ trang làm nòng cốt.",
-                    "B": "Là cuộc chiến tranh toàn dân, toàn diện.",
-                    "C": "Là cuộc đấu tranh của nhân dân mà quân sự đóng vai trò quyết định.",
-                    "D": "Là cuộc chiến tranh cách mạng chống lại các thế lực phản cách mạng."
-                },
-                "answer": "B"
-            },
-            {
-                "id": 55,
-                "category": "Chương 1",
-                "question": "Quan điểm \"thực hiện toàn dân đánh giặc\" trong chiến tranh nhân dân bảo vệ Tổ quố",
+                "id": 52,
+                "category": "Chương 3",
+                "question": "Quan điểm \"thực hiện toàn dân đánh giặc\" trong chiến tranh nhân dân bảo vệ Tổ quốc, có ý nghĩa gì?",
                 "options": {
                     "A": "Là cơ sở, điều kiện để mỗi người dân được tham gia đánh giặc bảo vệ quê hương.",
                     "B": "Là cơ sở, điều kiện để phát huy sức mạnh tổng hợp bảo vệ Tổ quốc.",
@@ -665,8 +629,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 56,
-                "category": "Chương 1",
+                "id": 53,
+                "category": "Chương 3",
                 "question": "Quan điểm, thực hiện toàn dân đánh giặc trong chiến tranh nhân dân bảo vệ Tổ quốc thể hiện vấn đề gì?",
                 "options": {
                     "A": "Thể hiện tính nhân dân, tính dân tộc sâu sắc trong cuộc chiến tranh.",
@@ -677,8 +641,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 57,
-                "category": "Chương 1",
+                "id": 54,
+                "category": "Chương 3",
                 "question": "Quan điểm \"tiến hành chiến tranh toàn diện\" trong chiến tranh nhân dân bảo vệ Tổ quốc thể hiện như thế nào?",
                 "options": {
                     "A": "Tiến công địch toàn diện, mặt trận chính trị là quan trọng nhất, mặt trận quân sự có tính quyết định.",
@@ -689,8 +653,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 58,
-                "category": "Chương 1",
+                "id": 55,
+                "category": "Chương 3",
                 "question": "Đặc điểm nào tác động nhiều nhất đến chiến tranh nhân dân bảo vệ Tổ quốc?",
                 "options": {
                     "A": "Chủ nghĩa đế quốc đang thực hiện chính trị cường quyền thô bạo và cứng rắn.",
@@ -701,20 +665,20 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 59,
-                "category": "Chương 1",
+                "id": 56,
+                "category": "Chương 3",
                 "question": "Nếu chiến tranh xảy ra cùng với bọn đế quốc lực lượng nào là đối tượng tác chiến của quân dân ta?",
                 "options": {
                     "A": "Lực lượng khủng bố và xâm lược.",
                     "B": "Những lực lượng phản động gây bạo loạn lật đổ, gây xung đột vũ trang, gây chiến tranh xâm lược.",
-                    "C": "Lực lượng phản động tiến hành bạo loan, lật đổ phá hoại thành quả Cách mạng của nhân dân ta.",
+                    "C": "Lực lượng phản động tiến hành bạo loạn, lật đổ phá hoại thành quả Cách mạng của nhân dân ta.",
                     "D": "Lực lượng bạo loạn lật đổ và và các thế lực sử dụng sức mạnh quân sự xâm lược"
                 },
                 "answer": "B"
             },
             {
-                "id": 60,
-                "category": "Chương 1",
+                "id": 57,
+                "category": "Chương 3",
                 "question": "Tư tưởng chỉ đạo tác chiến xuyên suốt trong chuẩn bị và tiến hành chiến tranh giữ nước của cha ông ta là gì?",
                 "options": {
                     "A": "Tiến công",
@@ -725,20 +689,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 61,
+                "id": 58,
                 "category": "Chương 4",
-                "question": "Xây dựng lực lượng vũ trang nhân dân Ba chức năng cơ bản của quân đội nhân dân Việt Nam được Hồ Chí Minh xác định, thể hiện vấn đề gì trong quá trình xây dựng quân đội?",
-                "options": {
-                    "A": "Thể hiện bản chất, truyền thống và kinh nghiệm của quân đội ta.",
-                    "B": "Thể hiện sức mạnh, của quân đội.",
-                    "C": "Thể hiện bản chất , truyền thống tốt đẹp của quân đội ta.",
-                    "D": "Thể hiện bản chất , truyền thống của quân đội ta."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 62,
-                "category": "Chương 1",
                 "question": "Lý luận của chủ nghĩa Mác-Lê-nin về bản chất giai cấp của Lực lượng Vũ trang là gì?",
                 "options": {
                     "A": "Mang bản chất từ thành phần xuất thân LLVT.",
@@ -749,8 +701,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 63,
-                "category": "Chương 1",
+                "id": 59,
+                "category": "Chương 4",
                 "question": "Tư tưởng của Chủ tịch Hồ Chí Minh về giành chính quyền và giữ chính quyền như thế nào?",
                 "options": {
                     "A": "Để giành chính quyền và giữ chính quyền là phải đấu tranh chính trị, đấu tranh nghị trường.",
@@ -761,8 +713,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 64,
-                "category": "Chương 1",
+                "id": 60,
+                "category": "Chương 4",
                 "question": "Một trong những quan điểm xây dựng Lực lượng vũ trang nhân dân trong giai đoạn mới đó là:",
                 "options": {
                     "A": "Xây dựng LLVT cả về số lượng và chất lượng, lấy chất lượng là chính",
@@ -773,20 +725,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 65,
-                "category": "Chương 1",
-                "question": "Một trong những quan điểm xây dựng Lực lượng vũ trang nhân dân trong giai đoạn mới đó là?",
-                "options": {
-                    "A": "Giữ vững và tăng cường sự lãnh đạo của Đảng đối với LLVT",
-                    "B": "Giữ vững và luôn phát huy tốt vai trò lãnh đạo của Đảng đối với LLVT",
-                    "C": "Xây dựng LLVT lấy quân sự là chính, lấy chất lượng chính trị làm cơ sở",
-                    "D": "Xây dựng LLVT lấy chất lượng là chính, lấy xây dựng quân sự làm cơ sở"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 66,
-                "category": "Chương 1",
+                "id": 61,
+                "category": "Chương 4",
                 "question": "Trong xây dựng nền QPTD, ANND lực lượng nào là nòng cốt?",
                 "options": {
                     "A": "Quân đội và công an",
@@ -797,8 +737,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 67,
-                "category": "Chương 1",
+                "id": 62,
+                "category": "Chương 4",
                 "question": "Một trong những đặc trưng cơ bản của nền QPTD, ANND là gì?",
                 "options": {
                     "A": "Được xây dựng toàn diện và hiện đại",
@@ -809,8 +749,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 68,
-                "category": "Chương 1",
+                "id": 63,
+                "category": "Chương 4",
                 "question": "Lực lượng vũ trang nhân dân Việt Nam bao gồm các lực lượng nào?",
                 "options": {
                     "A": "Bộ đội chủ lực, bộ đội địa phương và dân quân tự vệ",
@@ -821,8 +761,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 69,
-                "category": "Chương 1",
+                "id": 64,
+                "category": "Chương 4",
                 "question": "Đảng lãnh đạo Lực lượng vũ trang nhân dân theo nguyên tắc?",
                 "options": {
                     "A": "Tuyệt đối, toàn diện về mọi mặt.",
@@ -833,8 +773,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 70,
-                "category": "Chương 1",
+                "id": 65,
+                "category": "Chương 4",
                 "question": "Đảng Cộng sản Việt Nam lãnh đạo Lực lượng vũ trang nhân dân Việt Nam?",
                 "options": {
                     "A": "Theo hệ thống tổ chức của Đảng từ Trung ương đến cơ sở.",
@@ -845,8 +785,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 71,
-                "category": "Chương 1",
+                "id": 66,
+                "category": "Chương 4",
                 "question": "Mối quan hệ giữa Đảng Cộng sản Việt Nam với Lực lượng vũ trang nhân dân VN như thế nào sau đây?",
                 "options": {
                     "A": "Đảng độc tôn duy nhất nắm quyền quản lý LLVTND Việt Nam",
@@ -857,8 +797,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 72,
-                "category": "Chương 1",
+                "id": 67,
+                "category": "Chương 4",
                 "question": "Quan điểm nào là quan điểm sai trong xây dựng Lực lượng vũ trang nhân dân Việt Nam hiện nay?",
                 "options": {
                     "A": "Giữ vững và tăng cường sự lãnh đạo của Đảng đối với LLVT",
@@ -869,8 +809,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 73,
-                "category": "Chương 1",
+                "id": 68,
+                "category": "Chương 4",
                 "question": "Để đáp ứng yêu cầu bảo vệ Tổ quốc trong tình hình mới, cần xây dựng Lực lượng vũ trang nhân dân như thế nào ?",
                 "options": {
                     "A": "Ngày càng phát triển về tổ chức",
@@ -881,8 +821,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 74,
-                "category": "Chương 1",
+                "id": 69,
+                "category": "Chương 4",
                 "question": "Quan điểm nào là quan điểm sai trong xây dựng Lực lượng vũ trang nhân dân?",
                 "options": {
                     "A": "Xây dựng LLVT lấy chính trị là chính, lấy xây dựng về quân sự làm cơ sở",
@@ -893,8 +833,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 75,
-                "category": "Chương 1",
+                "id": 70,
+                "category": "Chương 4",
                 "question": "Quân đội nhân dân Việt Nam bao gồm?",
                 "options": {
                     "A": "Bộ đội chủ lực và bộ độ địa phương",
@@ -905,8 +845,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 76,
-                "category": "Chương 1",
+                "id": 71,
+                "category": "Chương 4",
                 "question": "Xây dựng quân đội, công an nhân dân Việt Nam theo hướng nào trong tình hình hiện nay?",
                 "options": {
                     "A": "Cách mạng, chính qui, tinh nhuệ và từng bước hiện đại.",
@@ -917,8 +857,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 77,
-                "category": "Chương 1",
+                "id": 72,
+                "category": "Chương 4",
                 "question": "Hiện nay chng ta cần xây dựng lực lượng dự bị động viên theo hướng?",
                 "options": {
                     "A": "Cách mạng, chính qui, tinh nhuệ và từng bước hiện đại",
@@ -929,8 +869,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 78,
-                "category": "Chương 1",
+                "id": 73,
+                "category": "Chương 4",
                 "question": "Phương hướng xây dựng lực lượng dân quân tự vệ hiện nay?",
                 "options": {
                     "A": "Cách mạng, chính qui, tinh nhuệ và từng bước hiện đại",
@@ -941,8 +881,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 79,
-                "category": "Chương 1",
+                "id": 74,
+                "category": "Chương 4",
                 "question": "Lực lượng dân quân tự vệ gồm có?",
                 "options": {
                     "A": "Dân quân, tự vệ thường trực và dân quân, tự vệ dự bị",
@@ -953,8 +893,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 80,
-                "category": "Chương 1",
+                "id": 75,
+                "category": "Chương 4",
                 "question": "Để đáp ứng yêu cầu, nhiệm vụ của lực lượng dân quân tự vệ, cần xây dựng như thế nào hiện nay?",
                 "options": {
                     "A": "Vững mạnh, rộng khắp, rải đều trên phạm vi cả nước",
@@ -965,9 +905,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 81,
+                "id": 76,
                 "category": "Chương 5",
-                "question": "Kết hợp phát triển kinh tế, xã hội với tăng cường quốc phòng, an ninh và đối ngoại Kinh tế có vai trò như thế nào đối với quốc phòng, an ninh?",
+                "question": "Kinh tế có vai trò như thế nào đối với quốc phòng, an ninh?",
                 "options": {
                     "A": "Quyết định nguồn gốc ra đời và sức mạnh của QP, AN",
                     "B": "Tác động đến sự phát triển của QP, AN",
@@ -977,8 +917,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 82,
-                "category": "Chương 1",
+                "id": 77,
+                "category": "Chương 5",
                 "question": "Tại sao phải gắn kết chặt chẽ hoạt động KT-XH với QP và AN trong một chỉnh thể thống nhất ở từng địa phương?",
                 "options": {
                     "A": "Các lĩnh vực này có đặc điểm, yêu cầu ở mỗi địa phương là khác nhau",
@@ -989,8 +929,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 83,
-                "category": "Chương 1",
+                "id": 78,
+                "category": "Chương 5",
                 "question": "Việc kết hợp phát triển KT-XH với tăng cường củng cố QP, AN trong một chỉnh thể thống nhất nhằm",
                 "options": {
                     "A": "Phát huy tác động tích cực của QP,AN đối với KT-XH",
@@ -1001,8 +941,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 84,
-                "category": "Chương 1",
+                "id": 79,
+                "category": "Chương 5",
                 "question": "Yêu cầu của việc kết phát triển KT-XH với tăng cường củng cố QP, AN là gì?",
                 "options": {
                     "A": "Khoa học, hợp lý, cân đối và đồng thời",
@@ -1013,8 +953,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 85,
-                "category": "Chương 1",
+                "id": 80,
+                "category": "Chương 5",
                 "question": "Kết hợp kinh tế với quốc phòng, an ninh là yêu cầu như thế nào?",
                 "options": {
                     "A": "Yêu cầu nội sinh của sự phát triển kinh tế, yêu cầu được bảo vệ của nền kinh tế.",
@@ -1025,8 +965,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 86,
-                "category": "Chương 1",
+                "id": 81,
+                "category": "Chương 5",
                 "question": "Kết hợp kinh tế với quốc phòng, an ninh là?",
                 "options": {
                     "A": "Quy luật lịch sử nhân loại",
@@ -1037,8 +977,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 87,
-                "category": "Chương 1",
+                "id": 82,
+                "category": "Chương 5",
                 "question": "Nội dung nào không thể hiện chính sách kết hợp kinh tế với quốc phòng ở nước ta?",
                 "options": {
                     "A": "Quốc phú, binh cường.",
@@ -1049,8 +989,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 88,
-                "category": "Chương 1",
+                "id": 83,
+                "category": "Chương 5",
                 "question": "Theo quan điểm của Chủ nghĩa Mác Lê nin, nguồn gốc xã hội có tác động gì đến sự xuất hiện, tồn tại của chiến tranh?",
                 "options": {
                     "A": "Là nguồn gốc sâu xa",
@@ -1061,8 +1001,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 89,
-                "category": "Chương 1",
+                "id": 84,
+                "category": "Chương 5",
                 "question": "Hoạt động phát triển kinh tế - xã hội và tăng cường củng cố quốc phòng - an ninh ở nước ta thống nhất với nhau bởi?",
                 "options": {
                     "A": "Bảo vệ vững chắc Tổ quốc",
@@ -1073,8 +1013,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 90,
-                "category": "Chương 1",
+                "id": 85,
+                "category": "Chương 5",
                 "question": "Mối quan hệ giữa kinh tế – xã hội (KT-XH) với quốc phòng, an ninh(QP,AN) được biểu hiện?",
                 "options": {
                     "A": "Bản chất chế độ KH-XH quyết định bản chất QP,AN",
@@ -1085,8 +1025,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 91,
-                "category": "Chương 1",
+                "id": 86,
+                "category": "Chương 5",
                 "question": "Mối quan hệ giữa kinh tế – xã hội với quốc phòng, an ninh được biểu hiện?",
                 "options": {
                     "A": "QP,AN vững mạnh quyết định sự tăng trưởng KH-XH bền vững",
@@ -1097,32 +1037,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 92,
-                "category": "Chương 1",
-                "question": "Mối quan hệ giữa kinh tế – xã hội với quốc phòng, an ninh được biểu hiện?",
-                "options": {
-                    "A": "QP,AN vững mạnh quyết định sự tăng trưởng KH-XH bền vững",
-                    "B": "Bản chất QP,AN quyết định bản chất chế độ KT-XH",
-                    "C": "QP,AN vững mạnh quyết định sự tồn tại và phát triển của chế độ KT-XH",
-                    "D": "QP,AN vững mạnh tạo môi trường thuận lợi cho KT-XH phát triển"
-                },
-                "answer": "D"
-            },
-            {
-                "id": 93,
-                "category": "Chương 1",
-                "question": "Mối quan hệ giữa kinh tế – xã hội với quốc phòng, an ninh được biểu hiện?",
-                "options": {
-                    "A": "QP,AN vững mạnh quyết định sự tăng trưởng KH-XH bền vững",
-                    "B": "Đầu tư cho KT-XH làm giảm khả năng đầu tư cho QP,AN",
-                    "C": "QP,AN vững mạnh quyết định sự tồn tại và phát triển của chế độ KT-XH",
-                    "D": "Hoạt động QP,AN ảnh hưởng đến khả năng tích lũy, tái sản xuất kinh tế"
-                },
-                "answer": "D"
-            },
-            {
-                "id": 94,
-                "category": "Chương 1",
+                "id": 87,
+                "category": "Chương 5",
                 "question": "Kết hợp phát triển KT - XH với tăng cường củng cố QPAN trong chiến lược phát triển KT – XH được thể hiện trong?",
                 "options": {
                     "A": "Phân vùng chiến lược kinh tế xã hội cà quốc phòng, an ninh",
@@ -1133,8 +1049,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 95,
-                "category": "Chương 1",
+                "id": 88,
+                "category": "Chương 5",
                 "question": "Kết hợp phát triển KT-XH với tăng cường củng cố QP, AN trong vùng kinh tế trọng điểm cần?",
                 "options": {
                     "A": "Tập trung xây dựng các khu công nghiệp quy mô lớn, bố trí tập trung",
@@ -1145,8 +1061,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 96,
-                "category": "Chương 1",
+                "id": 89,
+                "category": "Chương 5",
                 "question": "Thực hiện đưa dân ra đảo sinh sống nhằm?",
                 "options": {
                     "A": "Giảm mật độ dân cư trong đất liền và phát triển kinh tế biển, đảo",
@@ -1157,92 +1073,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 97,
-                "category": "Chương 1",
-                "question": "Yêu cầu của việc kết phát triển KT-XH với tăng cường củng cố QP, AN là gì?",
-                "options": {
-                    "A": "Khoa học, hợp lý, cân đối và đồng thời",
-                    "B": "Khoa học, cân đối, đồng thời và phù hợp",
-                    "C": "Khoa học, hợp lý, cân đối và hài hòa",
-                    "D": "Khoa học, cân đối, đồng thời và hài hòa"
-                },
-                "answer": "C"
-            },
-            {
-                "id": 98,
-                "category": "Chương 1",
-                "question": "Kết hợp kinh tế với quốc phòng, an ninh là yêu cầu như thế nào?",
-                "options": {
-                    "A": "Yêu cầu nội sinh của sự phát triển kinh tế, yêu cầu được bảo vệ của nền kinh tế.",
-                    "B": "Yêu cầu phát sinh của sự phát triển kinh tế, yêu cầu được bảo vệ của nền kinh tế.",
-                    "C": "Yêu cầu sự nghiệp CNH, HĐH",
-                    "D": "Yêu cầu mới của sự phát triển kinh tế, yêu cầu được bảo vệ của nền kinh tế."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 99,
-                "category": "Chương 1",
-                "question": "Kết hợp kinh tế với quốc phòng, an ninh là?",
-                "options": {
-                    "A": "Quy luật lịch sử nhân loại",
-                    "B": "Quy luật tự nhiên của xã hội.",
-                    "C": "Quy luật riêng của các theo CNXH.",
-                    "D": "Quy luật phát triển của mọi chế độ xã hội."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 100,
-                "category": "Chương 1",
-                "question": "Nội dung nào không thể hiện chính sách kết hợp kinh tế với quốc phòng ở nước ta?",
-                "options": {
-                    "A": "Quốc phú, binh cường.",
-                    "B": "Động vi binh, tĩnh vi dân.",
-                    "C": "Ngụ binh, ư nông.",
-                    "D": "Các phương án đều sai."
-                },
-                "answer": "D"
-            },
-            {
-                "id": 101,
+                "id": 90,
                 "category": "Chương 6",
-                "question": "Những vấn đề cơ bản về lịch sử nghệ thuật quân sự Việt Nam Yếu tố cơ bản tác động đến sự hình thành nghệ thuật đánh giặc của tổ tiên ta là gì?",
-                "options": {
-                    "A": "Yếu tố địa lý",
-                    "B": "Địa hình núi rừng hiểm trở",
-                    "C": "Yếu tố thời tiết",
-                    "D": "Yếu tố địa hình, thời tiết"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 102,
-                "category": "Chương 1",
-                "question": "Một trong những yếu tố cơ bản tác động đến sự hình thành nghệ thuật đánh giặc của tổ tiên ta là gì?",
-                "options": {
-                    "A": "Các dân tộc ở Việt Nam chung sống hoà thuận, yêu quê hương đất nước",
-                    "B": "Yếu tố chính trị, văn hoá – xã hội",
-                    "C": "Dân tộc ta có tính thần đoàn kết, thông minh, sang tạo",
-                    "D": "Dân tộc ta có tinh thần chống ngoại xâm kiên cường, bất khuất."
-                },
-                "answer": "B"
-            },
-            {
-                "id": 103,
-                "category": "Chương 1",
-                "question": "Trong nghệ thuật đánh giặc của tổ tiên ta, thể hiện cách tiến công như thế nào?",
-                "options": {
-                    "A": "Tích cực chuẩn bị, tiến công liên tục từ nhỏ đến lớn, từ cục bộ đến toàn bộ.",
-                    "B": "Tích cực tiến công liên tục và phòng ngự toàn diện.",
-                    "C": "Tích cực chuẩn bị tiến công phá thế tiến công của địch",
-                    "D": "Tích cực chuẩn bị tiến công kiên quyết, liên tục."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 104,
-                "category": "Chương 1",
                 "question": "Yếu tố cơ bản tác động đến sự hình thành nghệ thuật đánh giặc của tổ tiên ta là gì?",
                 "options": {
                     "A": "Yếu tố địa lý",
@@ -1253,20 +1085,20 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 105,
-                "category": "Chương 1",
+                "id": 91,
+                "category": "Chương 6",
                 "question": "Một trong những yếu tố cơ bản tác động đến sự hình thành nghệ thuật đánh giặc của tổ tiên ta là gì?",
                 "options": {
                     "A": "Các dân tộc ở Việt Nam chung sống hoà thuận, yêu quê hương đất nước",
                     "B": "Yếu tố chính trị, văn hoá – xã hội",
-                    "C": "Dân tộc ta có tinh thần đoàn kết, thông minh, sáng tạo",
+                    "C": "Dân tộc ta có tính thần đoàn kết, thông minh, sang tạo",
                     "D": "Dân tộc ta có tinh thần chống ngoại xâm kiên cường, bất khuất."
                 },
                 "answer": "B"
             },
             {
-                "id": 106,
-                "category": "Chương 1",
+                "id": 92,
+                "category": "Chương 6",
                 "question": "Trong nghệ thuật đánh giặc của tổ tiên ta, thể hiện cách tiến công như thế nào?",
                 "options": {
                     "A": "Tích cực chuẩn bị, tiến công liên tục từ nhỏ đến lớn, từ cục bộ đến toàn bộ.",
@@ -1277,8 +1109,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 107,
-                "category": "Chương 1",
+                "id": 93,
+                "category": "Chương 6",
                 "question": "Xây dựng cả nước thành một chiến trường, mỗi người dân là một người lính đánh giặc là thể hiện nghệ thuật chiến tranh gì?",
                 "options": {
                     "A": "Chiến tranh toàn diện",
@@ -1289,8 +1121,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 108,
-                "category": "Chương 1",
+                "id": 94,
+                "category": "Chương 6",
                 "question": "Một trong những nội dung nghệ thuật đánh giặc của tổ tiên ta là gì?",
                 "options": {
                     "A": "Nghệ thuật toàn dân đánh giặc trên mọi vùng miền",
@@ -1301,8 +1133,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 109,
-                "category": "Chương 1",
+                "id": 95,
+                "category": "Chương 6",
                 "question": "Một trong những nội dung nghệ thuật đánh giặc của của tổ tiên ta là gì?",
                 "options": {
                     "A": "Nghệ thuật đấu tranh quân sự quyết định thắng lợi trong chiến tranh",
@@ -1313,8 +1145,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 110,
-                "category": "Chương 1",
+                "id": 96,
+                "category": "Chương 6",
                 "question": "Binh thư yếu lược là tác phẩm của ai?",
                 "options": {
                     "A": "Nguyễn Trãi",
@@ -1325,8 +1157,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 111,
-                "category": "Chương 1",
+                "id": 97,
+                "category": "Chương 6",
                 "question": "Tư tưởng, nghệ thuật đánh giặc tiêu biểu của Nhà Lý là gì?",
                 "options": {
                     "A": "Tiêu thổ, thanh giã",
@@ -1337,8 +1169,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 112,
-                "category": "Chương 1",
+                "id": 98,
+                "category": "Chương 6",
                 "question": "Tư tưởng, nghệ thuật đánh giặc tiêu biểu của Nhà Trần là gì?",
                 "options": {
                     "A": "Tiêu thổ, thanh giã",
@@ -1349,8 +1181,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 113,
-                "category": "Chương 1",
+                "id": 99,
+                "category": "Chương 6",
                 "question": "Tư tưởng, nghệ thuật đánh giặc tiêu biểu của Lê Lợi, Nguyến Trãi là gì?",
                 "options": {
                     "A": "Tiêu thổ, thanh giã",
@@ -1361,8 +1193,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 114,
-                "category": "Chương 1",
+                "id": 100,
+                "category": "Chương 6",
                 "question": "Tư tưởng, nghệ thuật đánh giặc tiêu biểu của Nguyễn Huệ - Quang Trung là gì?",
                 "options": {
                     "A": "Tiêu thổ, thanh giã",
@@ -1373,8 +1205,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 115,
-                "category": "Chương 1",
+                "id": 101,
+                "category": "Chương 6",
                 "question": "Nhà Trần đã sử dụng kế sách đánh giặc như thế nào trong cuộc kháng chiến chống quân Nguyên Mông?",
                 "options": {
                     "A": "Công thành, diệt viện",
@@ -1385,32 +1217,20 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 116,
-                "category": "Chương 1",
-                "question": "Một trong những nội dung nghệ thuật đánh giặc của của tổ tiên ta là gì?",
+                "id": 102,
+                "category": "Chương 6",
+                "question": "Tư tưởng xuyên suốt trong nghệ thuật đánh giặc của tổ tiên là gì?",
                 "options": {
-                    "A": "Nghệ thuật lấy nhỏ đánh lớn, lấy ít địch nhiều, lấy yếu chống mạnh",
-                    "B": "Nghệ thuật lấy nhỏ đánh lớn, lấy ít thắng nhiều, lấy yếu thắng mạnh",
-                    "C": "Nghệ thuật lấy nhỏ đánh lớn, lấy ít thắng nhiều, lấy yếu chống mạnh",
-                    "D": "Nghệ thuật lấy nhỏ đánh lớn, lấy ít địch nhiều, lấy yếu thắng mạnh"
+                    "A": "Chủ động tiến công, phòng ngự",
+                    "B": "Tiến công kiên quyết, liên tục",
+                    "C": "Tích cực chủ động tiến công",
+                    "D": "Chủ động tiến công, phản công"
                 },
-                "answer": "A"
+                "answer": "C"
             },
             {
-                "id": 117,
-                "category": "Chương 1",
-                "question": "Tư tưởng chỉ đạo tác chiến xuyên suốt trong chuẩn bị và tiến hành chiến tranh giữ nước của cha ông ta là gì?",
-                "options": {
-                    "A": "Tiến công",
-                    "B": "Phòng ngự",
-                    "C": "Hoà hoãn",
-                    "D": "Phản công"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 119,
-                "category": "Chương 1",
+                "id": 103,
+                "category": "Chương 6",
                 "question": "Phương châm tác chiến “ Đánh nhanh, thắng nhanh” là của chiến dịch nào?",
                 "options": {
                     "A": "Chiến dịch Việt Bắc-Thu Đông năm 1947",
@@ -1421,8 +1241,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 120,
-                "category": "Chương 1",
+                "id": 104,
+                "category": "Chương 6",
                 "question": "Một trong những cơ sở hình thành nghệ thuật quân sự Việt Nam từ khi có Đảng lãnh đạo là gì?",
                 "options": {
                     "A": "Tư tưởng vũ trang toàn dân của Hồ Chí Minh",
@@ -1433,11 +1253,11 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 121,
+                "id": 105,
                 "category": "Chương 7",
-                "question": "Xây dựng và bảo vệ chủ quyền biển, đảo, biên giới quốc gia trong tình hình mới Trong chiển lược phòng thủ bảo vệ Tổ quố",
+                "question": "Trong chiến lược phòng thủ bảo vệ Tổ quốc, vùng núi biên giới có vai trò như thế nào?",
                 "options": {
-                    "A": "Rất quan trong",
+                    "A": "Rất quan trọng",
                     "B": "Quan trọng",
                     "C": "Quan trọng đặc biệt",
                     "D": "Ít quan trọng"
@@ -1445,21 +1265,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 122,
-                "category": "Chương 1",
-                "question": "Trong chiển lược phòng thủ bảo vệ Tổ quố",
-                "options": {
-                    "A": "Vùng chiến lược trọng yếu",
-                    "B": "Vùng chiến lược quan trọng",
-                    "C": "Vùng chiến lược đặc biệt",
-                    "D": "Vùng chiến lược ít trọng"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 123,
-                "category": "Chương 1",
-                "question": "Trong chiến lược bảo vệ Tổ quố",
+                "id": 106,
+                "category": "Chương 7",
+                "question": "Trong chiến lược bảo vệ Tổ quốc, vùng nào là vùng chiến lược trọng yếu?",
                 "options": {
                     "A": "Vùng kinh tế trọng điểm",
                     "B": "Vùng biển, đảo",
@@ -1469,8 +1277,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 124,
-                "category": "Chương 1",
+                "id": 107,
+                "category": "Chương 7",
                 "question": "Vùng nào là vùng dễ mất ổn định về QP, AN trong bối cảnh hiện nay?",
                 "options": {
                     "A": "Vùng kinh tế trọng điểm",
@@ -1481,9 +1289,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 125,
-                "category": "Chương 1",
-                "question": "Phần lớn nguồn lực để xây dựng và bảo vệ Tổ quố",
+                "id": 108,
+                "category": "Chương 7",
+                "question": "Phần lớn nguồn lực để xây dựng và bảo vệ Tổ quốc, được huy động từ ngành, lĩnh vực kinh tế nào?",
                 "options": {
                     "A": "Công nghiệp và khoa học, công nghệ, giáo dục",
                     "B": "Nông, Lâm, Ngư nghiệp",
@@ -1493,8 +1301,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 126,
-                "category": "Chương 1",
+                "id": 109,
+                "category": "Chương 7",
                 "question": "Nội dung nào sau đây phản ánh đúng mục tiêu của Đảng về Chiến lược bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa trong tình hình mới?",
                 "options": {
                     "A": "Phát huy cao nhất sức mạnh của dân tộc kết hợp với sức mạnh của thời đại.",
@@ -1505,8 +1313,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 127,
-                "category": "Chương 1",
+                "id": 110,
+                "category": "Chương 7",
                 "question": "Nội dung nào sau đây không phản ánh đúng quan điểm chỉ đạo của Đảng về Chiến lược bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa trong tình hình mới?",
                 "options": {
                     "A": "Giữ vững sự lãnh đạo trực tiếp, tuyệt đối về mọi mặt của Đảng.",
@@ -1517,8 +1325,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 128,
-                "category": "Chương 1",
+                "id": 111,
+                "category": "Chương 7",
                 "question": "Bất kì thế lực nào có âm mưu và hành động chống phá mục tiêu của Việt Nam trong sự nghiệp xây dựng và bảo vệ Tổ quốc đều là",
                 "options": {
                     "A": "đối tác.",
@@ -1529,8 +1337,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 129,
-                "category": "Chương 1",
+                "id": 112,
+                "category": "Chương 7",
                 "question": "Luật Biển Việt Nam năm 2012 bao gồm",
                 "options": {
                     "A": "320 điều và 9 phụ lục.",
@@ -1541,9 +1349,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 130,
-                "category": "Chương 1",
-                "question": "Theo quy định trong Luật Biển Việt Nam năm 2012: vùng biển quốc tế là tất cả các vùng biển nằm ngoài vùng đặc quyền kinh tế của Việt Nam và các quốc gia khá",
+                "id": 113,
+                "category": "Chương 7",
+                "question": "Theo quy định trong Luật Biển Việt Nam năm 2012: vùng biển quốc tế là tất cả các vùng biển nằm ngoài vùng đặc quyền kinh tế của Việt Nam và các quốc gia khác, nhưng không bao gồm",
                 "options": {
                     "A": "vùng nội thủy và tiếp giáp lãnh hải.",
                     "B": "lãnh hải và vùng tiếp giáp lãnh hải.",
@@ -1553,8 +1361,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 131,
-                "category": "Chương 1",
+                "id": 114,
+                "category": "Chương 7",
                 "question": "Lãnh hải là vùng biển có chiều rộng 12 hải lí tính từ",
                 "options": {
                     "A": "vùng nội thủy ra phía biển.",
@@ -1565,8 +1373,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 132,
-                "category": "Chương 1",
+                "id": 115,
+                "category": "Chương 7",
                 "question": "Vùng biển tiếp liền và nằm ngoài lãnh hải Việt Nam, hợp với lãnh hải thành một vùng biển có chiều rộng 200 hải lí tính từ đường cơ sở, được gọi là",
                 "options": {
                     "A": "nội thủy.",
@@ -1577,8 +1385,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 133,
-                "category": "Chương 1",
+                "id": 116,
+                "category": "Chương 7",
                 "question": "Ranh giới ngoài thềm lục địa cách đường cơ sở không quá",
                 "options": {
                     "A": "350 hải lí.",
@@ -1589,8 +1397,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 134,
-                "category": "Chương 1",
+                "id": 117,
+                "category": "Chương 7",
                 "question": "Việt Nam có hai quần đảo xa bờ là",
                 "options": {
                     "A": "Hoàng Sa và Thổ Chu.",
@@ -1601,8 +1409,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 135,
-                "category": "Chương 1",
+                "id": 118,
+                "category": "Chương 7",
                 "question": "Biên giới quốc gia trên đất liền được hoạch định và đánh dấu trên thực địa bằng",
                 "options": {
                     "A": "một mốc quốc giới duy nhất.",
@@ -1613,8 +1421,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 136,
-                "category": "Chương 1",
+                "id": 119,
+                "category": "Chương 7",
                 "question": "“Mặt thẳng đứng từ biên giới quốc gia trên đất liền và biên giới quốc gia trên biển xuống lòng đất” - đó là nội dung của khái niệm nào sau đây?",
                 "options": {
                     "A": "Biên giới quốc gia trên biển.",
@@ -1625,8 +1433,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 137,
-                "category": "Chương 1",
+                "id": 120,
+                "category": "Chương 7",
                 "question": "Hành vi nào dưới đây bị nghiêm cấm trong bảo vệ biên giới quốc gia của Việt Nam?",
                 "options": {
                     "A": "Phá hoại an ninh, trật tự, an toàn xã hội ở khu vực biên giới.",
@@ -1637,9 +1445,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 138,
-                "category": "Chương 1",
-                "question": "Đọc tình huống dưới đây và trả lời câu hỏi: Tình huống: Nhà bạn A Páo ở khu vực biên giới. Hằng ngày A Páo đi chăn trâu sau giờ họ",
+                "id": 121,
+                "category": "Chương 7",
+                "question": "Đọc tình huống dưới đây và trả lời câu hỏi: Tình huống: Nhà bạn A Páo ở khu vực biên giới. Hằng ngày A Páo đi chăn trâu sau giờ học. Khu vực gần nhà hết cỏ, A Páo phải lùa trâu ra sát bìa rừng, nơi có cột mốc biên giới. Bên kia cột mốc có bãi cỏ xanh tốt, A Páo định lùa trâu sang đó, hễ trâu ăn no là quay về Việt Nam ngay. Câu hỏi: Trong trường hợp này, nếu là bạn thân của A Páo, em nên lựa chọn cách ứng xử nào sau đây?",
                 "options": {
                     "A": "Mặc kệ, vì đó không phải là việc của mình.",
                     "B": "Khuyến khích A Páo nên thực hiện hành vi đó.",
@@ -1649,8 +1457,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 139,
-                "category": "Chương 1",
+                "id": 122,
+                "category": "Chương 7",
                 "question": "Ở Việt Nam, Ngày biên phòng toàn dân được tổ chức vào",
                 "options": {
                     "A": "ngày 3/3 hằng năm.",
@@ -1661,8 +1469,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 140,
-                "category": "Chương 1",
+                "id": 123,
+                "category": "Chương 7",
                 "question": "Nội dung nào sau đây không phản ánh đúng trách nhiệm của công dân trong việc quản lí, xây dựng và bảo vệ biên giới quốc gia?",
                 "options": {
                     "A": "Chấp hành các quy định của pháp luật về biên giới quốc gia.",
@@ -1673,9 +1481,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 141,
+                "id": 124,
                 "category": "Chương 8",
-                "question": "Xây dựng lực lượng DQTV, lực lượng DBĐV và động viên quốc phòng Dân quân tự vệ là lực lượng quần chúng, một thành phần của lực lượng nào sau đây?",
+                "question": "Dân quân tự vệ là lực lượng quần chúng, một thành phần của lực lượng nào sau đây?",
                 "options": {
                     "A": "Lực lượng vũ trang nhân dân Việt Nam",
                     "B": "Lực lượng quân đội nhân dân Việt Nam",
@@ -1685,8 +1493,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 142,
-                "category": "Chương 1",
+                "id": 125,
+                "category": "Chương 8",
                 "question": "Dân quân tự vệ là",
                 "options": {
                     "A": "Lực lượng vũ trang quần chúng không thoát ly khỏi lao động sản xuất, công tác",
@@ -1697,8 +1505,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 143,
-                "category": "Chương 1",
+                "id": 126,
+                "category": "Chương 8",
                 "question": "Ngày truyền thống của lực lượng Dân quân tự vệ Việt Nam",
                 "options": {
                     "A": "Ngày 28/3",
@@ -1709,8 +1517,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 144,
-                "category": "Chương 1",
+                "id": 127,
+                "category": "Chương 8",
                 "question": "Ba thứ quân của lực lượng quân đội nhân dân Việt Nam là:",
                 "options": {
                     "A": "Bộ đội chủ lực, bộ đội địa phương và dân quân du kích",
@@ -1721,9 +1529,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 145,
-                "category": "Chương 1",
-                "question": "“Dân quân tự vệ và du kích là lực lượng của toàn dân tộ",
+                "id": 128,
+                "category": "Chương 8",
+                "question": "“Dân quân tự vệ và du kích là lực lượng của toàn dân tộc, là một lực lượng vô địch, là bức tường sắt của Tổ quốc. Vô luận kẻ thù hung bạo thế nào, hễ động vào lực lượng đó, bức tường đó thì kẻ địch nào cũng phải tan rã” là câu nói của ai?",
                 "options": {
                     "A": "Chủ tịch Hồ Chí Minh",
                     "B": "Đại tướng Võ Nguyên Giáp",
@@ -1733,8 +1541,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 146,
-                "category": "Chương 1",
+                "id": 129,
+                "category": "Chương 8",
                 "question": "Xây dựng lực lượng Dân quân tự vệ là trách nhiệm của:",
                 "options": {
                     "A": "Toàn Đảng, toàn dân, của cả hệ thống chính trị.",
@@ -1745,8 +1553,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 147,
-                "category": "Chương 1",
+                "id": 130,
+                "category": "Chương 8",
                 "question": "Phương châm xây dựng lực lượng Dân quân tự vệ hiện nay là:",
                 "options": {
                     "A": "Vững mạnh, rộng khắp, có số lượng phù hợp, coi trọng chất lượng là chính",
@@ -1757,8 +1565,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 148,
-                "category": "Chương 1",
+                "id": 131,
+                "category": "Chương 8",
                 "question": "So với Luật Dân quân tự vệ năm 2009, Điều 5 Luật Dân quân tự vệ năm 2019 đã kế thừa và bổ sung nhiệm vụ nào sau đây?",
                 "options": {
                     "A": "Tham gia thực hiện các biện pháp về chiến tranh thông tin, chiến tranh không gian mạng theo quy định của pháp luật, quyết định của cấp có thẩm quyền",
@@ -1769,8 +1577,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 149,
-                "category": "Chương 1",
+                "id": 132,
+                "category": "Chương 8",
                 "question": "Đối tượng và thời hạn tham gia Dân quân tự vệ hiện nay là:",
                 "options": {
                     "A": "Công dân trong độ tuổi quy định (nam từ 18 – 45 tuổi, nữ từ 18 – 40; nếu tình nguyện tham gia thêm 5 năm).",
@@ -1781,8 +1589,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 150,
-                "category": "Chương 1",
+                "id": 133,
+                "category": "Chương 8",
                 "question": "“Phát huy sức mạnh tổng hợp trên địa bàn địa phương trong xây dựng lực lượng Dân quân tự vệ; xây dựng lực lượng Dân quân tự vệ gắn với xây dựng cơ sở vững mạnh toàn diện” là",
                 "options": {
                     "A": "Một trong những biện pháp xây dựng lực lượng Dân quân tự vệ hiện nay",
@@ -1793,8 +1601,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 151,
-                "category": "Chương 1",
+                "id": 134,
+                "category": "Chương 8",
                 "question": "Quân nhân dự bị gồm:",
                 "options": {
                     "A": "Sỹ quan dự bị, quân nhân chuyên nghiệp dự bị.",
@@ -1805,8 +1613,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 152,
-                "category": "Chương 1",
+                "id": 135,
+                "category": "Chương 8",
                 "question": "Lực lượng dự bị động viên là",
                 "options": {
                     "A": "Là lực lượng có khả năng phối hợp chặt chẽ với dân quân tự vệ, công an... làm tăng thêm sức mạnh chiến đấu trên các địa bàn trong khu vực phòng thủ, bảo đảm sự vững chắc của thế trận quốc phòng ở địa phương, cơ sở",
@@ -1817,8 +1625,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 153,
-                "category": "Chương 1",
+                "id": 136,
+                "category": "Chương 8",
                 "question": "“Bảo đảm số lượng đủ, chất lượng cao, xây dựng toàn diện nhưng có trọng tâm, trọng điểm” là",
                 "options": {
                     "A": "Một trong những quan điểm về xây dựng lực lượng dự bị động viên",
@@ -1829,8 +1637,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 154,
-                "category": "Chương 1",
+                "id": 137,
+                "category": "Chương 8",
                 "question": "Một trong những quan điểm của Đảng Cộng Sản Việt Nam về xây dựng lực lượng dự bị động viên trong tình hình mới là:",
                 "options": {
                     "A": "Phát huy sức mạnh của toàn dân trên tất cả các lĩnh vực hoạt động xã hội.",
@@ -1841,8 +1649,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 155,
-                "category": "Chương 1",
+                "id": 138,
+                "category": "Chương 8",
                 "question": "Một trong những nội dung xây dựng lực lượng dự bị động viên là:",
                 "options": {
                     "A": "Tạo nguồn, đăng ký, quản lý lực lượng dự bị động viên.",
@@ -1853,8 +1661,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 156,
-                "category": "Chương 1",
+                "id": 139,
+                "category": "Chương 8",
                 "question": "Đối tượng tạo nguồn của lực lượng dự bị động viên là",
                 "options": {
                     "A": "Sỹ quan tại ngũ.",
@@ -1865,8 +1673,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 157,
-                "category": "Chương 1",
+                "id": 140,
+                "category": "Chương 8",
                 "question": "Quân nhân dự bị động viên được đăng ký, quản lý tại:",
                 "options": {
                     "A": "Nơi công tác",
@@ -1877,8 +1685,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 158,
-                "category": "Chương 1",
+                "id": 141,
+                "category": "Chương 8",
                 "question": "Cơ quan thực hiện việc đăng ký, quản lý quân nhân dự bị động viên là:",
                 "options": {
                     "A": "Ban lãnh đạo cơ quan, đơn vị công tác",
@@ -1889,8 +1697,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 159,
-                "category": "Chương 1",
+                "id": 142,
+                "category": "Chương 8",
                 "question": "Tổ chức biên chế lực lượng dự bị động viên theo các loại hình đơn vị bao gồm:",
                 "options": {
                     "A": "Đơn vị biên chế thiếu, đơn vị biên chế khung thường trực, đơn vị không có khung thường trực, đơn vị biên chế đủ và đơn vị chuyên môn thời chiến.",
@@ -1901,8 +1709,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 160,
-                "category": "Chương 1",
+                "id": 143,
+                "category": "Chương 8",
                 "question": "Một trong những nguyên tắc sắp xếp quân nhân dự bị vào các đơn vị dự bị động viên là:",
                 "options": {
                     "A": "Theo khả năng về sức khỏe, tuổi đời và nơi cư trú.",
@@ -1913,9 +1721,9 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 161,
+                "id": 144,
                 "category": "Chương 9",
-                "question": "Xây dựng phong trào toàn dân bảo vệ an ninh Tổ quốc Một trong những nội dung xây dựng thế trận quốc phòng toàn dân",
+                "question": "Một trong những nội dung xây dựng thế trận quốc phòng toàn dân",
                 "options": {
                     "A": "Phân vùng chiến lược gắn với xây dựng các vùng kinh tế, dân cư.",
                     "B": "Phân vùng chiến lược gắn với xây dựng hậu phương chiến lược.",
@@ -1925,8 +1733,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 162,
-                "category": "Chương 1",
+                "id": 145,
+                "category": "Chương 9",
                 "question": "Tính toàn diện trong xây dựng nền quốc phòng toàn dân được thể hiện ở nội dung.",
                 "options": {
                     "A": "Nền quốc phòng được tạo lập bằng sức mạnh mọi mặt, cả tiềm lực và thế trận quốc phòng.",
@@ -1937,8 +1745,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 163,
-                "category": "Chương 1",
+                "id": 146,
+                "category": "Chương 9",
                 "question": "Một trong những nội dung xây dựng tiềm lực quân sự, trong xây dựng tiềm lực quốc phòng toàn dân là",
                 "options": {
                     "A": "Kết hợp chặt chẽ xây dựng thế trận quốc phòng và chiến tranh nhân dân.",
@@ -1949,8 +1757,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 164,
-                "category": "Chương 1",
+                "id": 147,
+                "category": "Chương 9",
                 "question": "Kết hợp kinh tế với quốc phòng - an ninh ở nước ta hiện nay, nhằm mục đích gì?",
                 "options": {
                     "A": "Nhằm thực hiện tốt nhiệm vụ chiến lượcbảo vệ Tổ quốc đểphát triển kinh tế.",
@@ -1961,8 +1769,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 165,
-                "category": "Chương 1",
+                "id": 148,
+                "category": "Chương 9",
                 "question": "Thực hiện biện pháp \"tăng cường giáo dục quốc phòng\"trong xây dựng nền quốc phòng toàn dân một trong những nội dung giáo dục đó là gì?",
                 "options": {
                     "A": "Giáo dục tình hình nhiệm vụ của cách mạng và nhiệm vụ quân sự.",
@@ -1973,23 +1781,11 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 166,
-                "category": "Chương 1",
-                "question": "Từ cơ sở nào, chúng ta xác định tính chất toàn dân của nền quốc phòng toàn dân?",
-                "options": {
-                    "A": "Từ truyền thống dân tộc ta trong chiến đấu chống giặc ngoại xâm.",
-                    "B": "Từ bài học quí báu xây dựng lực lượng vũ trang nhân dân.",
-                    "C": "Từ truyền thống dân tộc ta trong sự nghiệp dựng nước và giữ nước.",
-                    "D": "Từ truyền thống dân tộc ta trong chiến đấu chống giặc ngoại xâm, gữi nước."
-                },
-                "answer": "C"
-            },
-            {
-                "id": 167,
-                "category": "Chương 1",
+                "id": 149,
+                "category": "Chương 9",
                 "question": "Một trong những biện pháp chủ yếu xây dựng nền quốc phòng toàn dân là gì?",
                 "options": {
-                    "A": "Tăng cường giáo dục ý thức trách nhiệm của công dân về nhiêm vụ chiến lược",
+                    "A": "Tăng cường giáo dục ý thức trách nhiệm của công dân về nhiệm vụ chiến lược",
                     "B": "Tăng cường giáo dục nghĩa vụ công dân.",
                     "C": "Tăng cường giáo dục quốc phòng.",
                     "D": "Tăng cường giáo dục nhiệm vụ quốc phòng và an ninh nhân dân."
@@ -1997,8 +1793,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 168,
-                "category": "Chương 1",
+                "id": 150,
+                "category": "Chương 9",
                 "question": "Trong xây dựng nền quốc phòng toàn dân, phải kết hợp thế trận quốc phòng toàn dân với thế trận an ninh nhân dân, vì lý do gì?",
                 "options": {
                     "A": "Để đánh bại ý đồ xâm lược và lật đổ của kẻ thù.",
@@ -2009,8 +1805,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 169,
-                "category": "Chương 1",
+                "id": 151,
+                "category": "Chương 9",
                 "question": "Vị trí mối quan hệ của hai nhiệm vụ chiến lược xây dựng và bảo vệ Tổ quốc như thế nào?",
                 "options": {
                     "A": "Quan hệ khăng khít tạo điều kiện cho nhau, nhiệm vụ xây dựng là hàng đầu.",
@@ -2021,8 +1817,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 170,
-                "category": "Chương 1",
+                "id": 152,
+                "category": "Chương 9",
                 "question": "Một trong những biện pháp xây dựng nền quốc phòng toàn dân là gì?",
                 "options": {
                     "A": "Thường xuyên chăm lo xây dựng các lực lượng vũ trang vững mạnh, nhất là quân đội nhân dân.",
@@ -2033,8 +1829,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 171,
-                "category": "Chương 1",
+                "id": 153,
+                "category": "Chương 9",
                 "question": "Thực hiện biện pháp \"tăng cường giáo dục quốc phòng\" trong xây dựng nền quốc phòng toàn dân như thế nào?",
                 "options": {
                     "A": "Giáo dục âm mưu, thủ đoạn, hành động của kẻ thù chống phá cách mạng.",
@@ -2045,8 +1841,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 172,
-                "category": "Chương 1",
+                "id": 154,
+                "category": "Chương 9",
                 "question": "Cơ sở nào chúng ta xác định tính chất toàn dân của nền quốc phòng toàn dân?",
                 "options": {
                     "A": "Từ qui luật lịch sử về vai trò quần chúng trong hoạt động xã hội.",
@@ -2057,8 +1853,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 173,
-                "category": "Chương 1",
+                "id": 155,
+                "category": "Chương 9",
                 "question": "Tính chất nền quốc phòng của ta là toàn dân xuất phát từ đâu?",
                 "options": {
                     "A": "Từ truyền thống dân tộc ta trong chiến đấu chống giặc ngoại xâm.",
@@ -2069,8 +1865,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 174,
-                "category": "Chương 1",
+                "id": 156,
+                "category": "Chương 9",
                 "question": "Trong củng cố xây dựng nền quốc phòng toàn dân, lực lượng nào là nòng cốt?",
                 "options": {
                     "A": "Quần chúng nhân dân lao động",
@@ -2081,8 +1877,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 175,
-                "category": "Chương 1",
+                "id": 157,
+                "category": "Chương 9",
                 "question": "Tính chất toàn dân của nền quốc phòng toàn dân. được biểu hiện tập trung như thế nào?",
                 "options": {
                     "A": "Là nên quốc phòng mang tính giai cấp, nhân dân sâu sắc.",
@@ -2093,8 +1889,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 176,
-                "category": "Chương 1",
+                "id": 158,
+                "category": "Chương 9",
                 "question": "Một trong những quan điểm cơ bản xây dựng nền quốc phòng toàn dân là gì?",
                 "options": {
                     "A": "Kết hợp chặt chẽ phát triển kinh tế xã hội với xây dựng quốc phòng an ninh bảo vệ Tổ quốc.",
@@ -2105,8 +1901,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 177,
-                "category": "Chương 1",
+                "id": 159,
+                "category": "Chương 9",
                 "question": "Quan điểm quốc phòng toàn dân được thể hiện trong tổ chức dân quân tự vệ như thế nào?",
                 "options": {
                     "A": "Xây dựng dân quân tự vệ là nhiệm vụ của mọi người dân, của các cấp, ngành .",
@@ -2117,8 +1913,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 178,
-                "category": "Chương 1",
+                "id": 160,
+                "category": "Chương 9",
                 "question": "Tiềm lực kinh tế trong nội dung xây dựng tiềm lực quốc phòng toàn dân có vị trí gì?",
                 "options": {
                     "A": "Là điều kiện vật chất bảo đảm cho sức mạnh quốc phòng.",
@@ -2129,8 +1925,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 179,
-                "category": "Chương 1",
+                "id": 161,
+                "category": "Chương 9",
                 "question": "Quán triệt tính chất toàn diện trong xây dựng nền quốc phòng toàn dân, các cấp, ngành và toàn dân cần phải làm gì?",
                 "options": {
                     "A": "Có ý thức trách nhiệm trong bảo vệ Tổ quốc, tích cực xây dựng nền quốc phòng, thế trận quốc phòng toàn dân.",
@@ -2141,21 +1937,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 180,
-                "category": "Chương 1",
-                "question": "Trong củng cố xây dựng nền quốc phòng toàn dân, lực lượng nào là nòng cốt?",
-                "options": {
-                    "A": "Quần chúng nhân dân lao động",
-                    "B": "Lực lượng quân đội và công an.",
-                    "C": "Lực lượng vũ trang nhân dân gồm thứ quân Bộ đội chủ lực, bộ đội địa phương và dân quân tự vệ.",
-                    "D": "Lực lượng quân đội và công an nhân dân."
-                },
-                "answer": "C"
-            },
-            {
-                "id": 181,
+                "id": 162,
                 "category": "Chương 10",
-                "question": "Những vấn đề cơ bản về bảo vệ an ninh quốc gia và bảo đảm trật tự an toàn xã hội “Sự ổn định, phát triển bền vững của chế độ xã hội chủ nghĩa và Nhà nước Cộng hoà xã hội chủ nghĩa Việt Nam, sự bất khả xâm phạm độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của Tổ quốc” là nội dung của khái niệm nào dưới đây?",
+                "question": "“Sự ổn định, phát triển bền vững của chế độ xã hội chủ nghĩa và Nhà nước Cộng hoà xã hội chủ nghĩa Việt Nam, sự bất khả xâm phạm độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của Tổ quốc” là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Trật tự an toàn xã hội.",
@@ -2165,9 +1949,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 182,
-                "category": "Chương 1",
-                "question": "“Trạng thái xã hội có trật tự, kỷ cương trong đó mọi người được sống yên ổn trên cơ sở các quy phạm pháp luật và chuẩn mực đạo đứ",
+                "id": 163,
+                "category": "Chương 10",
+                "question": "“Trạng thái xã hội có trật tự, kỷ cương trong đó mọi người được sống yên ổn trên cơ sở các quy phạm pháp luật và chuẩn mực đạo đức, pháp lý xác định” là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Trật tự an toàn xã hội.",
@@ -2177,9 +1961,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 183,
-                "category": "Chương 1",
-                "question": "“Phòng ngừ",
+                "id": 164,
+                "category": "Chương 10",
+                "question": "“Phòng ngừa, phát hiện, đấu tranh, ngăn chặn làm thất bại các hoạt động xâm phạm an ninh quốc gia” là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Trật tự an toàn xã hội.",
@@ -2189,9 +1973,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 184,
-                "category": "Chương 1",
-                "question": "“Phòng ngừ",
+                "id": 165,
+                "category": "Chương 10",
+                "question": "“Phòng ngừa, phát hiện, ngăn chặn, đấu tranh chống tội phạm và các hành vi vi phạm pháp luật về trật tự, an toàn xã hội” là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Trật tự an toàn xã hội.",
@@ -2201,8 +1985,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 185,
-                "category": "Chương 1",
+                "id": 166,
+                "category": "Chương 10",
                 "question": "Trong việc bảo vệ an ninh quốc gia và bảo đảm trật tự, an toàn xã hội, chủ thể nào dưới đây có trách nhiệm “đề ra đường lối chính sách và phương pháp đấu tranh đúng đắn và lãnh đạo chặt chẽ bộ máy Nhà nước các đoàn thể quần chúng thực hiện thắng lợi đường lối chính sách đó”?",
                 "options": {
                     "A": "Đảng Cộng sản Việt Nam.",
@@ -2213,8 +1997,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 186,
-                "category": "Chương 1",
+                "id": 167,
+                "category": "Chương 10",
                 "question": "Chủ thể nào dưới đây có trách nhiệm “quản lý xã hội bằng pháp luật, phát huy vai trò tác dụng của chính quyền các cấp; phối kết hợp chức năng của các cơ quan Nhà nước vào việc bảo vệ an ninh quốc gia và bảo đảm trật tự, an toàn xã hội”?",
                 "options": {
                     "A": "Đảng Cộng sản Việt Nam.",
@@ -2225,9 +2009,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 187,
-                "category": "Chương 1",
-                "question": "Lực lượng nào giữ vai trò nòng cốt trong việc bảo vệ an ninh quốc gia, bảo đảm trật tự, an toàn xã hội, bảo vệ Đảng, Nhà nướ",
+                "id": 168,
+                "category": "Chương 10",
+                "question": "Lực lượng nào giữ vai trò nòng cốt trong việc bảo vệ an ninh quốc gia, bảo đảm trật tự, an toàn xã hội, bảo vệ Đảng, Nhà nước, chế độ và nhân dân; đấu tranh phòng, chống tội phạm và vi phạm pháp luật về an ninh quốc gia, trật tự, an toàn xã hội?",
                 "options": {
                     "A": "Công an nhân dân.",
                     "B": "Quân đội nhân dân.",
@@ -2237,8 +2021,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 188,
-                "category": "Chương 1",
+                "id": 169,
+                "category": "Chương 10",
                 "question": "Lực lượng nào giữ vai trò nòng cốt trong việc: bảo vệ sự bất khả xâm phạm độc lập, chủ quyền, thống nhất toàn vẹn lãnh thổ của Tổ quốc; phối hợp với các lực lượng tham gia bảo vệ an ninh quốc gia và bảo đảm trật tự, an toàn xã hội?",
                 "options": {
                     "A": "Công an nhân dân.",
@@ -2249,8 +2033,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 189,
-                "category": "Chương 1",
+                "id": 170,
+                "category": "Chương 10",
                 "question": "Lực lượng nào giữ vai trò nòng cốt trong việc cùng toàn dân đánh giặc ở địa phương khi có chiến tranh?",
                 "options": {
                     "A": "Công an nhân dân.",
@@ -2261,8 +2045,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 190,
-                "category": "Chương 1",
+                "id": 171,
+                "category": "Chương 10",
                 "question": "Bảo vệ an ninh quốc gia và bảo đảm trật tự an toàn xã hội là nhiệm vụ của",
                 "options": {
                     "A": "lực lượng công an nhân dân.",
@@ -2273,8 +2057,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 191,
-                "category": "Chương 1",
+                "id": 172,
+                "category": "Chương 10",
                 "question": "Nội dung nào dưới đây không phản ánh đúng trách nhiệm của học sinh trong việc bảo vệ an ninh quốc gia và bảo đảm trật tự an toàn xã hội?",
                 "options": {
                     "A": "Không tụ tập bạn bè để thực hiện hành vi vi phạm pháp luật.",
@@ -2285,9 +2069,9 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 192,
-                "category": "Chương 1",
-                "question": "Lợi dụng tình hình dịch Covid-19 đang diễn biến phức tạp, ông T và ông Q đã: tuyên truyền sai lệch chủ trương, đường lối chống dịch của Nhà nước; lôi kéo, xúi giụ",
+                "id": 173,
+                "category": "Chương 10",
+                "question": "Lợi dụng tình hình dịch Covid-19 đang diễn biến phức tạp, ông T và ông Q đã: tuyên truyền sai lệch chủ trương, đường lối chống dịch của Nhà nước; lôi kéo, xúi giục, kích động người dân trong thôn X chống đối lại chính quyền. Phát hiện hành vi vi phạm của ông T và Q, anh M đã nhanh chóng tố giác tới cơ quan công an. Theo em, trong trường hợp trên, nhân vật nào đã thể hiện đúng trách nhiệm của mình trong việc bảo vệ an ninh quốc gia và bảo đảm trật tự an toàn xã hội?",
                 "options": {
                     "A": "Ông T.",
                     "B": "Ông Q.",
@@ -2297,8 +2081,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 193,
-                "category": "Chương 1",
+                "id": 174,
+                "category": "Chương 10",
                 "question": "K là học sinh lớp 10 của trường THPT X. Thông qua T (bạn học cùng lớp), K biết được một Group kín trên facebook chuyên nói xấu các giáo viên và kích động các vụ đánh nhau trong trường. Ngày 28/4/2021, admin của group đó có đăng bài, kêu gọi các thành viên trong nhóm cùng tổ chức đua xe vào vào tối ngày 30/4 trên phố, giải thưởng cho người chiến thắng sẽ là một tập “tem giấy” được tẩm chất LSD (một loại chấy gây ảo giác cực mạnh). Bài đăng của admin nhanh chóng nhận được sự hưởng ứng của nhiều thành viên trong nhóm. Nếu là K, trong trường hợp này, em nên lựa chọn cách ứng xử như thế nào?",
                 "options": {
                     "A": "Không quan tâm, vì việc đó không ảnh hưởng gì tới mình.",
@@ -2309,9 +2093,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 194,
-                "category": "Chương 1",
-                "question": "Đọc thông tin dưới đây và trả lời câu hỏi: Anh B là chủ nhân của kênh YouTube có tên là “Ôi quê tôi”. Thời gian đầu, anh B thường đăng tải các video clip quảng bá hình ảnh đẹp của đất nước và con người Việt Nam. Tuy nhiên, để tăng số lượng người đăng kí kênh và số lượt view, anh B đã chuyển hướng sang dàn dựng, cắt ghép và đăng tải những video clip không đúng sự thật, xuyên tạc chủ trương, đường lối của Đảng và nhà nướ",
+                "id": 175,
+                "category": "Chương 10",
+                "question": "Đọc thông tin dưới đây và trả lời câu hỏi: Anh B là chủ nhân của kênh YouTube có tên là “Ôi quê tôi”. Thời gian đầu, anh B thường đăng tải các video clip quảng bá hình ảnh đẹp của đất nước và con người Việt Nam. Tuy nhiên, để tăng số lượng người đăng kí kênh và số lượt view, anh B đã chuyển hướng sang dàn dựng, cắt ghép và đăng tải những video clip không đúng sự thật, xuyên tạc chủ trương, đường lối của Đảng và nhà nước, bôi nhọ chính quyền. Anh T vốn là bạn thân của",
                 "options": {
                     "A": "Anh",
                     "B": "Anh T.",
@@ -2321,8 +2105,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 195,
-                "category": "Chương 1",
+                "id": 176,
+                "category": "Chương 10",
                 "question": "“Sự ổn định, phát triển bền vững của chế độ xã hội chủ nghĩa và nhà nước Cộng hoà xã hội chủ nghĩa Việt Nam, sự bất khả xâm phạm độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Tổ quốc”- đó là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
@@ -2333,9 +2117,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 196,
-                "category": "Chương 1",
-                "question": "Điền cụm từ thích hợp vào chỗ trống (….) trong khái niệm sau đây: “……là phòng ngừ",
+                "id": 177,
+                "category": "Chương 10",
+                "question": "Điền cụm từ thích hợp vào chỗ trống (….) trong khái niệm sau đây: “……là phòng ngừa, phát hiện, ngăn chặn, đấu tranh làm thất bại các hoạt động xâm phạm an ninh quốc gia và loại trừ nguy cơ đe doạ an ninh quốc gia”.",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Bảo vệ an ninh quốc gia.",
@@ -2345,9 +2129,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 197,
-                "category": "Chương 1",
-                "question": "“Trạng thái xã hội bình yên, trong đó mọi người được sống yên trên cơ sở các quy tắc và chuẩn mực đạo đứ",
+                "id": 178,
+                "category": "Chương 10",
+                "question": "“Trạng thái xã hội bình yên, trong đó mọi người được sống yên trên cơ sở các quy tắc và chuẩn mực đạo đức, pháp lí xác định” - đó là nội dung của khái niệm nào dưới đây?",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Bảo vệ an ninh quốc gia.",
@@ -2357,9 +2141,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 198,
-                "category": "Chương 1",
-                "question": "Điền cụm từ thích hợp vào chỗ trống (….) trong khái niệm sau đây: “…. là phòng ngừ",
+                "id": 179,
+                "category": "Chương 10",
+                "question": "Điền cụm từ thích hợp vào chỗ trống (….) trong khái niệm sau đây: “…. là phòng ngừa, phát hiện, ngăn chặn, đấu tranh chống tội phạm và các hành vi vi phạm pháp luật về trật tự, an toàn xã hội”",
                 "options": {
                     "A": "An ninh quốc gia.",
                     "B": "Bảo vệ an ninh quốc gia.",
@@ -2369,8 +2153,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 199,
-                "category": "Chương 1",
+                "id": 180,
+                "category": "Chương 10",
                 "question": "Đảm bảo trật tự, an toàn xã hội không bao gồm hoạt động nào dưới đây?",
                 "options": {
                     "A": "Giữ gìn trật tự công cộng, bảo đảm trật tự, an toàn giao thông.",
@@ -2381,8 +2165,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 200,
-                "category": "Chương 1",
+                "id": 181,
+                "category": "Chương 10",
                 "question": "Bảo vệ an ninh quốc gia không bao gồm hoạt động nào dưới đây?",
                 "options": {
                     "A": "Bảo vệ an ninh chính trị.",
@@ -2393,8 +2177,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 201,
-                "category": "Chương 1",
+                "id": 182,
+                "category": "Chương 10",
                 "question": "Nội dung nào dưới đây phản ánh đúng trách nhiệm của Đảng Cộng sản Việt Nam trong việc bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội?",
                 "options": {
                     "A": "Là lực lượng giữ vai trò nòng cốt.",
@@ -2405,8 +2189,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 202,
-                "category": "Chương 1",
+                "id": 183,
+                "category": "Chương 10",
                 "question": "Trong công tác bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội, cơ quan nào dưới đây có trách nhiệm: quyết định các vấn đề chiến tranh và hoà bình, quy định về tình trạng khẩn cấp, ban hành Hiến pháp luật, nghị quyết…?",
                 "options": {
                     "A": "Quốc hội.",
@@ -2417,8 +2201,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 203,
-                "category": "Chương 1",
+                "id": 184,
+                "category": "Chương 10",
                 "question": "Trong công tác bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội, cơ quan nào dưới đây có trách nhiệm: tổ chức thi hành Hiến pháp luật, nghị quyết và thống nhất quản lí?",
                 "options": {
                     "A": "Quốc hội.",
@@ -2429,8 +2213,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 204,
-                "category": "Chương 1",
+                "id": 185,
+                "category": "Chương 10",
                 "question": "Trong công tác bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội, lực lượng vũ trang nhân dân giữ vai trò",
                 "options": {
                     "A": "là lực lượng nòng cốt.",
@@ -2441,8 +2225,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 205,
-                "category": "Chương 1",
+                "id": 186,
+                "category": "Chương 10",
                 "question": "Nội dung nào dưới đây phản ánh đúng trách nhiệm của công dân trong việc bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội?",
                 "options": {
                     "A": "Chấp hành chủ trương của Đảng, chính sách của Nhà nước.",
@@ -2453,8 +2237,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 206,
-                "category": "Chương 1",
+                "id": 187,
+                "category": "Chương 10",
                 "question": "Nội dung nào dưới đây không phản ánh đúngtrách nhiệm của công dân trong việc bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội?",
                 "options": {
                     "A": "Chấp hành nghiêm chỉnh chủ trương của Đảng, chính sách của Nhà nước.",
@@ -2465,8 +2249,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 207,
-                "category": "Chương 1",
+                "id": 188,
+                "category": "Chương 10",
                 "question": "Nội dung nào dưới đây phản ánh đúng trách nhiệm của học sinh trong việc bảo vệ an ninh quốc gia và đảm bảo trật tự an toàn xã hội?",
                 "options": {
                     "A": "Gương mẫu thực hiện các nội quy của nhà trường.",
@@ -2477,8 +2261,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 208,
-                "category": "Chương 1",
+                "id": 189,
+                "category": "Chương 10",
                 "question": "Hoạt động nào dưới đây thuộc phạm vi bảo vệ an ninh biên giới?",
                 "options": {
                     "A": "Bảo vệ sự an toàn của các lãnh đạo cấp cao.",
@@ -2489,8 +2273,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 209,
-                "category": "Chương 1",
+                "id": 190,
+                "category": "Chương 10",
                 "question": "“Tố cáo hành vi vi phạm pháp luật về an ninh quốc gia, trật tự, an toàn xã hội; phát hiện, cung cấp kịp thời thông tin cho cơ quan có thẩm quyền” là trách nhiệm của",
                 "options": {
                     "A": "Quốc hội.",
@@ -2501,8 +2285,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 210,
-                "category": "Chương 1",
+                "id": 191,
+                "category": "Chương 10",
                 "question": "An ninh quốc gia:",
                 "options": {
                     "A": "Là sự bình yên của đất nước, cuộc sống ấm no hạnh phúc của nhân dân Việt Nam.",
@@ -2522,7 +2306,7 @@ const subjectsData = {
             {
                 "id": 1,
                 "category": "Chương 1",
-                "question": "Đây là HP 2 TRẮC NGHIỆM HỌC PHẦN 2 DC1QP06 Bài 1: Phòng, chống chiến lược “diễn biến hòa bình”, bạo loạn lật đổ của các thế lực thù địch đối với cách mạng Việt Nam Một trong những giải pháp phòng chống chiến lược “diễn biến hòa bình”, bạo loạn lật đổ:",
+                "question": "Một trong những giải pháp phòng chống chiến lược “diễn biến hòa bình”, bạo loạn lật đổ:",
                 "options": {
                     "A": "Chăm lo xây dựng lực lượng vũ trang ở địa phương vững mạnh",
                     "B": "Xây dựng hệ thống chính trị cả nước vững mạnh toàn diện",
@@ -2594,7 +2378,7 @@ const subjectsData = {
             {
                 "id": 7,
                 "category": "Chương 1",
-                "question": "Bạo loạn lật đổ có thể xẩy ra ở nhiều nơi, nhiều vùng của đất nướ",
+                "question": "Bạo loạn lật đổ có thể xẩy ra ở nhiều nơi, nhiều vùng của đất nước, trọng điểm là:",
                 "options": {
                     "A": "Các trung tâm chính trị, kinh tế",
                     "B": "Các khu công nghiệp tập trung",
@@ -2786,7 +2570,7 @@ const subjectsData = {
             {
                 "id": 23,
                 "category": "Chương 1",
-                "question": "Thực hiện thủ đoạn “Diễn biến hòa bình” về văn hó",
+                "question": "Thực hiện thủ đoạn “Diễn biến hòa bình” về văn hóa, kẻ thù tập trung tấn công vào:",
                 "options": {
                     "A": "Bản sắc văn hóa và giá trị văn hóa của dân tộc Việt Nam",
                     "B": "Truyền thống kinh nghiệm của văn hóa Việt Nam",
@@ -2810,7 +2594,7 @@ const subjectsData = {
             {
                 "id": 25,
                 "category": "Chương 1",
-                "question": "Thực hiện thủ đoạn “Diễn biến hòa bình” trong lĩnh vực tôn giáo - dân tộ",
+                "question": "Thực hiện thủ đoạn “Diễn biến hòa bình” trong lĩnh vực tôn giáo - dân tộc, kẻ thù triệt để lợi dụng chính sách tự do tôn giáo của Đảng ta để:",
                 "options": {
                     "A": "Truyền đạo trái phép nhằm thực hiện âm mưu tôn giáo hóa dân tộc",
                     "B": "Truyền bá mê tín dị đoan và tư tưởng phản động chống chủ nghĩa xã hội",
@@ -2882,7 +2666,7 @@ const subjectsData = {
             {
                 "id": 31,
                 "category": "Chương 2",
-                "question": "Một số nội dung cơ bản về dân tộ",
+                "question": "Đảng, Nhà nước ta xác định tập trung vào vấn đề gì trong công tác dân tộc hiện nay ?",
                 "options": {
                     "A": "Nâng cao đời sống đồng bào các DT thiểu số, giữ gìn bản sắc VH",
                     "B": "Khuyến khích đầu tư phát triển kinh tế ở vùng biên giới hải đảo",
@@ -2893,7 +2677,7 @@ const subjectsData = {
             },
             {
                 "id": 32,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Đảng ta có quan điểm về vấn đề Dân tộc và đại đoàn kết Dân tộc như thế nào trong sự nghiệp cách mạng của nước ta?",
                 "options": {
                     "A": "Tất cả các phương án",
@@ -2905,7 +2689,7 @@ const subjectsData = {
             },
             {
                 "id": 33,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Quan điểm của Đảng ta về Dân tộc và đoàn kết Dân tộc hiện nay cóvị trí như thế nào?",
                 "options": {
                     "A": "Có vị trí chiến lược trong sự nghiệp cách mạng",
@@ -2917,7 +2701,7 @@ const subjectsData = {
             },
             {
                 "id": 34,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Một trong những quan điểm chính sách của Đảng về quan hệ các dân tộc được đặt ra trong đại hội Đảng lần thứ X là gì?",
                 "options": {
                     "A": "Bình đẳng, đoàn kết tôn trọng giúp đỡ nhau cùng tiến bộ",
@@ -2929,7 +2713,7 @@ const subjectsData = {
             },
             {
                 "id": 35,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Đai hội Đảng lần thứ X đã đề ra quan điểm, chính sách trọng tâm đối với các Dân tộc ở Việt nam như thế nào?",
                 "options": {
                     "A": "Ưu tiên đào tạo bồi dưỡng cán bộ, trí thức là người dân tộc thiểu số",
@@ -2941,7 +2725,7 @@ const subjectsData = {
             },
             {
                 "id": 36,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Đai hội Đảng lần thứ X đã đề ra quan điểm, chính sách phát triển, ổn định các Dân tộc ở Việt nam như thế nào?",
                 "options": {
                     "A": "Phát triển KT, chăm lo đời sống VC, tinh thần cho nhân dân",
@@ -2953,7 +2737,7 @@ const subjectsData = {
             },
             {
                 "id": 37,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Nội dung văn kiện Đại hội Đảng lần thứ X chỉ ra một số nội dung quan điểm về chính sách phát triển kinh tế xã hội dân tộc như thế nào?",
                 "options": {
                     "A": "Phát triển, KT–XH ở miền núi, vùng sâu, vùng xa, biên giới, căn cứ cách mạng",
@@ -2965,7 +2749,7 @@ const subjectsData = {
             },
             {
                 "id": 38,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong Đại hội Đảng lần thứ X đã chỉ ra các quan điểm chính sách dân tộc là gì?",
                 "options": {
                     "A": "Làm tốt cụng tác định canh định cư và xây dựng kinh tế mới",
@@ -2977,7 +2761,7 @@ const subjectsData = {
             },
             {
                 "id": 39,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong nội dung văn kiện Đại hội Đảng lần thứ X đã chỉ ra những quan điểm nào về chính sách dân tộc?",
                 "options": {
                     "A": "Quy hoạch, phân bổ, sắp xếp lại dân cư vùng thiểu số",
@@ -2989,7 +2773,7 @@ const subjectsData = {
             },
             {
                 "id": 40,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Nội dung văn kiện Đại hội Đảng lần thứ X chỉ ra những quan điểm về chính sách dân tộc như thế nào?",
                 "options": {
                     "A": "Ưu tiên đào tạo, bồi dưỡng con em các dân tộc, thiểu số",
@@ -3001,7 +2785,7 @@ const subjectsData = {
             },
             {
                 "id": 41,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong nội dung văn kiện Đại hội Đảng lần thứ X đã chỉ ra quan điểm về vai trò của cán bộ trong chính sách dân tộc là gì?",
                 "options": {
                     "A": "Cán bộ phải hiểu phong tục, tập quán, tiếng nói , làm tốt công tác dân vận",
@@ -3013,7 +2797,7 @@ const subjectsData = {
             },
             {
                 "id": 42,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong nội dung văn kiện Đại hội Đảng lần thứ X quan điểm phòng chống về vấn đề dân tộc như thế nào?",
                 "options": {
                     "A": "Chống biểu hiện kì thị, hẹp hòi, chia rẽ dân tộc",
@@ -3025,7 +2809,7 @@ const subjectsData = {
             },
             {
                 "id": 43,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong đời sống xã hội, tôn giáo là tổ chức có qui mô, hoạt động như thế nào?",
                 "options": {
                     "A": "Là một cộng đồng xã hội",
@@ -3037,8 +2821,8 @@ const subjectsData = {
             },
             {
                 "id": 44,
-                "category": "Chương 1",
-                "question": "Hiện tượng, ý thứ",
+                "category": "Chương 2",
+                "question": "Hiện tượng, ý thức, hành vi của những người mê tín dị đoan biểu hiện như thế nào?",
                 "options": {
                     "A": "Hành vi cuồng vọng",
                     "B": "Tư tưởng cực đoạn",
@@ -3049,7 +2833,7 @@ const subjectsData = {
             },
             {
                 "id": 45,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Hoạt động xã hội của tôn giáo thông qua những yếu tố nào?",
                 "options": {
                     "A": "Hệ thống giáo lý",
@@ -3061,7 +2845,7 @@ const subjectsData = {
             },
             {
                 "id": 46,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Hoạt động xã hội tôn giáo bị chi phối bởi những yếu tố nào?",
                 "options": {
                     "A": "Tổ chức tôn giáo",
@@ -3073,7 +2857,7 @@ const subjectsData = {
             },
             {
                 "id": 47,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Những yếu tố nào liên quan đến hoạt động xã hội của tôn giáo?",
                 "options": {
                     "A": "Giáo sĩ tín đồ, cơ sở vật chất tôn giáo",
@@ -3085,7 +2869,7 @@ const subjectsData = {
             },
             {
                 "id": 48,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Hoạt động xã hội của tôn giáo không thể hoạt động khi thiếu yếu tố nào sau đây?",
                 "options": {
                     "A": "Tổ chức của tôn giáo",
@@ -3097,7 +2881,7 @@ const subjectsData = {
             },
             {
                 "id": 49,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Theo quan điểm của Đảng nhà nước ta, hoạt động mê tín dị đoan phải được giải quyết như thế nào?",
                 "options": {
                     "A": "Bài trừ",
@@ -3109,7 +2893,7 @@ const subjectsData = {
             },
             {
                 "id": 50,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "So sánh với tôn giáo, mê tín dị đoan thực chất là hoạt động gì?",
                 "options": {
                     "A": "Tệ nạn xã hội",
@@ -3121,7 +2905,7 @@ const subjectsData = {
             },
             {
                 "id": 51,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Tôn giáo được hình thành từ những yếu tố cơ bản nào?",
                 "options": {
                     "A": "Tất cả các phương án",
@@ -3133,7 +2917,7 @@ const subjectsData = {
             },
             {
                 "id": 52,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Một trong những nguồn gốc hình thành tôn giáo trong xã hội là yếu tố nào?",
                 "options": {
                     "A": "Nguồn gốc kinh tế x hội",
@@ -3145,7 +2929,7 @@ const subjectsData = {
             },
             {
                 "id": 53,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Yếu tố nào là nguồn gốc hình thành tôn giáo trong xã hội ?",
                 "options": {
                     "A": "Nguồn gốc nhận thức",
@@ -3157,7 +2941,7 @@ const subjectsData = {
             },
             {
                 "id": 54,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Nguồn gốc nào là yếu tố hình thành tôn giáo trong xã hội ?",
                 "options": {
                     "A": "Nguồn gốc tâm lý",
@@ -3169,7 +2953,7 @@ const subjectsData = {
             },
             {
                 "id": 55,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Quá trình hoạt động của tôn giáo trong x hội được bộc lộ ra tính chất nào?",
                 "options": {
                     "A": "Tất cả các phương án",
@@ -3181,7 +2965,7 @@ const subjectsData = {
             },
             {
                 "id": 56,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Một trong những tính chất của tôn giáo được bộc lộ trong đời sống xã hội là gì?",
                 "options": {
                     "A": "Tính quần chúng",
@@ -3193,7 +2977,7 @@ const subjectsData = {
             },
             {
                 "id": 57,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Trong xã hội có phân chia giai cấp tôn giáo thường bộc lộ ra tính chất gì?",
                 "options": {
                     "A": "Tính chính trị",
@@ -3205,7 +2989,7 @@ const subjectsData = {
             },
             {
                 "id": 58,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Các tôn giáo thường mang tính chất nào sau đây?",
                 "options": {
                     "A": "Tính chất lịch sử",
@@ -3217,7 +3001,7 @@ const subjectsData = {
             },
             {
                 "id": 59,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Quan điểm chủ nghĩa Mác – Lênin về giải quyết vấn đề tôn giáo trong cách mạng xã hội chủ nghĩa là gì?",
                 "options": {
                     "A": "Tất cả các phương án",
@@ -3229,7 +3013,7 @@ const subjectsData = {
             },
             {
                 "id": 60,
-                "category": "Chương 1",
+                "category": "Chương 2",
                 "question": "Nội dung cốt lõi trong công tác tôn giáo của Đảng là công tác vận động quần chúng như thế nào?",
                 "options": {
                     "A": "Sống tốt đời đẹp đạo",
@@ -3242,7 +3026,7 @@ const subjectsData = {
             {
                 "id": 61,
                 "category": "Chương 3",
-                "question": "Phòng, chống vi phạm pháp luật về bảo vệ môi trường Bảo vệ môi trường là gì?",
+                "question": "Bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Là hoạt động giữ gìn, phòng ngừa, hạn chế các tác động xấu đến môi trường; ứng phó sự cố môi trường; khắc phục ô nhiễm, suy thoái, cải thiện, phục hồi môi trường; khai thác, sử dụng hợp lý tài nguyên thiên nhiên nhằm giữ môi trường trong lành",
                     "B": "Là hoạt động khai thác, sử dụng hợp lý tài nguyên thiên nhiên nhằm giữ môi trường trong lành.",
@@ -3253,7 +3037,7 @@ const subjectsData = {
             },
             {
                 "id": 62,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Bảo vệ môi trường là nội dung như thế nào trong đường lối, chủ trương của Đảng và Nhà nước ta?",
                 "options": {
                     "A": "Cơ bản không thể tách rời.",
@@ -3265,7 +3049,7 @@ const subjectsData = {
             },
             {
                 "id": 63,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Đâu là quy định của pháp luật về bảo vệ môi trường?",
                 "options": {
                     "A": "Pháp luật về tổ chức, quản lý các hoạt động về bảo vệ môi trường.",
@@ -3277,7 +3061,7 @@ const subjectsData = {
             },
             {
                 "id": 64,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Pháp luật bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Là hệ thống các văn bản pháp luật quy định những quy tắc xử sự do Nhà nước ban hành hoặc thừa nhận nhằm giữ gìn, phòng ngừa, hạn chế các tác động xấu đến môi trường; ứng phó sự cố môi trường; khắc phục ô nhiễm, suy thoái, cải thiện, phục hồi môi trường; khai thác, sử dụng hợp lý tài nguyên thiên nhiên nhằm giữ môi trường trong lành.",
@@ -3289,7 +3073,7 @@ const subjectsData = {
             },
             {
                 "id": 65,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Mục đích của pháp luật về bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Nhằm giữ môi trường luôn sạch sẽ.",
@@ -3301,7 +3085,7 @@ const subjectsData = {
             },
             {
                 "id": 66,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Pháp luật có vai trò như thế nào trong công tác bảo vệ môi trường?",
                 "options": {
                     "A": "Rất quan trọng.",
@@ -3313,7 +3097,7 @@ const subjectsData = {
             },
             {
                 "id": 67,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Môi trường bị hủy hoại chủ yếu là do vấn đề gì?",
                 "options": {
                     "A": "Sự “tác động quá mức” của con người đối với các thành phần cấu tạo nên môi trường tự nhiên",
@@ -3325,7 +3109,7 @@ const subjectsData = {
             },
             {
                 "id": 68,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Trong công tác bảo vệ môi trường pháp luật có vai trò gì?",
                 "options": {
                     "A": "Pháp luật quy định những quy tắc xử sự mà con người phải thực hiện khi khai thác và sử dụng các yếu tố (thành phần) của môi trường. Pháp luật quy định chức năng, nhiệm vụ, quyền hạn của các cơ quan, tố chức, cá nhân tham gia bảo vệ môi trường.",
@@ -3337,7 +3121,7 @@ const subjectsData = {
             },
             {
                 "id": 69,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Trong công tác bảo vệ môi trường pháp luật có mấy vai trò?",
                 "options": {
                     "A": "7.",
@@ -3349,19 +3133,7 @@ const subjectsData = {
             },
             {
                 "id": 70,
-                "category": "Chương 1",
-                "question": "Đâu là quy định của pháp luật về bảo vệ môi trường?",
-                "options": {
-                    "A": "Pháp luật xử lý vi phạm trong lĩnh vực bảo vệ môi trường.",
-                    "B": "Pháp luật lấy xử lý vi phạm làm nguyên tắc chủ đạo, kết hợp với xử lý ô nhiễm, cải thiện môi trường, bảo tồn đa dạng sinh học, bảo vệ và sử dụng hợp lí tài nguyên thiên nhiên; phát huy năng lực nội sinh, đẩy mạnh hợp tác quốc tế về bảo vệ môi trường.",
-                    "C": "Pháp luật hướng đến giữ gìn môi trường luôn trong lành.",
-                    "D": "Pháp luật về phòng ngừa và ngặn chặn làm nguyên tắc chủ đạo, kết hợp với xử lý ô nhiễm, cải thiện môi trường, bảo tồn đa dạng sinh học, bảo vệ và sử dụng hợp lý tài nguyên thiên nhiên; phát huy năng lực nội sinh, đẩy mạnh hợp tác quốc tế về bảo vệ môi trường."
-                },
-                "answer": "A"
-            },
-            {
-                "id": 71,
-                "category": "Chương 1",
+                "category": "Chương 3",
                 "question": "Tội phạm môi trường là gì?",
                 "options": {
                     "A": "Là hành vi nguy hiểm cho xã hội được quy định trong Bộ luật hình sự, do người có năng lực trách nhiệm hình sự hoặc pháp nhân thương mại thực hiện một cách cố ý hoặc vô ý xâm phạm đến các quy định của Nhà nước về bảo vệ môi trường, xâm phạm đến các thành phần của môi trường làm thay đổi trạng thái, tính chất của môi trường gây ảnh hưởng xấu tới sự tồn tại, phát triển con người và sinh vật, mà theo quy định phải bị xử lý hình sự.",
@@ -3372,8 +3144,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 72,
-                "category": "Chương 1",
+                "id": 71,
+                "category": "Chương 3",
                 "question": "Vi phạm hành chính trong lĩnh vực bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Là những hành vi vi phạm các quy định quản lý nhà nước về bảo vệ môi trường do các cá nhân, tố chức thực hiện một cách cố ý hoặc vô ý mà không phải là tội phạm, theo quy định phải bị xử lý vi phạm hành chính.",
@@ -3384,8 +3156,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 73,
-                "category": "Chương 1",
+                "id": 72,
+                "category": "Chương 3",
                 "question": "Tội phạm về môi trường được quy định tại chương mấy trong Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017)?",
                 "options": {
                     "A": "Chương 18",
@@ -3396,8 +3168,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 74,
-                "category": "Chương 1",
+                "id": 73,
+                "category": "Chương 3",
                 "question": "Trong Chương 19, Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) Tội phạm về môi trường bao gồm mấy tội danh, được quy định từ điều nào đến điều nào?",
                 "options": {
                     "A": "10",
@@ -3408,8 +3180,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 75,
-                "category": "Chương 1",
+                "id": 74,
+                "category": "Chương 3",
                 "question": "Tội hủy hoại nguồn lợi thủy sản được quy định tại điều mấy trong Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017)?",
                 "options": {
                     "A": "Điều 242",
@@ -3420,8 +3192,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 76,
-                "category": "Chương 1",
+                "id": 75,
+                "category": "Chương 3",
                 "question": "Tội hủy hoại rừng được quy định tại điều mấy trong Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017)?",
                 "options": {
                     "A": "Điều 243",
@@ -3432,8 +3204,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 77,
-                "category": "Chương 1",
+                "id": 76,
+                "category": "Chương 3",
                 "question": "Tội vi phạm quy định về bảo vệ động vật nguy cấp, quý hiếm được quy định tại điều mấy trong Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017)?",
                 "options": {
                     "A": "Điều 241",
@@ -3444,8 +3216,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 78,
-                "category": "Chương 1",
+                "id": 77,
+                "category": "Chương 3",
                 "question": "Đâu là nguyên nhân, điều kiện khách quan của vi phạm pháp luật về môi trường?",
                 "options": {
                     "A": "Các cơ quan Nhà nước có thẩm quyền ban hành nhiều chính sách ưu đãi để phát triển kinh tế mà không quan tâm đến bảo vệ môi trường.",
@@ -3456,8 +3228,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 79,
-                "category": "Chương 1",
+                "id": 78,
+                "category": "Chương 3",
                 "question": "Đâu là nguyên nhân, điều kiện chủ quan của vi phạm pháp luật về môi trường?",
                 "options": {
                     "A": "Nhận thức của một số bộ phận các cơ quan quản lý nhà nước về bảo vệ môi trường chưa cao, ý thức BVMT của các cơ quan, doanh nghiệp và công dân còn kém, chưa tự giác, vấn đề bảo vệ môi trường chưa được quan tâm chú trọng đúng mứC,",
@@ -3468,8 +3240,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 80,
-                "category": "Chương 1",
+                "id": 79,
+                "category": "Chương 3",
                 "question": "Đâu là nguyên nhân thuộc về phía đối tượng vi phạm pháp luật về môi trường?",
                 "options": {
                     "A": "Chấp hành nghiêm pháp luật và tuân thủ các quy tắc, chuẩn mực xã hội.",
@@ -3480,8 +3252,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 81,
-                "category": "Chương 1",
+                "id": 80,
+                "category": "Chương 3",
                 "question": "Phòng chống vi phạm pháp luật về bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Là hoạt động các cơ quan nhà nước, các tổ chức xã hội và công dân bằng việc sử dụng tống hợp các biện pháp, phương tiện nhằm ngăn chặn, hạn chế tình hình vi phạm pháp luật về bảo vệ môi trường; phát hiện, loại trừ các nguyên nhân, điều kiện của vi phạm pháp luật về bảo vệ môi trường; khi vi phạm pháp luật về bảo vệ môi trường xảy ra thì hạn chế đến mức thấp nhất hậu quả tác hại, kịp thời phát hiện, điều tra, xử lý các hành vi vi phạm pháp luật về bảo vệ môi trường.",
@@ -3492,8 +3264,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 82,
-                "category": "Chương 1",
+                "id": 81,
+                "category": "Chương 3",
                 "question": "Phòng chống vi phạm pháp luật về bảo vệ môi trường có mấy đặc điểm?",
                 "options": {
                     "A": "5",
@@ -3504,8 +3276,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 83,
-                "category": "Chương 1",
+                "id": 82,
+                "category": "Chương 3",
                 "question": "Đặc điểm của phòng chống vi phạm pháp luật về bảo vệ môi trường là gì?",
                 "options": {
                     "A": "Chủ thể tiến hành tham gia phòng, chống vi phạm pháp luật về bảo vệ môi trường rất đa dạng. Căn cứ vào chức năng, nhiệm vụ, quyền hành được quy định trong các văn bản pháp luật do cơ quan nhà nước có thẩm quyền ban hành để tiến hành các hoạt động phòng ngừa cũng như điều tra, xử lý phù hợp.",
@@ -3516,8 +3288,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 84,
-                "category": "Chương 1",
+                "id": 83,
+                "category": "Chương 3",
                 "question": "Phòng chống vi phạm pháp luật về bảo vệ môi trường gồm mấy nội dung?",
                 "options": {
                     "A": "5",
@@ -3528,8 +3300,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 85,
-                "category": "Chương 1",
+                "id": 84,
+                "category": "Chương 3",
                 "question": "Phòng chống vi phạm pháp luật về bảo vệ môi trường gồm những nội dung nào?",
                 "options": {
                     "A": "Nắm tình hình vi phạm pháp luật về bảo vệ môi trường, nghiên cứu làm rõ những vấn đề có tính quy luật trong hoạt động vi phạm pháp luật của các đối tượng. Xác định và làm rõ các nguyên nhân, điều kiện của vi phạm pháp luật về bảo vệ môi trường",
@@ -3540,8 +3312,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 86,
-                "category": "Chương 1",
+                "id": 85,
+                "category": "Chương 3",
                 "question": "Trong phòng, chống vi phạm pháp luật về bảo vệ môi trường, đâu là biện pháp phòng, chống chung?",
                 "options": {
                     "A": "Biện pháp tổ chức – hành chính; kinh tế; khoa học – công nghệ;",
@@ -3552,8 +3324,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 87,
-                "category": "Chương 1",
+                "id": 86,
+                "category": "Chương 3",
                 "question": "Phòng, chống vi phạm pháp luật về bảo vệ môi trường gồm mấy biện pháp chung?",
                 "options": {
                     "A": "4",
@@ -3564,8 +3336,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 88,
-                "category": "Chương 1",
+                "id": 87,
+                "category": "Chương 3",
                 "question": "Phòng, chống vi phạm pháp luật về bảo vệ môi trường gồm mấy biện pháp cụ thể?",
                 "options": {
                     "A": "4",
@@ -3576,8 +3348,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 89,
-                "category": "Chương 1",
+                "id": 88,
+                "category": "Chương 3",
                 "question": "Tham gia phòng chống vi phạm pháp luật về bảo vệ môi trường gồm những chủ thể nào?",
                 "options": {
                     "A": "Đảng lãnh đạo Nhà nước, các cơ quan, tổ chức trong hệ thống chính trị và quần chúng nhân dân tham gia vào phòng, chống vi phạm pháp luật về bảo vệ môi trường thông qua việc hoạch định các chủ trương, chính sách, ban hành các văn bản hướng dẫn, nghị quyết, chỉ thị.",
@@ -3588,8 +3360,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 90,
-                "category": "Chương 1",
+                "id": 89,
+                "category": "Chương 3",
                 "question": "Sinh viên có trách nhiệm như thế nào trong tham gia phòng chống vi phạm pháp luật về bảo vệ môi trường?",
                 "options": {
                     "A": "Nắm vững các quy định của pháp luật phòng, chống vi phạm pháp luật về bảo vệ môi trường. Xây dựng ý thức trách nhiệm trong các hoạt động bảo vệ môi trường như sử dụng tiết kiệm, có hiệu quả các nguồn tài nguyên (nước, năng lượng,.);",
@@ -3600,9 +3372,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 91,
+                "id": 90,
                 "category": "Chương 4",
-                "question": "Phòng, chống vi phạm pháp luật về bảo đảm trật tự an toàn giao thông Phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông trong nhà trường là trách nhiệm của?",
+                "question": "Phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông trong nhà trường là trách nhiệm của?",
                 "options": {
                     "A": "Nhà trường.",
                     "B": "Sinh viên.",
@@ -3612,8 +3384,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 92,
-                "category": "Chương 1",
+                "id": 91,
+                "category": "Chương 4",
                 "question": "Các dấu hiệu pháp lý của tội phạm an toàn giao thông:",
                 "options": {
                     "A": "Chủ thể; Khách thể; Mặt khách quan, mặt chủ quan của các tội phạm xâm phạm an toàn giao thông.",
@@ -3624,8 +3396,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 93,
-                "category": "Chương 1",
+                "id": 92,
+                "category": "Chương 4",
                 "question": "Có mấy dạng vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông?",
                 "options": {
                     "A": "2",
@@ -3636,8 +3408,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 94,
-                "category": "Chương 1",
+                "id": 93,
+                "category": "Chương 4",
                 "question": "Vi phạm hành chính xảy ra trong lĩnh vực bảo đảm trật tự, an toàn giao thông là?",
                 "options": {
                     "A": "Là hành vi trái pháp luật, do cá nhân, tổ chức có năng lực trách nhiệm hành chính thực hiện với lỗi cố ý hoặc vô ý, xâm phạm đến hoạt động bảo đảm trật tự, an toàn giao thông và theo quy định của pháp luật phải chịu trách nhiệm hành chính.",
@@ -3648,8 +3420,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 95,
-                "category": "Chương 1",
+                "id": 94,
+                "category": "Chương 4",
                 "question": "Người điều khiển phương tiện tham gia giao thông phải có điều kiện nào sau đây?",
                 "options": {
                     "A": "Có giấy Chứng minh nhân dân.",
@@ -3660,8 +3432,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 96,
-                "category": "Chương 1",
+                "id": 95,
+                "category": "Chương 4",
                 "question": "Đấu tranh chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông là hoạt động của tổ chức nào sau đây?",
                 "options": {
                     "A": "Hoạt động của Lực lượng vũ trang có thẩm quyền.",
@@ -3672,8 +3444,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 97,
-                "category": "Chương 1",
+                "id": 96,
+                "category": "Chương 4",
                 "question": "Pháp luật về bảo đảm trật tự, an toàn giao thông là một bộ phận của?",
                 "options": {
                     "A": "Hệ thống pháp luật hành chính của Đảng.",
@@ -3684,8 +3456,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 98,
-                "category": "Chương 1",
+                "id": 97,
+                "category": "Chương 4",
                 "question": "Tốc độ tối đa khi tham gia giao thông đường bộ là?",
                 "options": {
                     "A": "Là vận tốc lớn nhất trên một tuyến đường, đoạn đường hoặc làn đường.",
@@ -3696,8 +3468,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 99,
-                "category": "Chương 1",
+                "id": 98,
+                "category": "Chương 4",
                 "question": "Nội dung của đấu tranh chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông là gì?",
                 "options": {
                     "A": "Phát hiện những hành vi vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông do cá nhân, tổ chức thực hiện.",
@@ -3708,8 +3480,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 100,
-                "category": "Chương 1",
+                "id": 99,
+                "category": "Chương 4",
                 "question": "Pháp luật về bảo đảm trật tự, an toàn giao thông là gì?",
                 "options": {
                     "A": "Một bộ phận bao gồm hệ thống các văn bản quy phạm pháp luật do Nhà nước ban hành.",
@@ -3720,8 +3492,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 101,
-                "category": "Chương 1",
+                "id": 100,
+                "category": "Chương 4",
                 "question": "Người từ đủ bao nhiêu tuổi thì được điều khiển xe mô tô, xe gắn máy có dung tích xilanh từ 50cm3 trở lên và các loại xe có kết cấu tương tự, xe có trọng tải dưới 3.500kg và xe ô tô chở người đến 9 chỗ?",
                 "options": {
                     "A": "Người từ đủ 14 tuổi.",
@@ -3732,8 +3504,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 102,
-                "category": "Chương 1",
+                "id": 101,
+                "category": "Chương 4",
                 "question": "Hệ thống các văn bản quy phạm pháp luật về bảo đảm trật tự, an toàn giao thông ban hành nhằm?",
                 "options": {
                     "A": "Điều chỉnh các quan hệ xã hội phát sinh trong quá trình tổ chức, thực hiện hoạt động chấp hành của các cơ quan quản lý nhà nước, tổ chức xã hội và công dân trên lĩnh vực bảo đảm trật tự, an toàn giao thông.",
@@ -3744,8 +3516,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 103,
-                "category": "Chương 1",
+                "id": 102,
+                "category": "Chương 4",
                 "question": "Nghị định 100/2019/NĐ-CP về quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt có hiệu lực từ ngày, tháng, năm nào?",
                 "options": {
                     "A": "Ngày 25 tháng 12 năm 2019",
@@ -3756,8 +3528,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 104,
-                "category": "Chương 1",
+                "id": 103,
+                "category": "Chương 4",
                 "question": "Pháp luật về bảo đảm trật tự, an toàn giao thông là:",
                 "options": {
                     "A": "Công cụ pháp lý quan trọng để thực hiện chức năng quản lý nhà nước về bảo đảm trật tự an toàn giao thông, trật tự an toàn xã hội.",
@@ -3768,8 +3540,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 105,
-                "category": "Chương 1",
+                "id": 104,
+                "category": "Chương 4",
                 "question": "Vai trò của pháp luật về bảo đảm trật tự, an toàn giao thông là gì?",
                 "options": {
                     "A": "Pháp luật về bảo đảm trật tự, an toàn giao thông là ý chí của Nhà nước để chỉ đạo và tổ chức thực hiện bảo đảm trật tự, an toàn giao thông",
@@ -3780,8 +3552,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 106,
-                "category": "Chương 1",
+                "id": 105,
+                "category": "Chương 4",
                 "question": "Tổ chức nào là chủ thể trong thực hiện phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông?",
                 "options": {
                     "A": "Đảng Cộng sản Việt Nam, Quốc hội, Chính phủ, Hội đồng nhân dân các cấp và Ủy ban nhân dân các cấp.",
@@ -3792,8 +3564,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 107,
-                "category": "Chương 1",
+                "id": 106,
+                "category": "Chương 4",
                 "question": "Luật giao thông đường bộ có hiệu lực từ năm nào?",
                 "options": {
                     "A": "Năm 2008",
@@ -3804,8 +3576,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 108,
-                "category": "Chương 1",
+                "id": 107,
+                "category": "Chương 4",
                 "question": "Phòng ngừa vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông là hoạt động của tổ chức nào?",
                 "options": {
                     "A": "Hoạt động của các cơ quan Nhà nước; các tổ chức xã hội và công dân.",
@@ -3816,8 +3588,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 109,
-                "category": "Chương 1",
+                "id": 108,
+                "category": "Chương 4",
                 "question": "Người điều khiển xe máy chỉ được chở 2 người trong trường hợp nào sau đây?",
                 "options": {
                     "A": "Chở người bệnh đi cấp cứu, áp giải người có hành vi vi phạm pháp luật, chở trẻ em dưới 14 tuổi.",
@@ -3828,8 +3600,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 110,
-                "category": "Chương 1",
+                "id": 109,
+                "category": "Chương 4",
                 "question": "Người tham gia giao thông đường bộ gồm những người nào?",
                 "options": {
                     "A": "Người chạy, người được chở trên phương tiện tham gia giao thông đường bộ; người điều khiển, dẫn dắt súc vật; người đi bộ trên đường bộ.",
@@ -3840,8 +3612,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 111,
-                "category": "Chương 1",
+                "id": 110,
+                "category": "Chương 4",
                 "question": "Tổ chức nào sau đây là chủ thể trong thực hiện phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông?",
                 "options": {
                     "A": "Các tổ chức xã hội và tổ chức quần chúng tự quản; cơ quan quản lý kinh tế, giao thông, văn hóa, giáo dục, dịch vụ, du lịch; công dân.",
@@ -3852,8 +3624,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 112,
-                "category": "Chương 1",
+                "id": 111,
+                "category": "Chương 4",
                 "question": "Luật sửa đổi, bổ sung một số điều của Luật hàng không dân dụng Việt Nam được Quốc hội khóa XIII thông qua ngày, tháng, năm nào?",
                 "options": {
                     "A": "Ngày 22/11/2014",
@@ -3864,8 +3636,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 113,
-                "category": "Chương 1",
+                "id": 112,
+                "category": "Chương 4",
                 "question": "Các tội phạm xâm phạm an toàn giao thông là?",
                 "options": {
                     "A": "Là hành vi nguy hiểm cho xã hội được quy định trong Bộ luật Hình sự, do người có năng lực trách nhiệm hình sự thực hiện một cách cố ý hoặc vô ý, xâm phạm đến lĩnh vực trật tự, an toàn giao thông",
@@ -3876,8 +3648,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 114,
-                "category": "Chương 1",
+                "id": 113,
+                "category": "Chương 4",
                 "question": "Luật sửa đổi, bổ sung một số điều của Luật giao thông đường thủy nội địa được Quốc hội khóa XIII thông qua ngày, tháng, năm nào?",
                 "options": {
                     "A": "Ngày 22/11/2014",
@@ -3888,8 +3660,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 115,
-                "category": "Chương 1",
+                "id": 114,
+                "category": "Chương 4",
                 "question": "Dấu hiệu của vi phạm hành chính trong bảo đảm trật tự, an toàn giao thông?",
                 "options": {
                     "A": "Hành vi đó theo quy định của pháp luật phải bị xử phạt vi phạm hành chính.",
@@ -3900,8 +3672,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 116,
-                "category": "Chương 1",
+                "id": 115,
+                "category": "Chương 4",
                 "question": "Luật giao thông đường bộ được Quốc hội khóa XII thông qua năm nào?",
                 "options": {
                     "A": "Năm 2007",
@@ -3912,8 +3684,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 117,
-                "category": "Chương 1",
+                "id": 116,
+                "category": "Chương 4",
                 "question": "Các dấu hiệu cơ bản của vi phạm hành chính xảy ra trong bảo đảm trật tự, an toàn giao thông?",
                 "options": {
                     "A": "Tính có lỗi, tính nguy hiểm cho xã hội, tính trái pháp luật về bảo đảm trật tự, an toàn giao thông.",
@@ -3924,8 +3696,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 118,
-                "category": "Chương 1",
+                "id": 117,
+                "category": "Chương 4",
                 "question": "Nghị định 100/2019/NĐ-CP về quy định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ và đường sắt được Chính phủ ban hành ngày, tháng, năm nào?",
                 "options": {
                     "A": "Ngày 25 tháng 12 năm 2019",
@@ -3936,8 +3708,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 119,
-                "category": "Chương 1",
+                "id": 118,
+                "category": "Chương 4",
                 "question": "Một trong những giải pháp đối với cơ quan, tổ chức trong phòng, chống vi phạm pháp luật về bảo đảm trật tự an toàn giao thông",
                 "options": {
                     "A": "Tích cực nghiên cứu, đổi mới nội dung, hình thức tuyên truyền, phổ biến giáo dục pháp luật hiệu quả, đa dạng, thiết thực, phù hợp với từng đối tượng, địa bàn, cần tập trung vào các đối tượng học sinh, thiếu niên, thanh niên",
@@ -3948,8 +3720,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 120,
-                "category": "Chương 1",
+                "id": 119,
+                "category": "Chương 4",
                 "question": "Nội dung biện pháp phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông là gì?",
                 "options": {
                     "A": "Tham mưu, đề xuất với các tổ chức xây dựng và hoàn thiện hệ thống các văn bản pháp luật phục vụ phòng, chống vi phạm pháp luật về bảo đảm trật tự, an toàn giao thông.",
@@ -3960,9 +3732,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 121,
+                "id": 120,
                 "category": "Chương 5",
-                "question": "Phòng, chống một số loại tội phạm xâm hại danh dự, nhân phẩm của người khác Nhân phẩm là?",
+                "question": "Nhân phẩm là?",
                 "options": {
                     "A": "Toàn bộ những phẩm chất mà mỗi con người có được",
                     "B": "Giá trị làm người của mỗi con người",
@@ -3972,8 +3744,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 122,
-                "category": "Chương 1",
+                "id": 121,
+                "category": "Chương 5",
                 "question": "Người có nhân phẩm là?",
                 "options": {
                     "A": "Người có lương tâm, có nhu cầu vật chất",
@@ -3984,8 +3756,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 123,
-                "category": "Chương 1",
+                "id": 122,
+                "category": "Chương 5",
                 "question": "Người có nhân phẩm được xã hội?",
                 "options": {
                     "A": "Đánh giá cao và được kính trọng",
@@ -3996,8 +3768,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 124,
-                "category": "Chương 1",
+                "id": 123,
+                "category": "Chương 5",
                 "question": "Danh dự là?",
                 "options": {
                     "A": "Sự đánh giá cao của dư luận xã hội đối với mọi người dựa trên các giá trị về tinh thần, đạo đức của người đó",
@@ -4008,8 +3780,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 125,
-                "category": "Chương 1",
+                "id": 124,
+                "category": "Chương 5",
                 "question": "Danh dự có cơ sở từ?",
                 "options": {
                     "A": "Những cống hiến của mọi người đối với xã hội và con người",
@@ -4020,8 +3792,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 126,
-                "category": "Chương 1",
+                "id": 125,
+                "category": "Chương 5",
                 "question": "Khách thể của các tội xâm phạm nhân phẩm, danh dự của con người?",
                 "options": {
                     "A": "Các tội phạm xâm phạm đến quyền được bảo hộ về nhân phẩm, danh dự của con người",
@@ -4032,8 +3804,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 127,
-                "category": "Chương 1",
+                "id": 126,
+                "category": "Chương 5",
                 "question": "Mặt khách quan của các tội xâm phạm nhân phẩm, danh dự của con người thể hiện ở?",
                 "options": {
                     "A": "Những hành vi nguy hiểm cho xã hội (hành động)",
@@ -4044,8 +3816,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 128,
-                "category": "Chương 1",
+                "id": 127,
+                "category": "Chương 5",
                 "question": "Các tội xâm phạm tình dục bao gồm?",
                 "options": {
                     "A": "Tội hiếp dâm; tội cưỡng dâm",
@@ -4056,8 +3828,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 129,
-                "category": "Chương 1",
+                "id": 128,
+                "category": "Chương 5",
                 "question": "Đối với hành vi xâm phạm nhân phẩm, danh dự của con người thường được thể hiện bằng?",
                 "options": {
                     "A": "Lời nói, cử chỉ",
@@ -4068,8 +3840,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 130,
-                "category": "Chương 1",
+                "id": 129,
+                "category": "Chương 5",
                 "question": "Để trở thành người có nhân phẩm, con người cần phải có?",
                 "options": {
                     "A": "Lương tâm trong sáng, nhu cầu vật chất và tinh thần lành mạnh",
@@ -4080,20 +3852,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 131,
-                "category": "Chương 1",
-                "question": "Danh dự có cơ sở từ?",
-                "options": {
-                    "A": "Những cống hiến thực tế của con người đối với người khác",
-                    "B": "Những cống hiến thực tế của con người đối với xã hội, với người khác",
-                    "C": "Hành động của mọi người",
-                    "D": "Những cống hiến thực tế của con người đối với xã hội"
-                },
-                "answer": "B"
-            },
-            {
-                "id": 132,
-                "category": "Chương 1",
+                "id": 130,
+                "category": "Chương 5",
                 "question": "Các tội làm nhục người khác?",
                 "options": {
                     "A": "Tội làm nhục người khác",
@@ -4104,8 +3864,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 133,
-                "category": "Chương 1",
+                "id": 131,
+                "category": "Chương 5",
                 "question": "Bộ luật hình sự hiện hành của nước cộng hòa xhcn việt nam là?",
                 "options": {
                     "A": "Bộ luật hình sự năm 2015, sửa đổi, bổ sung năm 2017",
@@ -4116,8 +3876,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 134,
-                "category": "Chương 1",
+                "id": 132,
+                "category": "Chương 5",
                 "question": "Bộ luật hình sự quy định về?",
                 "options": {
                     "A": "Tội phạm hình sự",
@@ -4128,8 +3888,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 135,
-                "category": "Chương 1",
+                "id": 133,
+                "category": "Chương 5",
                 "question": "Nội dung nào thể hiện đặc trưng của bộ luật hình sự?",
                 "options": {
                     "A": "Bộ luật hình sự bao gồm hệ thống pháp luật",
@@ -4140,8 +3900,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 136,
-                "category": "Chương 1",
+                "id": 134,
+                "category": "Chương 5",
                 "question": "Nội dung nào thể hiện vai trò của bộ luật hình sự?",
                 "options": {
                     "A": "Bộ luật hình sự bảo vệ các quan hệ xã hội, trừng trị các hành vi xâm hại các quan hệ xã hội đó",
@@ -4152,8 +3912,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 137,
-                "category": "Chương 1",
+                "id": 135,
+                "category": "Chương 5",
                 "question": "Nội dung nào thể hiện nhiệm vụ của bộ luật hình sự?",
                 "options": {
                     "A": "Giáo dục mọi người ý thức tuân theo pháp luật, phòng ngừa và đấu tranh phòng, chống tội phạm",
@@ -4164,8 +3924,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 138,
-                "category": "Chương 1",
+                "id": 136,
+                "category": "Chương 5",
                 "question": "“Bộ luật hình sự là công cụ sắc bén, hữu hiệu để đấu tranh phòng, chống tội phạm\" là?",
                 "options": {
                     "A": "Nhiệm vụ của blhs",
@@ -4176,8 +3936,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 139,
-                "category": "Chương 1",
+                "id": 137,
+                "category": "Chương 5",
                 "question": "Nhân phẩm, danh dự của con người là những yêu tố về tinh thần, bao gồm?",
                 "options": {
                     "A": "Phẩm giá, giá trị",
@@ -4188,8 +3948,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 140,
-                "category": "Chương 1",
+                "id": 138,
+                "category": "Chương 5",
                 "question": "Hành vi xâm phạm nhân phẩm, danh dự của con người là?",
                 "options": {
                     "A": "Làm cho người đó bị xúc phạm, tổn thương về tinh thần và xấu hổ đối với những người xung quanh",
@@ -4200,8 +3960,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 141,
-                "category": "Chương 1",
+                "id": 139,
+                "category": "Chương 5",
                 "question": "\"Các tội xâm phạm nhân phẩm, danh dự của con người là những hành vi nguy hiểm cho xã hội\" là?",
                 "options": {
                     "A": "Dấu hiệu của tội xâm phạm nhân phẩm, danh dự",
@@ -4212,8 +3972,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 142,
-                "category": "Chương 1",
+                "id": 140,
+                "category": "Chương 5",
                 "question": "Các tội xâm phạm nhân phẩm, danh dự của con người được quy định trong?",
                 "options": {
                     "A": "Pháp luật hình sự",
@@ -4224,8 +3984,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 143,
-                "category": "Chương 1",
+                "id": 141,
+                "category": "Chương 5",
                 "question": "\"Các tội xâm phạm nhân phẩm, danh dự của con người do người có năng lực trách nhiệm hình sự và đủ tuổi chịu trách nhiệm hình sự thực hiện\" là?",
                 "options": {
                     "A": "Người có năng lực trách nhiệm hình sự và từ đủ 17 tuổi trở lên",
@@ -4236,20 +3996,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 144,
-                "category": "Chương 1",
-                "question": "Các tội xâm phạm nhân phẩm, danh dự của con người do người có năng lực trách nhiệm hình sự và đủ tuổi chịu trách nhiệm hình sự thực hiện là?",
-                "options": {
-                    "A": "Đặc điểm",
-                    "B": "Khái niệm",
-                    "C": "Mục đích",
-                    "D": "Tất cả phương án"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 145,
-                "category": "Chương 1",
+                "id": 142,
+                "category": "Chương 5",
                 "question": "Người nào xâm phạm nhân phẩm, danh dự của người khác phải chịu?",
                 "options": {
                     "A": "Trách nhiệm",
@@ -4260,8 +4008,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 146,
-                "category": "Chương 1",
+                "id": 143,
+                "category": "Chương 5",
                 "question": "Khách quan của tội phạm xâm phạm nhân phẩm, danh dự của con người là?",
                 "options": {
                     "A": "Cách xử sự của chủ thể",
@@ -4272,8 +4020,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 147,
-                "category": "Chương 1",
+                "id": 144,
+                "category": "Chương 5",
                 "question": "Chủ quan của tội phạm xâm phạm nhân phẩm, danh dự của con người là?",
                 "options": {
                     "A": "Lỗi của người phạm tội",
@@ -4284,8 +4032,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 148,
-                "category": "Chương 1",
+                "id": 145,
+                "category": "Chương 5",
                 "question": "Tội xâm phạm tình dục là?",
                 "options": {
                     "A": "Hành vi nguy hiểm cho xã hội được quy định trong bộ luật hình sự",
@@ -4296,8 +4044,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 149,
-                "category": "Chương 1",
+                "id": 146,
+                "category": "Chương 5",
                 "question": "Bộ luật hình sự hiện hành quy định về tội hiếp dâm là?",
                 "options": {
                     "A": "Dùng vũ lực để thực hiện hành vi quan hệ tình dục khác trái với ý muốn của nạn nhân",
@@ -4308,8 +4056,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 150,
-                "category": "Chương 1",
+                "id": 147,
+                "category": "Chương 5",
                 "question": "Bộ luật hình sự quy định về tội hiếp dâm với mức án cao nhất là?",
                 "options": {
                     "A": "10 năm",
@@ -4320,9 +4068,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 151,
+                "id": 148,
                 "category": "Chương 6",
-                "question": "An toàn thông tin và phòng, chống vi phạm pháp luật trên không gian mạng An ninh mạng là?",
+                "question": "An ninh mạng là?",
                 "options": {
                     "A": "sự đảm bảo hoạt động thông tin trên không gian mạng không gây phương hại đến an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân.",
                     "B": "phòng ngừa, phát hiện, ngăn chặn, xử lý hành vi xâm phạm an ninh mạng.",
@@ -4332,8 +4080,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 152,
-                "category": "Chương 1",
+                "id": 149,
+                "category": "Chương 6",
                 "question": "Việc sử dụng không gian mạng, công nghệ thông tin hoặc phương tiện điện tử để thực hiện hành vi khủng bố, tài trợ khủng bố là?",
                 "options": {
                     "A": "Gián điệp mạng",
@@ -4344,9 +4092,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 153,
-                "category": "Chương 1",
-                "question": "Sự bảo đảm hoạt động trên không gian mạng không gây phương hại đến an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chứ",
+                "id": 150,
+                "category": "Chương 6",
+                "question": "Sự bảo đảm hoạt động trên không gian mạng không gây phương hại đến an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân là?",
                 "options": {
                     "A": "Khủng bố mạng",
                     "B": "Gián điệp mạng",
@@ -4356,9 +4104,9 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 154,
-                "category": "Chương 1",
-                "question": "Phòng ngừ",
+                "id": 151,
+                "category": "Chương 6",
+                "question": "Phòng ngừa, phát hiện, ngăn chặn, xử lý hành vi xâm phạm an ninh mạng là?",
                 "options": {
                     "A": "Khủng bố mạng",
                     "B": "Bảo vệ an ninh mạng",
@@ -4368,8 +4116,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 155,
-                "category": "Chương 1",
+                "id": 152,
+                "category": "Chương 6",
                 "question": "Hành vi sử dụng không gian mạng, công nghệ thông tin hoặc phương tiện điện tử để thực hiện tội phạm được quy định tại Bộ luật Hình sự là?",
                 "options": {
                     "A": "Khủng bố mạng",
@@ -4380,8 +4128,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 156,
-                "category": "Chương 1",
+                "id": 153,
+                "category": "Chương 6",
                 "question": "Bảo vệ an ninh mạng là?",
                 "options": {
                     "A": "Phòng ngừa, phát hiện, ngăn chặn, xử lý hành vi xâm phạm an ninh mạng",
@@ -4392,8 +4140,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 157,
-                "category": "Chương 1",
+                "id": 154,
+                "category": "Chương 6",
                 "question": "Tội phạm mạng là?",
                 "options": {
                     "A": "là việc sử dụng không gian mạng, công nghệ thông tin hoặc phương tiện điện tử để thực hiện hành vi khủng bố, tài trợ khủng bố.",
@@ -4404,8 +4152,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 158,
-                "category": "Chương 1",
+                "id": 155,
+                "category": "Chương 6",
                 "question": "Tấn công mạng là?",
                 "options": {
                     "A": "là việc sử dụng không gian mạng, công nghệ thông tin hoặc phương tiện điện tử để thực hiện hành vi khủng bố, tài trợ khủng bố",
@@ -4416,8 +4164,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 159,
-                "category": "Chương 1",
+                "id": 156,
+                "category": "Chương 6",
                 "question": "Xác định phương án đúng về Nguyên tắc bảo vệ an ninh mạng?",
                 "options": {
                     "A": "Tuân thủ Hiến pháp và pháp luật; bảo đảm lợi ích của Nhà nước, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân.",
@@ -4428,8 +4176,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 160,
-                "category": "Chương 1",
+                "id": 157,
+                "category": "Chương 6",
                 "question": "Phương án nào sau đây không phải là biện pháp bảo vệ an ninh mạng?",
                 "options": {
                     "A": "Đánh giá điều kiện an ninh mạng",
@@ -4440,20 +4188,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 161,
-                "category": "Chương 1",
-                "question": "Phương án nào sau đây không phải là biện pháp bảo vệ an ninh mạng?",
-                "options": {
-                    "A": "Yêu cầu xóa bỏ, truy cập xóa bỏ thông tin trái pháp luật hoặc thông tin sai sự thật trên không gian mạng xâm phạm an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân",
-                    "B": "Ngăn chặn, yêu cầu tạm ngừng, ngừng cung cấp thông tin mạng; đình chỉ, tạm đình chỉ các hoạt động thiết lập, cung cấp và sử dụng mạng viễn thông, mạng Internet, sản xuất và sử dụng thiết bị phát, thu phát sóng vô tuyến theo quy định của pháp luật",
-                    "C": "Sử dụng mật mã để bảo vệ thông tin mạng",
-                    "D": "Cơ sở hạ tầng không gian mạng quốc gia"
-                },
-                "answer": "D"
-            },
-            {
-                "id": 162,
-                "category": "Chương 1",
+                "id": 158,
+                "category": "Chương 6",
                 "question": "Phương án nào sau đây là biện pháp bảo vệ an ninh mạng?",
                 "options": {
                     "A": "Thu thập dữ liệu điện tử liên quan đến hoạt động xâm phạm an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân trên không gian mạng",
@@ -4464,20 +4200,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 163,
-                "category": "Chương 1",
-                "question": "Phương án nào sau đây là biện pháp bảo vệ an ninh mạng?",
-                "options": {
-                    "A": "Ứng phó, khắc phục sự cố an ninh mạng",
-                    "B": "Nguy cơ đe dọa an ninh mạng",
-                    "C": "Sự cố an ninh mạng",
-                    "D": "Cơ sở hạ tầng không gian mạng quốc gia"
-                },
-                "answer": "A"
-            },
-            {
-                "id": 164,
-                "category": "Chương 1",
+                "id": 159,
+                "category": "Chương 6",
                 "question": "Cơ quan nào áp dụng các biện pháp để bảo vệ không gian mạng quốc gia?",
                 "options": {
                     "A": "Bộ Thông tin và Truyền thông",
@@ -4488,9 +4212,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 165,
-                "category": "Chương 1",
-                "question": "Cơ quan nào áp dụng các biện pháp để phòng ngừ",
+                "id": 160,
+                "category": "Chương 6",
+                "question": "Cơ quan nào áp dụng các biện pháp để phòng ngừa, xử lý hành vi xâm phạm an ninh quốc gia, trật tự, an toàn xã hội, quyền và lợi ích hợp pháp của cơ quan, tổ chức, cá nhân trên không gian mạng?",
                 "options": {
                     "A": "Ủy ban thường vụ Quốc hội",
                     "B": "Nhà nước",
@@ -4500,8 +4224,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 166,
-                "category": "Chương 1",
+                "id": 161,
+                "category": "Chương 6",
                 "question": "Cơ quan nào chịu trách nhiệm trước Chính phủ thực hiện hợp tác quốc tế về an ninh mạng trong phạm vi quản lý?",
                 "options": {
                     "A": "Bộ Nội vụ và Bộ Quốc phòng",
@@ -4512,8 +4236,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 167,
-                "category": "Chương 1",
+                "id": 162,
+                "category": "Chương 6",
                 "question": "Xác định phương án đúng về nội dung hợp tác quốc tế về an ninh mạng?",
                 "options": {
                     "A": "Nghiên cứu, phân tích xu hướng an ninh mạng",
@@ -4524,8 +4248,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 168,
-                "category": "Chương 1",
+                "id": 163,
+                "category": "Chương 6",
                 "question": "Luật An ninh mạng nghiêm cấm việc sử dụng không gian mạng để thực hiện hành vi nào dưới đây",
                 "options": {
                     "A": "Tổ chức, hoạt động, kết, xúi giục, mua chuộc, lừa gạt, lôi kéo, đào tạo, huấn luyện người chống Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam",
@@ -4536,8 +4260,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 169,
-                "category": "Chương 1",
+                "id": 164,
+                "category": "Chương 6",
                 "question": "Xác định phương án đúng về các hành vi bị nghiêm cấm về an ninh mạng?",
                 "options": {
                     "A": "Thực hiện tấn công mạng, khủng bố mạng, gián điệp mạng, tội phạm mạng; gây sự cố, tấn công, xâm nhập, chiếm quyền điều khiển, làm sai lệch, gián đoạn, ngưng trệ, tê liệt hoặc phá hoại hệ thống thông tin quan trọng về an ninh quốc giA,",
@@ -4548,8 +4272,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 170,
-                "category": "Chương 1",
+                "id": 165,
+                "category": "Chương 6",
                 "question": "Người có hành vi vi phạm được quy định trong Luật An ninh mạng thì bị xử lý như thế nào?",
                 "options": {
                     "A": "Nhẹ thì bị xử lý vi phạm hành chính, nặng thì bị truy cứu trách nhiệm hình sự, nếu gây thiệt hại thì phải bồi thường",
@@ -4560,8 +4284,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 171,
-                "category": "Chương 1",
+                "id": 166,
+                "category": "Chương 6",
                 "question": "Hệ thống thông tin quan trọng về an ninh quốc gia bao gồm?",
                 "options": {
                     "A": "Hệ thống thông tin lưu trữ, xử lý thông tin thuộc bí mật nhà nước; Hệ thống thông tin phục vụ bảo quản vật liệu, chất đặc biệt nguy hiểm đối với con người, môi trường sinh thái",
@@ -4572,8 +4296,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 172,
-                "category": "Chương 1",
+                "id": 167,
+                "category": "Chương 6",
                 "question": "Chọn phương án đúng về Hệ thống thông tin quan trọng về an ninh quốc gia?",
                 "options": {
                     "A": "Hệ thống thông tin phục vụ bảo quản, chế tạo, quản lý cơ sở vật chất đặc biệt quan trọng khác liên quan đến an ninh quốc gia",
@@ -4584,8 +4308,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 173,
-                "category": "Chương 1",
+                "id": 168,
+                "category": "Chương 6",
                 "question": "Chọn phương án sai về Hệ thống thông tin quan trọng về an ninh quốc gia?",
                 "options": {
                     "A": "Không có phưong án nào sai",
@@ -4596,8 +4320,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 174,
-                "category": "Chương 1",
+                "id": 169,
+                "category": "Chương 6",
                 "question": "Ai là người ban hành và sửa đổi, bổ sung Danh mục hệ thống thông tin quan trọng về an ninh quốc gia?",
                 "options": {
                     "A": "Thủ tướng Chính phủ",
@@ -4608,8 +4332,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 175,
-                "category": "Chương 1",
+                "id": 170,
+                "category": "Chương 6",
                 "question": "Hệ thống thông tin quan trọng về an ninh quốc gia trừ thông tin quân sự và thông tin cơ yếu thuộc Ban Cơ yếu Chính phủ do ai thẩm định?",
                 "options": {
                     "A": "Lực lượng chuyên trách bảo vệ an ninh mạng thuộc Bộ Quốc phòng",
@@ -4620,8 +4344,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 176,
-                "category": "Chương 1",
+                "id": 171,
+                "category": "Chương 6",
                 "question": "Đánh giá điều kiện về an ninh mạng là gì?",
                 "options": {
                     "A": "là hoạt động xem xét, đánh giá những nội dung về an ninh mạng để làm cơ sở cho việc quyết định xây dựng hoặc nâng cấp hệ thống thông tin",
@@ -4632,8 +4356,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 177,
-                "category": "Chương 1",
+                "id": 172,
+                "category": "Chương 6",
                 "question": "Xác định phương án đúng điều kiệnĐáp ứng Hệ thống thông tin quan trọng về an ninh quốc gia?",
                 "options": {
                     "A": "Tất cả phương án",
@@ -4644,8 +4368,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 178,
-                "category": "Chương 1",
+                "id": 173,
+                "category": "Chương 6",
                 "question": "Trường hợp nào được kiểm tra an ninh mạng đối với hệ thống thông tin quan trọng về an ninh quốc gia?",
                 "options": {
                     "A": "Khi có thay đổi hiện trạng hệ thống thông tin",
@@ -4656,8 +4380,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 179,
-                "category": "Chương 1",
+                "id": 174,
+                "category": "Chương 6",
                 "question": "Giám sát an ninh mạng là gì?",
                 "options": {
                     "A": "là hoạt động xác định thực trạng an ninh mạng của hệ thống thông tin, cơ sở hạ tầng hệ thống thông tin hoặc thông tin được lưu trữ, xử lý, truyền đưa trong hệ thống thông tin nhằm phòng ngừa, phát hiện, xử lý nguy cơ đe dọa an ninh mạng và đưa ra các phương án, biện pháp bảo đảm hoạt động bình thường của hệ thống thông tin",
@@ -4668,9 +4392,9 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 180,
-                "category": "Chương 1",
-                "question": "Lực lượng nào chủ trì, phối hợp với lực lượng chuyên trách bảo vệ an ninh mạng có thẩm quyền thường xuyên thực hiện giám sát an ninh mạng đối với hệ thống thông tin thuộc phạm vi quản lý; xây dựng cơ chế tự cảnh báo và tiếp nhận cảnh báo về nguy cơ đe dọa an ninh mạng, sự cố an ninh mạng, điểm yếu, lỗ hổng bảo mật, mã độ",
+                "id": 175,
+                "category": "Chương 6",
+                "question": "Lực lượng nào chủ trì, phối hợp với lực lượng chuyên trách bảo vệ an ninh mạng có thẩm quyền thường xuyên thực hiện giám sát an ninh mạng đối với hệ thống thông tin thuộc phạm vi quản lý; xây dựng cơ chế tự cảnh báo và tiếp nhận cảnh báo về nguy cơ đe dọa an ninh mạng, sự cố an ninh mạng, điểm yếu, lỗ hổng bảo mật, mã độc, phần cứng độc hại và đề ra phương án ứng phó, khắc phục khẩn cấp.",
                 "options": {
                     "A": "Ban Cơ yếu Chính phủ",
                     "B": "Chủ quản hệ thống thông tin quan trọng về an ninh quốc gia",
@@ -4680,9 +4404,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 181,
+                "id": 176,
                 "category": "Chương 7",
-                "question": "An ninh phi truyền thống và các mối đe dọa an ninh phi truyền thống ở Việt Nam Tìm trả lời sai: Định dạng các mối đe dọa an ninh phi truyền thống bao gồm ?",
+                "question": "Tìm trả lời sai: Định dạng các mối đe dọa an ninh phi truyền thống bao gồm ?",
                 "options": {
                     "A": "An ninh con người.",
                     "B": "An ninh Tổ quốC,",
@@ -4692,20 +4416,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 182,
-                "category": "Chương 1",
-                "question": "Tìm trả lời sai: Định dạng các mối đe dọa an ninh phi truyền thống bao gồm ?",
-                "options": {
-                    "A": "An ninh lương thựC,",
-                    "B": "An ninh quốc giA,",
-                    "C": "Biến đổi khí hậu.",
-                    "D": "Thiên tai."
-                },
-                "answer": "B"
-            },
-            {
-                "id": 183,
-                "category": "Chương 1",
+                "id": 177,
+                "category": "Chương 7",
                 "question": "Hãy chọn cụm từ đúng tương ứng vị trí (1) và (2) để làm rõ khái niệm sau: “Nội dung của an ninh truyền thống hay an ninh quốc gia chính là... (1)... (2), an ninh xã hội.",
                 "options": {
                     "A": "An ninh quốc gia (1); sức mạnh vũ trang (2)",
@@ -4716,8 +4428,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 184,
-                "category": "Chương 1",
+                "id": 178,
+                "category": "Chương 7",
                 "question": "Hãy chọn cụm từ đúng nhất tương ứng vị trí (1) và (2) để làm rõ khái niệm sau: Hãy chọn cụm từ đúng nhất tương ứng vị trí (1) và (2) để làm rõ khái niệm sau: “Nội dung của an ninh truyền thống hay an ninh quốc gia chính là an ninh chính trị,... (1)... (2)",
                 "options": {
                     "A": "Tiềm lực vũ trang (1); an ninh chính trị (2)",
@@ -4728,9 +4440,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 185,
-                "category": "Chương 1",
-                "question": "Một trong giải pháp phòng ngừ",
+                "id": 179,
+                "category": "Chương 7",
+                "question": "Một trong giải pháp phòng ngừa, ứng phó với các mối đe dọa an ninh phi truyền thống ở Việt Nam hiện nay là:",
                 "options": {
                     "A": "Phối hợp chặt chẽ chống lực lượng gián điệp từ bên ngoài vào và lực lượng phản động bên trong.",
                     "B": "Tổ chức lực lượng phòng phòng ngừa, ứng phó với các mối đe dọa an ninh phi truyền thống.",
@@ -4740,8 +4452,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 186,
-                "category": "Chương 1",
+                "id": 180,
+                "category": "Chương 7",
                 "question": "Tìm trả lời đúng: Những thách thức và đe dọa an ninh phi truyền thống là ?",
                 "options": {
                     "A": "Cản trở quá trình phát triển nền văn hóa tiên tiến đậm đà bản sắc dân tộC,",
@@ -4752,33 +4464,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 187,
-                "category": "Chương 1",
-                "question": "Tìm trả lời đúng: Những thách thức và đe dọa an ninh phi truyền thống là ?",
-                "options": {
-                    "A": "Cản trở quá trình phát triển nền văn hóa tiên tiến đậm đà bản sắc dân tộC,",
-                    "B": "Làm suy giảm sức mạnh an ninh của đất nướC,",
-                    "C": "Hình thành nguy cơ xung đột và chiến tranh.",
-                    "D": "Làm suy giảm sức mạnh sẵn sàng chiến đấu của lực lượng vũ trang."
-                },
-                "answer": "C"
-            },
-            {
-                "id": 188,
-                "category": "Chương 1",
-                "question": "Tìm trả lời đúng: Những thách thức và đe dọa an ninh phi truyền thống là ?",
-                "options": {
-                    "A": "Cản trở quá trình phát triển nền văn hóa tiên tiến đậm đà bản sắc dân tộC,",
-                    "B": "Gây mất ổn định của quốc giA,",
-                    "C": "Làm suy giảm sức mạnh an ninh của đất nướC,",
-                    "D": "Làm suy giảm sức mạnh sẵn sàng chiến đấu của lực lượng vũ trang."
-                },
-                "answer": "B"
-            },
-            {
-                "id": 189,
-                "category": "Chương 1",
-                "question": "Điền cụm từ phù hợp vào chỗ trống: “Nâng cao nhận thức về các mối đe dọa an ninh phi truyền thống đối với an ninh con người, an ninh cộng đồng, .... .... ....” để phòng ngừ",
+                "id": 181,
+                "category": "Chương 7",
+                "question": "Điền cụm từ phù hợp vào chỗ trống: “Nâng cao nhận thức về các mối đe dọa an ninh phi truyền thống đối với an ninh con người, an ninh cộng đồng, .... .... ....” để phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống an ninh quốc gia và an ninh nhân loại",
                 "options": {
                     "A": "Hai nhiệm vụ chiến lược xây dựng và bảo vệ Tổ quốC,",
                     "B": "Sức mạnh của lực lượng vũ trang.",
@@ -4788,9 +4476,9 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 190,
-                "category": "Chương 1",
-                "question": "Điền cụm từ phù hợp vào chỗ trống: “Nâng cao nhận thức về các mối đe dọa an ninh phi truyền thống đối với an ninh con người, an ninh cộng đồng, .... .... ....” để phòng ngừ",
+                "id": 182,
+                "category": "Chương 7",
+                "question": "Điền cụm từ phù hợp vào chỗ trống: “Nâng cao nhận thức về các mối đe dọa an ninh phi truyền thống đối với an ninh con người, an ninh cộng đồng, .... .... ....” để phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống.",
                 "options": {
                     "A": "An ninh quốc gia và an ninh toàn cầu.",
                     "B": "Sức mạnh của lực lượng vũ trang.",
@@ -4800,21 +4488,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 191,
-                "category": "Chương 1",
-                "question": "Điền cụm từ phù hợp vào chỗ trống: “Nâng cao nhận thức về các mối đe dọa an ninh phi truyền thống đối với an ninh con người, an ninh cộng đồng, .... .... ....” để phòng ngừ",
-                "options": {
-                    "A": "An ninh quốc gia và an ninh toàn cầu.",
-                    "B": "An ninh con người",
-                    "C": "An ninh công nghiệp hóa, hiện đại hóA,",
-                    "D": "Sự nghiệp công nghiệp hoá, hiện đại hoá đất nướC,"
-                },
-                "answer": "B"
-            },
-            {
-                "id": 192,
-                "category": "Chương 1",
-                "question": "Giải pháp phòng ngừ",
+                "id": 183,
+                "category": "Chương 7",
+                "question": "Giải pháp phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống là: “... ... và tăng cường hợp tác quốc tế về phòng ngừa, kiểm soát và ứng phó với các mối đe dọa an ninh phi truyền thống”. Hãy chọn cụm từ còn thiếu:",
                 "options": {
                     "A": "Thống nhất.",
                     "B": "Phát triển.",
@@ -4824,9 +4500,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 193,
-                "category": "Chương 1",
-                "question": "Một trong những giải pháp phòng ngừ",
+                "id": 184,
+                "category": "Chương 7",
+                "question": "Một trong những giải pháp phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống là: “Mở rộng và ... ... hợp tác quốc tế về phòng ngừa, kiểm soát và ứng phó với các mối đe dọa an ninh phi truyền thống”. Hãy chọn cụm từ còn thiếu:",
                 "options": {
                     "A": "Tích cực",
                     "B": "Phát triển.",
@@ -4836,9 +4512,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 194,
-                "category": "Chương 1",
-                "question": "Một trong những giải pháp phòng ngừ",
+                "id": 185,
+                "category": "Chương 7",
+                "question": "Một trong những giải pháp phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống là: “Mở rộng và tăng cường hợp tác quốc tế về phòng ngừa, kiểm soát và ... ... với các mối đe dọa an ninh phi truyền thống”. Hãy chọn cụm từ còn thiếu:",
                 "options": {
                     "A": "Phản ứng.",
                     "B": "Xử lý.",
@@ -4848,9 +4524,9 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 195,
-                "category": "Chương 1",
-                "question": "Một trong những giải pháp phòng ngừ",
+                "id": 186,
+                "category": "Chương 7",
+                "question": "Một trong những giải pháp phòng ngừa, ứng phó đối với các mối đe dọa an ninh phi truyền thống là: “Huy động nguồn lực ... ... bằng nhiều kênh khác nhau để đầu tư cho hoạt động phòng ngừa, kiểm soát, ứng phó các mối đe dọa an ninh phi truyền thống”. Hãy chọn cụm từ còn thiếu:",
                 "options": {
                     "A": "Ngân sách.",
                     "B": "Tài chính.",
@@ -4860,8 +4536,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 196,
-                "category": "Chương 1",
+                "id": 187,
+                "category": "Chương 7",
                 "question": "Nghị quyết Đại hội Đại biểu toàn quốc lần thứ XIII của Đảng khẳng định: “Tập trung … Covid-19, tiêm chủng đại trà vắc-xin Covid-19 cho cộng đồng”.",
                 "options": {
                     "A": "Xóa bỏ đại dịch.",
@@ -4872,8 +4548,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 197,
-                "category": "Chương 1",
+                "id": 188,
+                "category": "Chương 7",
                 "question": "Nghị quyết Đại hội lần thứ XIII của Đảng nhấn mạnh: “Quản lý chặt chẽ, sử dụng hợp lý, hiệu quả đất đai, tài nguyên; bảo vệ, cải thiện môi trường; chủ động, tích cực triển khai các … với biến đổi khí hậu, thiên tai khắc nghiệt”.",
                 "options": {
                     "A": "Giải pháp đối phó.",
@@ -4884,8 +4560,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 198,
-                "category": "Chương 1",
+                "id": 189,
+                "category": "Chương 7",
                 "question": "Điền từ còn thiếu vào sau: “Phát huy sức mạnh tổng hợp của … và toàn xã hội trong quản trị và kiểm soát các mối đe dọa an ninh phi truyền thống”.",
                 "options": {
                     "A": "Các bộ, ban, ngành.",
@@ -4896,8 +4572,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 199,
-                "category": "Chương 1",
+                "id": 190,
+                "category": "Chương 7",
                 "question": "Đại hội lần thứ XIII của Đảng đặt ra mục tiêu đến năm 2025, tỉ lệ sử dụng nước sạch, nước hợp vệ sinh của dân cư thành thị là:",
                 "options": {
                     "A": "Từ 95% đến 100%.",
@@ -4908,8 +4584,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 200,
-                "category": "Chương 1",
+                "id": 191,
+                "category": "Chương 7",
                 "question": "Nội dung nào không phải là một vấn đề an ninh phi truyền thống?",
                 "options": {
                     "A": "Tội phạm công nghệ cao.",
@@ -4920,8 +4596,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 201,
-                "category": "Chương 1",
+                "id": 192,
+                "category": "Chương 7",
                 "question": "Đại dịch Covid 19 là một vấn đề an ninh phi truyền thống ở quy mô nào?",
                 "options": {
                     "A": "Quy mô khu vựC,",
@@ -4932,8 +4608,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 202,
-                "category": "Chương 1",
+                "id": 193,
+                "category": "Chương 7",
                 "question": "Bảo vệ an ninh quốc gia là phải:",
                 "options": {
                     "A": "Loại bỏ những mối đe dọa đến lợi ích cơ bản của nhân dân",
@@ -4944,8 +4620,8 @@ const subjectsData = {
                 "answer": "D"
             },
             {
-                "id": 203,
-                "category": "Chương 1",
+                "id": 194,
+                "category": "Chương 7",
                 "question": "Mục tiêu của an ninh quốc gia là:",
                 "options": {
                     "A": "Phòng ngừa sự chống phá của các loại tội phạm",
@@ -4956,8 +4632,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 204,
-                "category": "Chương 1",
+                "id": 195,
+                "category": "Chương 7",
                 "question": "An ninh phi truyền thống có thể hiểu là một loại hình:",
                 "options": {
                     "A": "An ninh xuyên quốc gia",
@@ -4968,8 +4644,8 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 205,
-                "category": "Chương 1",
+                "id": 196,
+                "category": "Chương 7",
                 "question": "Giải quyết các nội dung về an ninh phi truyền thống phải là nhiệm vụ:",
                 "options": {
                     "A": "Mang tính toàn cầu",
@@ -4980,9 +4656,9 @@ const subjectsData = {
                 "answer": "A"
             },
             {
-                "id": 206,
-                "category": "Chương 1",
-                "question": "Gây ra những hệ lụy như: sản xuất đình trệ, thất nghiệp gia tăng, đứt gãy chuỗi cung ứng sản xuất và tiêu dùng, kinh tế suy thoái, kém phát triển, đời sống người dân gặp khó khăn… là những thách thứ",
+                "id": 197,
+                "category": "Chương 7",
+                "question": "Gây ra những hệ lụy như: sản xuất đình trệ, thất nghiệp gia tăng, đứt gãy chuỗi cung ứng sản xuất và tiêu dùng, kinh tế suy thoái, kém phát triển, đời sống người dân gặp khó khăn… là những thách thức, đe dọa từ an ninh phi truyền thống đối với lĩnh vực:",
                 "options": {
                     "A": "Xã hội",
                     "B": "Kinh tế",
@@ -4992,8 +4668,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 207,
-                "category": "Chương 1",
+                "id": 198,
+                "category": "Chương 7",
                 "question": "An ninh phi truyền thống xuất phát từ các yếu tố do tự nhiên gây ra như:",
                 "options": {
                     "A": "Biến đổi khí hậu, xung đột biên giới, hỏa hoạn",
@@ -5004,8 +4680,8 @@ const subjectsData = {
                 "answer": "C"
             },
             {
-                "id": 208,
-                "category": "Chương 1",
+                "id": 199,
+                "category": "Chương 7",
                 "question": "An ninh phi truyền thống do các yếu tố:",
                 "options": {
                     "A": "Phi kinh tế, phi chính trị gây ra",
@@ -5016,8 +4692,8 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 209,
-                "category": "Chương 1",
+                "id": 200,
+                "category": "Chương 7",
                 "question": "Đảng ta đã chỉ rõ “sẵn sàng ứng phó với các mối đe dọa an ninh truyền thống và phi truyền thống” tại:",
                 "options": {
                     "A": "Nghị quyết Trung ương 8",
@@ -5028,9 +4704,9 @@ const subjectsData = {
                 "answer": "B"
             },
             {
-                "id": 210,
-                "category": "Chương 1",
-                "question": "Nguy cơ xâm phạm biên giới đất liền, biển đảo, vùng trời của Tổ quốc là một trong những thách thứ",
+                "id": 201,
+                "category": "Chương 7",
+                "question": "Nguy cơ xâm phạm biên giới đất liền, biển đảo, vùng trời của Tổ quốc là một trong những thách thức, nguy cơ đối với:",
                 "options": {
                     "A": "Bất ổn xã hội",
                     "B": "An ninh truyền thống",
