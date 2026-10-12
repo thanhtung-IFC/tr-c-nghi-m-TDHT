@@ -1223,72 +1223,6 @@ details[open] .detail-summary::before {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   RESPONSIVE (MOBILE & TABLET)
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-@media (max-width: 768px) {
-    body {
-        padding: 14px;
-    }
-
-    .theme-toggle-btn {
-        top: 14px;
-        right: 14px;
-        padding: 6px 10px;
-    }
-
-    .theme-toggle-btn .theme-text {
-        display: none;
-    }
-
-    .container {
-        margin-top: 50px;
-        padding: 1.8rem 1.2rem;
-    }
-
-    .quiz-wrapper {
-        flex-direction: column;
-    }
-
-    .quiz-main,
-    .quiz-sidebar {
-        padding: 1.25rem;
-    }
-
-    .result-content-large {
-        width: 96vw;
-        padding: 20px 14px;
-    }
-
-    .result-stats-row {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-
-    .stat-card {
-        padding: 10px 4px;
-    }
-
-    .stat-card-num {
-        font-size: 1.3rem;
-    }
-
-    .score-ring {
-        width: 110px;
-        height: 110px;
-    }
-
-    .score-ring-inner {
-        width: 82px;
-        height: 82px;
-    }
-
-    .score-ring-value {
-        font-size: 1.8rem;
-    }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
    FOOTER (MADE BY THANH TÙNG IFC)
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -1334,4 +1268,274 @@ details[open] .detail-summary::before {
     letter-spacing: 0.08em;
     color: var(--text-main);
     text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE (MOBILE & TABLET DEEP OPTIMIZATIONS)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* Touch active feedback for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .option-item:active,
+    .subject-card:active,
+    .chapter-card:active,
+    .mode-card:active,
+    .btn-primary:active,
+    .btn-secondary:active,
+    .btn-icon:active,
+    .btn-pin:active,
+    .palette-item:active {
+        transform: scale(0.985);
+        opacity: 0.92;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px 10px;
+    }
+
+    /* Floating Theme Toggle on Mobile: Compact Round Pill */
+    .theme-toggle-btn {
+        top: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-md);
+    }
+
+    .theme-toggle-btn .theme-text {
+        display: none;
+    }
+
+    .theme-toggle-btn .theme-icon {
+        font-size: 1.15rem;
+    }
+
+    /* Home Container */
+    .container {
+        margin-top: 48px;
+        padding: 1.6rem 1.1rem;
+        border-radius: 16px;
+    }
+
+    .app-title {
+        font-size: 1.6rem;
+    }
+
+    .app-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 20px;
+    }
+
+    .brand-badge {
+        font-size: 0.74rem;
+        padding: 5px 12px;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Quiz Layout */
+    .quiz-wrapper {
+        flex-direction: column;
+        margin: 10px auto;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .quiz-main {
+        padding: 14px 12px;
+        border-radius: 16px;
+        width: 100%;
+    }
+
+    /* Disable sticky sidebar on mobile so it doesn't float over questions */
+    .quiz-sidebar {
+        position: static !important;
+        width: 100%;
+        padding: 14px 12px;
+        border-radius: 16px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+    }
+
+    #current-subject-name {
+        text-align: center;
+        font-size: 1.05rem;
+    }
+
+    .top-actions {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .top-actions .btn-icon {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+
+    /* Question & Options */
+    .question-card {
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+    }
+
+    .question-top {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .question-title {
+        font-size: 0.98rem;
+        line-height: 1.5;
+    }
+
+    .btn-pin {
+        padding: 4px 8px;
+        font-size: 0.74rem;
+    }
+
+    .option-item {
+        padding: 11px 13px;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Navigation button group (Thumb friendly) */
+    .button-group {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .button-group button {
+        flex: 1;
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Palette */
+    .palette-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+    }
+
+    .palette-item {
+        min-height: 42px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+
+    .palette-note {
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.74rem;
+    }
+
+    /* Modal Kết quả */
+    .result-content-large {
+        width: 95vw;
+        max-height: 88vh;
+        padding: 20px 14px;
+        border-radius: 18px;
+    }
+
+    .result-title-text {
+        font-size: 1.25rem;
+    }
+
+    .score-ring {
+        width: 105px;
+        height: 105px;
+    }
+
+    .score-ring-inner {
+        width: 78px;
+        height: 78px;
+    }
+
+    .score-ring-value {
+        font-size: 1.7rem;
+    }
+
+    .result-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px 4px;
+    }
+
+    .stat-card-num {
+        font-size: 1.3rem;
+    }
+
+    /* Result Action Buttons (Full width on mobile) */
+    .result-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .result-actions button {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.92rem;
+    }
+
+    /* Footer Mobile */
+    .app-footer {
+        padding: 26px 12px 16px;
+    }
+
+    .footer-badge {
+        padding: 5px 14px 5px 6px;
+        gap: 8px;
+    }
+
+    .footer-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-text {
+        font-size: 0.75rem;
+    }
 }

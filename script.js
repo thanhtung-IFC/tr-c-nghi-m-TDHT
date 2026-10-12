@@ -95,6 +95,54 @@
             const j = Math.floor(Math.random() * (i + 1));
             [arr[i], arr[j]] = [arr[j], arr[i]];
         }
+        return arr;
+    }
+
+    /**
+     * Xáo trộn ngẫu nhiên các lựa chọn (A, B, C, D) của một câu hỏi
+     * và tự động cập nhật lại nhãn đáp án đúng (answer) theo vị trí mới.
+     */
+    function shuffleQuestionOptions(q) {
+        if (!q || !q.options) return { ...q };
+
+        const correctText = q.options[q.answer];
+        const keys = Object.keys(q.options);
+        if (keys.length <= 1) return { ...q };
+
+        // Lấy danh sách nội dung các lựa chọn
+        const texts = keys.map(k => q.options[k]);
+        shuffleArray(texts);
+
+        const newOptions = {};
+        let newAnswer = q.answer;
+
+        keys.forEach((key, idx) => {
+            const text = texts[idx];
+            newOptions[key] = text;
+            if (text === correctText) {
+                newAnswer = key;
+            }
+        });
+
+        return {
+            ...q,
+            options: newOptions,
+            answer: newAnswer
+        };
+    }
+
+    /**
+     * Trộn đề toàn diện:
+     * 1. Xáo trộn vị trí các đáp án (options) của từng câu hỏi.
+     * 2. Xáo trộn thứ tự các câu hỏi trong đề.
+     */
+    function shuffleQuestions(list) {
+        if (!Array.isArray(list)) return [];
+        // Tạo câu hỏi mới với các đáp án được xáo trộn ngẫu nhiên
+        const copy = list.map(q => shuffleQuestionOptions(q));
+        // Xáo trộn thứ tự danh sách câu hỏi
+        shuffleArray(copy);
+        return copy;
     }
 
     function showConfirm(message) {
@@ -246,9 +294,7 @@
         isExamMode = true;
         isReviewMode = false;
         currentSessionMode = 'exam';
-        const examSet = [...currentQuestions];
-        shuffleArray(examSet);
-        examSet.splice(Math.min(100, examSet.length));
+        const examSet = shuffleQuestions(currentQuestions).slice(0, Math.min(100, currentQuestions.length));
 
         hideAll();
         els.quizArea.classList.remove('hidden');
@@ -822,7 +868,7 @@
         if (retryWrongBtn) {
             retryWrongBtn.addEventListener('click', () => {
                 els.resultModal.classList.add('hidden');
-                const wrongList = wrongQuestions.map(w => w.question);
+                const wrongList = shuffleQuestions(wrongQuestions.map(w => w.question));
                 startPracticeMode(wrongList, 'retry-wrong');
             });
         }
@@ -832,7 +878,7 @@
         if (retryPinnedBtn) {
             retryPinnedBtn.addEventListener('click', () => {
                 els.resultModal.classList.add('hidden');
-                const pinnedList = pinnedQuestions.map(p => p.question);
+                const pinnedList = shuffleQuestions(pinnedQuestions.map(p => p.question));
                 startPracticeMode(pinnedList, 'retry-pinned');
             });
         }
@@ -851,7 +897,8 @@
                 startExamMode();
             } else {
                 isReviewMode = false;
-                startSession([...activeQuestions]);
+                const shuffled = shuffleQuestions(activeQuestions);
+                startSession(shuffled);
             }
         });
 
@@ -941,10 +988,9 @@
     });
 
     els.shuffleBtn.addEventListener('click', () => {
-        showConfirm('Trộn lại câu hỏi và làm lại từ đầu?').then(ok => {
+        showConfirm('Trộn lại câu hỏi & xáo trộn toàn bộ vị trí các đáp án?').then(ok => {
             if (ok) {
-                const shuffled = [...activeQuestions];
-                shuffleArray(shuffled);
+                const shuffled = shuffleQuestions(activeQuestions);
                 startSession(shuffled);
             }
         });
@@ -967,14 +1013,17 @@
     const themeText = themeBtn ? themeBtn.querySelector('.theme-text') : null;
 
     function applyTheme(theme) {
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             if (themeIcon) themeIcon.textContent = '☀️';
             if (themeText) themeText.textContent = 'Giao diện sáng';
+            if (metaTheme) metaTheme.setAttribute('content', '#09090b');
         } else {
             document.documentElement.removeAttribute('data-theme');
             if (themeIcon) themeIcon.textContent = '🌙';
             if (themeText) themeText.textContent = 'Giao diện tối';
+            if (metaTheme) metaTheme.setAttribute('content', '#f4f4f6');
         }
         try {
             localStorage.setItem('app_theme', theme);
