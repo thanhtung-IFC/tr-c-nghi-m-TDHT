@@ -39,14 +39,55 @@
     };
 
     // ─── State ───────────────────────────────────────────────────────────────────
-    let currentSubjectCode = '';
-    let currentQuestions   = [];
-    let activeQuestions    = [];
-    let userAnswers        = {};
-    let currentPage        = 0;
-    let isExamMode         = false;
-    let isReviewMode       = false;
-    let timerInterval      = null;
+    let currentSubjectCode  = '';
+    let currentQuestions    = [];
+    let activeQuestions     = [];
+    let userAnswers         = {};
+    let currentPage         = 0;
+    let isExamMode          = false;
+    let isReviewMode        = false;
+    let currentSessionMode  = 'practice'; // 'practice', 'exam', 'retry-wrong', 'retry-pinned'
+    let pinnedQuestionIds   = new Set();
+    let timerInterval       = null;
+
+    // ─── Pinned Questions Storage ────────────────────────────────────────────────
+    function getQuestionKey(q) {
+        if (!q) return '';
+        return q.id !== undefined && q.id !== null ? String(q.id) : (q.question || '').trim();
+    }
+
+    function loadPinnedQuestions(subjectCode) {
+        try {
+            const raw = localStorage.getItem(`pinned_questions_${subjectCode}`);
+            if (raw) {
+                return new Set(JSON.parse(raw));
+            }
+        } catch (e) {
+            console.error('Lỗi khi đọc danh sách câu ghim:', e);
+        }
+        return new Set();
+    }
+
+    function savePinnedQuestions(subjectCode, set) {
+        try {
+            localStorage.setItem(`pinned_questions_${subjectCode}`, JSON.stringify([...set]));
+        } catch (e) {
+            console.error('Lỗi khi lưu danh sách câu ghim:', e);
+        }
+    }
+
+    function togglePinQuestion(q) {
+        const key = getQuestionKey(q);
+        if (!key) return;
+        if (pinnedQuestionIds.has(key)) {
+            pinnedQuestionIds.delete(key);
+        } else {
+            pinnedQuestionIds.add(key);
+        }
+        savePinnedQuestions(currentSubjectCode, pinnedQuestionIds);
+        updateProgressTracker();
+        updatePalette();
+    }
 
     // ─── Utilities ───────────────────────────────────────────────────────────────
     function shuffleArray(arr) {
@@ -142,11 +183,12 @@
     // ─── Open subject ────────────────────────────────────────────────────────────
     function openSubject(code) {
         currentSubjectCode = code;
-        currentQuestions = [...(subjectsData[code]?.questions || [])];
+        pinnedQuestionIds  = loadPinnedQuestions(code);
+        currentQuestions   = [...(subjectsData[code]?.questions || [])];
         els.currentSubjectName.textContent = subjectsData[code].name;
         els.homeScreen.classList.add('hidden');
         els.quizApp.classList.remove('hidden');
-        startPracticeMode(currentQuestions);
+        startPracticeMode(currentQuestions, 'practice');
         scrollTop();
     }
 
@@ -165,7 +207,7 @@
         const allBtn = document.createElement('div');
         allBtn.className = 'chapter-card';
         allBtn.innerHTML = `<span class="chapter-title">🔥 Tất cả</span><span class="chapter-count">${currentQuestions.length} câu</span>`;
-        allBtn.addEventListener('click', () => startPracticeMode(currentQuestions));
+        allBtn.addEventListener('click', () => startPracticeMode(currentQuestions, 'practice'));
         fragment.appendChild(allBtn);
 
         categories.forEach(category => {
@@ -173,7 +215,7 @@
             const card = document.createElement('div');
             card.className = 'chapter-card';
             card.innerHTML = `<span class="chapter-title">${category}</span><span class="chapter-count">${filtered.length} câu</span>`;
-            card.addEventListener('click', () => startPracticeMode(filtered));
+            card.addEventListener('click', () => startPracticeMode(filtered, 'practice'));
             fragment.appendChild(card);
         });
 
@@ -187,9 +229,10 @@
     }
 
     // ─── Start modes ─────────────────────────────────────────────────────────────
-    function startPracticeMode(data) {
+    function startPracticeMode(data, mode = 'practice') {
         isExamMode = false;
         isReviewMode = false;
+        currentSessionMode = mode;
         hideAll();
         els.quizArea.classList.remove('hidden');
         els.sidebarArea.classList.remove('hidden');
@@ -202,6 +245,7 @@
     function startExamMode() {
         isExamMode = true;
         isReviewMode = false;
+        currentSessionMode = 'exam';
         const examSet = [...currentQuestions];
         shuffleArray(examSet);
         examSet.splice(Math.min(100, examSet.length));
@@ -237,11 +281,13 @@
                 <span class="note-item"><span class="dot dot-correct"></span>Đúng</span>
                 <span class="note-item"><span class="dot dot-wrong"></span>Sai</span>
                 <span class="note-item"><span class="dot current"></span>Trang này</span>
+                <span class="note-item">📌 Đã ghim</span>
             `;
         } else {
             els.paletteNote.innerHTML = `
                 <span class="note-item"><span class="dot done"></span>Đã làm</span>
                 <span class="note-item"><span class="dot current"></span>Trang này</span>
+                <span class="note-item">📌 Đã ghim</span>
             `;
         }
     }
@@ -256,9 +302,15 @@
 
         // Score display text
         if (isReviewMode) {
-            els.scoreDisplay.textContent = 'Xem lại';
+            els.scoreDisplay.textContent = 'Xem lại bài';
         } else if (isExamMode) {
             els.scoreDisplay.textContent = 'Thi thử';
+        } else if (currentSessionMode === 'retry-wrong') {
+            const stats = getStats();
+            els.scoreDisplay.textContent = `Ôn câu sai: ${stats.correct + stats.wrong}/${stats.total}`;
+        } else if (currentSessionMode === 'retry-pinned') {
+            const stats = getStats();
+            els.scoreDisplay.textContent = `Ôn câu ghim: ${stats.correct + stats.wrong}/${stats.total}`;
         } else {
             const stats = getStats();
             els.scoreDisplay.textContent = `Đã làm: ${stats.correct + stats.wrong}/${stats.total}`;
@@ -270,35 +322,64 @@
         const fragment = document.createDocumentFragment();
 
         for (let i = startIndex; i < endIndex; i++) {
-            const q    = activeQuestions[i];
+            const q = activeQuestions[i];
+            const key = getQuestionKey(q);
+            const isPinned = pinnedQuestionIds.has(key);
+
             const card = document.createElement('div');
             card.className = 'question-card';
 
-            const tagHtml = q.category ? `<span class="q-tag">${q.category}</span>` : '';
-            card.innerHTML = `<div class="question-title"><span class="q-number">Câu ${i + 1}:</span> ${tagHtml} ${q.question}</div>`;
+            // Top Header: Title & Pin Button
+            const topWrap = document.createElement('div');
+            topWrap.className = 'question-top';
 
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'question-title';
+            const tagHtml = q.category ? `<span class="q-tag">${q.category}</span>` : '';
+            titleDiv.innerHTML = `<span class="q-number">Câu ${i + 1}:</span> ${tagHtml} ${q.question}`;
+
+            const pinBtn = document.createElement('button');
+            pinBtn.type = 'button';
+            pinBtn.className = `btn-pin ${isPinned ? 'pinned' : ''}`;
+            pinBtn.title = isPinned ? 'Bỏ ghim câu này' : 'Ghim câu này để chú ý';
+            pinBtn.innerHTML = `<span class="pin-icon">📌</span><span class="pin-text">${isPinned ? 'Đã ghim' : 'Ghim'}</span>`;
+
+            pinBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePinQuestion(q);
+                const nowPinned = pinnedQuestionIds.has(key);
+                pinBtn.className = `btn-pin ${nowPinned ? 'pinned' : ''}`;
+                pinBtn.title = nowPinned ? 'Bỏ ghim câu này' : 'Ghim câu này để chú ý';
+                pinBtn.innerHTML = `<span class="pin-icon">📌</span><span class="pin-text">${nowPinned ? 'Đã ghim' : 'Ghim'}</span>`;
+            });
+
+            topWrap.appendChild(titleDiv);
+            topWrap.appendChild(pinBtn);
+            card.appendChild(topWrap);
+
+            // Options
             const optionsWrap = document.createElement('div');
-            Object.entries(q.options).forEach(([key, value]) => {
+            Object.entries(q.options).forEach(([optKey, value]) => {
                 const option = document.createElement('div');
                 option.className = 'option-item';
-                option.textContent = `${key}. ${value}`;
+                option.textContent = `${optKey}. ${value}`;
 
                 if (isReviewMode) {
                     option.classList.add('disabled');
-                    if (key === q.answer) option.classList.add('correct');
-                    else if (userAnswers[i] === key) option.classList.add('wrong');
+                    if (optKey === q.answer) option.classList.add('correct');
+                    else if (userAnswers[i] === optKey) option.classList.add('wrong');
                 } else if (isExamMode) {
-                    if (userAnswers[i] === key) option.classList.add('selected');
+                    if (userAnswers[i] === optKey) option.classList.add('selected');
                 } else {
                     // Practice mode
                     if (userAnswers[i] !== undefined) {
                         option.classList.add('disabled');
-                        if (key === q.answer) option.classList.add('correct');
-                        else if (userAnswers[i] === key) option.classList.add('wrong');
+                        if (optKey === q.answer) option.classList.add('correct');
+                        else if (userAnswers[i] === optKey) option.classList.add('wrong');
                     }
                 }
 
-                option.addEventListener('click', () => handleOptionClick(i, key, option, q, optionsWrap));
+                option.addEventListener('click', () => handleOptionClick(i, optKey, option, q, optionsWrap));
                 optionsWrap.appendChild(option);
             });
 
@@ -397,9 +478,14 @@
 
         Array.from(els.palette.children).forEach((item, index) => {
             // Reset all state classes
-            item.classList.remove('done', 'in-page', 'palette-correct', 'palette-wrong', 'palette-skip');
+            item.classList.remove('done', 'in-page', 'palette-correct', 'palette-wrong', 'palette-skip', 'is-pinned');
 
             if (index >= start && index < end) item.classList.add('in-page');
+
+            const q = activeQuestions[index];
+            if (q && pinnedQuestionIds.has(getQuestionKey(q))) {
+                item.classList.add('is-pinned');
+            }
 
             if (userAnswers[index] !== undefined) {
                 if (!isExamMode || isReviewMode) {
@@ -432,6 +518,8 @@
         els.trackerFillCorrect.style.width = `${correctPct}%`;
         els.trackerFillWrong.style.width   = `${wrongPct}%`;
 
+        const pinnedCount = activeQuestions.filter(q => pinnedQuestionIds.has(getQuestionKey(q))).length;
+
         if (!isExamMode || isReviewMode) {
             // Practice / Review: show detailed breakdown
             els.trackerStats.innerHTML = `
@@ -447,6 +535,9 @@
                     <span class="stat-dot stat-dot-skip"></span>
                     <span>${stats.unanswered} chưa làm</span>
                 </div>
+                <div class="tracker-stat-item">
+                    <span>📌 ${pinnedCount} đã ghim</span>
+                </div>
             `;
         } else {
             // Exam mode (before submit): only show answered count
@@ -454,6 +545,9 @@
             els.trackerStats.innerHTML = `
                 <div class="tracker-stat-item">
                     <span>${answered}/${total} đã làm</span>
+                </div>
+                <div class="tracker-stat-item">
+                    <span>📌 ${pinnedCount} đã ghim</span>
                 </div>
             `;
         }
@@ -498,18 +592,29 @@
         const scaledScore = Number(((stats.correct / total) * 10).toFixed(1));
         const correctPct  = Math.round((stats.correct / total) * 100);
         const wrongPct    = Math.round((stats.wrong / total) * 100);
-        const skipPct     = 100 - correctPct - wrongPct;
+        const skipPct     = Math.max(0, 100 - correctPct - wrongPct);
 
         // Categorize questions
         const wrongQuestions   = [];
         const skippedQuestions = [];
+        const pinnedQuestions  = [];
+        const correctQuestions = [];
+
         activeQuestions.forEach((q, i) => {
+            const isPinned = pinnedQuestionIds.has(getQuestionKey(q));
+            if (isPinned) {
+                pinnedQuestions.push({ index: i, question: q, selected: userAnswers[i] });
+            }
             if (userAnswers[i] === undefined) {
                 skippedQuestions.push({ index: i, question: q });
             } else if (userAnswers[i] !== q.answer) {
                 wrongQuestions.push({ index: i, question: q, selected: userAnswers[i] });
+            } else {
+                correctQuestions.push({ index: i, question: q });
             }
         });
+
+        const pinPct = Math.round((pinnedQuestions.length / total) * 100);
 
         // Score color
         let scoreColorClass = 'score-low';
@@ -518,10 +623,10 @@
 
         // Feedback
         let feedbackText;
-        if (scaledScore >= 9)      feedbackText = '🎉 Xuất sắc! Bạn nắm vững kiến thức rồi!';
-        else if (scaledScore >= 7) feedbackText = '👍 Tốt lắm! Cố gắng thêm nhé!';
-        else if (scaledScore >= 5) feedbackText = '💪 Khá ổn! Ôn lại những phần yếu nhé.';
-        else                       feedbackText = '📚 Cần ôn tập thêm! Đừng nản, cố lên!';
+        if (scaledScore >= 9)      feedbackText = '🎉 Xuất sắc! Bạn nắm rất vững kiến thức!';
+        else if (scaledScore >= 7) feedbackText = '👍 Rất tốt! Hãy phát huy ở các phần tiếp theo!';
+        else if (scaledScore >= 5) feedbackText = '💪 Khá ổn! Hãy luyện lại các câu bị sai để nhớ sâu hơn nhé.';
+        else                       feedbackText = '📚 Cần ôn tập kỹ hơn! Hãy luyện lại các câu sai và câu đã ghim ngay.';
 
         // Wrong questions list HTML
         let wrongListHtml = '';
@@ -531,11 +636,12 @@
                     <div class="detail-q-header">
                         <strong>Câu ${wq.index + 1}:</strong>
                         ${wq.question.category ? `<span class="q-tag">${wq.question.category}</span>` : ''}
+                        ${pinnedQuestionIds.has(getQuestionKey(wq.question)) ? '<span class="badge-pin-tag">📌 Đang ghim</span>' : ''}
                     </div>
                     <div class="detail-q-text">${wq.question.question}</div>
                     <div class="detail-answers">
-                        <span class="answer-badge wrong-badge">Bạn chọn: ${wq.selected}. ${wq.question.options[wq.selected]}</span>
-                        <span class="answer-badge correct-badge">Đáp án: ${wq.question.answer}. ${wq.question.options[wq.question.answer]}</span>
+                        <span class="answer-badge wrong-badge">❌ Bạn chọn: ${wq.selected}. ${wq.question.options[wq.selected] || ''}</span>
+                        <span class="answer-badge correct-badge">✅ Đáp án: ${wq.question.answer}. ${wq.question.options[wq.question.answer] || ''}</span>
                     </div>
                 </div>
             `).join('');
@@ -550,6 +656,52 @@
             `;
         }
 
+        // Pinned questions list HTML
+        let pinnedListHtml = '';
+        if (pinnedQuestions.length > 0) {
+            const items = pinnedQuestions.map(pq => {
+                let answerBadgeHtml = '';
+                if (pq.selected === undefined) {
+                    answerBadgeHtml = `
+                        <span class="answer-badge skip-badge">⏭️ Chưa làm</span>
+                        <span class="answer-badge correct-badge">✅ Đáp án: ${pq.question.answer}. ${pq.question.options[pq.question.answer] || ''}</span>
+                    `;
+                } else if (pq.selected === pq.question.answer) {
+                    answerBadgeHtml = `
+                        <span class="answer-badge correct-badge">✅ Bạn chọn đúng: ${pq.selected}. ${pq.question.options[pq.selected] || ''}</span>
+                    `;
+                } else {
+                    answerBadgeHtml = `
+                        <span class="answer-badge wrong-badge">❌ Bạn chọn: ${pq.selected}. ${pq.question.options[pq.selected] || ''}</span>
+                        <span class="answer-badge correct-badge">✅ Đáp án: ${pq.question.answer}. ${pq.question.options[pq.question.answer] || ''}</span>
+                    `;
+                }
+
+                return `
+                    <div class="detail-item" data-goto="${pq.index}">
+                        <div class="detail-q-header">
+                            <strong>Câu ${pq.index + 1}:</strong>
+                            ${pq.question.category ? `<span class="q-tag">${pq.question.category}</span>` : ''}
+                            <span class="badge-pin-tag">📌 Đang ghim</span>
+                        </div>
+                        <div class="detail-q-text">${pq.question.question}</div>
+                        <div class="detail-answers">
+                            ${answerBadgeHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            pinnedListHtml = `
+                <details class="result-detail-group" ${wrongQuestions.length === 0 ? 'open' : ''}>
+                    <summary class="detail-summary pin-summary">
+                        📌 Câu đã ghim cần chú ý (${pinnedQuestions.length} câu)
+                    </summary>
+                    <div class="detail-list">${items}</div>
+                </details>
+            `;
+        }
+
         // Skipped questions list HTML
         let skipListHtml = '';
         if (skippedQuestions.length > 0) {
@@ -558,10 +710,11 @@
                     <div class="detail-q-header">
                         <strong>Câu ${sq.index + 1}:</strong>
                         ${sq.question.category ? `<span class="q-tag">${sq.question.category}</span>` : ''}
+                        ${pinnedQuestionIds.has(getQuestionKey(sq.question)) ? '<span class="badge-pin-tag">📌 Đang ghim</span>' : ''}
                     </div>
                     <div class="detail-q-text">${sq.question.question}</div>
                     <div class="detail-answers">
-                        <span class="answer-badge correct-badge">Đáp án: ${sq.question.answer}. ${sq.question.options[sq.question.answer]}</span>
+                        <span class="answer-badge correct-badge">✅ Đáp án: ${sq.question.answer}. ${sq.question.options[sq.question.answer] || ''}</span>
                     </div>
                 </div>
             `).join('');
@@ -578,18 +731,13 @@
 
         // Correct questions list (collapsed)
         let correctListHtml = '';
-        const correctQuestions = [];
-        activeQuestions.forEach((q, i) => {
-            if (userAnswers[i] !== undefined && userAnswers[i] === q.answer) {
-                correctQuestions.push({ index: i, question: q });
-            }
-        });
         if (correctQuestions.length > 0) {
             const items = correctQuestions.map(cq => `
                 <div class="detail-item" data-goto="${cq.index}">
                     <div class="detail-q-header">
                         <strong>Câu ${cq.index + 1}:</strong>
                         ${cq.question.category ? `<span class="q-tag">${cq.question.category}</span>` : ''}
+                        ${pinnedQuestionIds.has(getQuestionKey(cq.question)) ? '<span class="badge-pin-tag">📌 Đang ghim</span>' : ''}
                     </div>
                     <div class="detail-q-text">${cq.question.question}</div>
                 </div>
@@ -633,25 +781,61 @@
                 </div>
                 <div class="stat-card stat-card-skip">
                     <span class="stat-card-num">${stats.unanswered}</span>
-                    <span class="stat-card-label">⏭️ Bỏ qua</span>
+                    <span class="stat-card-label">⏭️ Chưa làm</span>
                     <span class="stat-card-pct">${skipPct}%</span>
+                </div>
+                <div class="stat-card stat-card-pin">
+                    <span class="stat-card-num">${pinnedQuestions.length}</span>
+                    <span class="stat-card-label">📌 Đã ghim</span>
+                    <span class="stat-card-pct">${pinPct}%</span>
                 </div>
             </div>
 
             <div class="result-details-section">
                 ${wrongListHtml}
+                ${pinnedListHtml}
                 ${skipListHtml}
                 ${correctListHtml}
             </div>
 
             <div class="modal-buttons result-actions">
+                ${wrongQuestions.length > 0 ? `
+                    <button class="btn-primary danger-btn" id="retry-wrong-btn" type="button">
+                        ❌ Làm lại ${wrongQuestions.length} câu sai
+                    </button>
+                ` : ''}
+                ${pinnedQuestions.length > 0 ? `
+                    <button class="btn-primary warning-btn" id="retry-pinned-btn" type="button">
+                        📌 Làm lại ${pinnedQuestions.length} câu đã ghim
+                    </button>
+                ` : ''}
                 <button class="btn-secondary" id="review-btn" type="button">🔍 Xem lại bài</button>
-                <button class="btn-primary" id="restart-result-btn" type="button">🔄 Làm lại</button>
+                <button class="btn-secondary" id="restart-result-btn" type="button">🔄 Làm lại toàn bộ</button>
                 <button class="btn-secondary" id="home-result-btn2" type="button">🏠 Trang chủ</button>
             </div>
         `;
 
         els.resultModal.classList.remove('hidden');
+
+        // Bind event nút "Làm lại câu sai"
+        const retryWrongBtn = document.getElementById('retry-wrong-btn');
+        if (retryWrongBtn) {
+            retryWrongBtn.addEventListener('click', () => {
+                els.resultModal.classList.add('hidden');
+                const wrongList = wrongQuestions.map(w => w.question);
+                startPracticeMode(wrongList, 'retry-wrong');
+            });
+        }
+
+        // Bind event nút "Làm lại câu đã ghim"
+        const retryPinnedBtn = document.getElementById('retry-pinned-btn');
+        if (retryPinnedBtn) {
+            retryPinnedBtn.addEventListener('click', () => {
+                els.resultModal.classList.add('hidden');
+                const pinnedList = pinnedQuestions.map(p => p.question);
+                startPracticeMode(pinnedList, 'retry-pinned');
+            });
+        }
 
         // Bind result modal events
         document.getElementById('review-btn').addEventListener('click', () => {
@@ -663,8 +847,9 @@
 
         document.getElementById('restart-result-btn').addEventListener('click', () => {
             els.resultModal.classList.add('hidden');
-            if (isExamMode) startExamMode();
-            else {
+            if (isExamMode) {
+                startExamMode();
+            } else {
                 isReviewMode = false;
                 startSession([...activeQuestions]);
             }
@@ -676,7 +861,7 @@
         els.resultContent.querySelectorAll('.detail-item[data-goto]').forEach(item => {
             item.style.cursor = 'pointer';
             item.addEventListener('click', () => {
-                const qIndex = parseInt(item.dataset.goto);
+                const qIndex = parseInt(item.dataset.goto, 10);
                 els.resultModal.classList.add('hidden');
                 updatePaletteNote();
                 currentPage = Math.floor(qIndex / QUESTIONS_PER_PAGE);
@@ -699,6 +884,7 @@
         els.exitModal.classList.add('hidden');
         isExamMode   = false;
         isReviewMode = false;
+        currentSessionMode = 'practice';
         scrollTop();
     }
 
@@ -774,6 +960,48 @@
 
     // Summary button in sidebar
     els.summaryBtn.addEventListener('click', () => showResults());
+
+    // ─── Theme Toggle (Light / Dark Mode) ─────────────────────────────────────────
+    const themeBtn  = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn ? themeBtn.querySelector('.theme-icon') : null;
+    const themeText = themeBtn ? themeBtn.querySelector('.theme-text') : null;
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (themeIcon) themeIcon.textContent = '☀️';
+            if (themeText) themeText.textContent = 'Giao diện sáng';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+            if (themeText) themeText.textContent = 'Giao diện tối';
+        }
+        try {
+            localStorage.setItem('app_theme', theme);
+        } catch (e) {
+            console.error('Lỗi lưu theme:', e);
+        }
+    }
+
+    try {
+        const savedTheme = localStorage.getItem('app_theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    } catch (e) {
+        applyTheme('light');
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            applyTheme(isDark ? 'light' : 'dark');
+        });
+    }
 
     // ─── Init ────────────────────────────────────────────────────────────────────
     renderSubjects();

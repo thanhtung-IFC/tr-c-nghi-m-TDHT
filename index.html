@@ -11,9 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Chuyển chế độ sáng/tối" title="Chuyển giao diện sáng / tối">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-text">Giao diện tối</span>
+    </button>
+
     <div id="home-screen" class="container home-container">
-        <h1 class="app-title">🎓 GDQP và AN</h1>
-        <p class="app-subtitle">Chọn nội dung ôn tập:</p>
+        <div class="brand-badge">
+            <span class="badge-check">✓</span>
+            <span>GDQP & AN Ôn thi trắc nghiệm</span>
+        </div>
+        <h1 class="app-title">Giáo Dục Quốc Phòng</h1>
+        <p class="app-subtitle">Chọn học phần để bắt đầu luyện tập:</p>
         <div id="subject-list" class="subject-grid"></div>
     </div>
 
@@ -94,6 +103,7 @@
                 <div class="palette-note" id="palette-note">
                     <span class="note-item"><span class="dot done"></span>Đã làm</span>
                     <span class="note-item"><span class="dot current"></span>Trang này</span>
+                    <span class="note-item">📌 Đã ghim</span>
                 </div>
             </div>
         </div>
@@ -115,6 +125,13 @@
             </div>
         </div>
     </div>
+
+    <footer class="app-footer">
+        <div class="footer-badge">
+            <img src="author.png" alt="Thanh Tùng IFC" class="footer-avatar">
+            <span class="footer-text">MADE BY THANH TÙNG IFC</span>
+        </div>
+    </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
