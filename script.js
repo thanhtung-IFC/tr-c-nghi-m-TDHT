@@ -49,6 +49,7 @@
     let currentSessionMode  = 'practice'; // 'practice', 'exam', 'retry-wrong', 'retry-pinned'
     let pinnedQuestionIds   = new Set();
     let timerInterval       = null;
+    let timerRemaining      = 0; // seconds left (for exam mode persistence)
 
     // ─── Pinned Questions Storage ────────────────────────────────────────────────
     function getQuestionKey(q) {
@@ -89,37 +90,112 @@
         updatePalette();
     }
 
-    // ─── Utilities ───────────────────────────────────────────────────────────────
+    // ─── Cryptographically Secure Random & Shuffling ──────────────────────────────
+    function getRandomFloat() {
+        if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+            const buf = new Uint32Array(1);
+            crypto.getRandomValues(buf);
+            return buf[0] / (0xffffffff + 1);
+        }
+        return Math.random();
+    }
+
     function shuffleArray(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            const j = Math.floor(getRandomFloat() * (i + 1));
             [arr[i], arr[j]] = [arr[j], arr[i]];
         }
         return arr;
     }
 
     /**
-     * Xáo trộn ngẫu nhiên các lựa chọn (A, B, C, D) của một câu hỏi
-     * và tự động cập nhật lại nhãn đáp án đúng (answer) theo vị trí mới.
+     * Xáo trộn ngẫu nhiên các lựa chọn (A, B, C, D) của một câu hỏi,
+     * đảm bảo không bị lặp lại thứ tự cũ và tự động cập nhật lại nhãn đáp án đúng (answer).
      */
     function shuffleQuestionOptions(q) {
         if (!q || !q.options) return { ...q };
 
-        const correctText = q.options[q.answer];
         const keys = Object.keys(q.options);
         if (keys.length <= 1) return { ...q };
 
-        // Lấy danh sách nội dung các lựa chọn
-        const texts = keys.map(k => q.options[k]);
-        shuffleArray(texts);
+        // 1. Kiểm tra các câu có phương án chỉ rõ ký tự như "Cả A và B", "Cả B và C"
+        // Với các câu này, giữ nguyên vị trí để không phá vỡ tính logic của câu hỏi
+        const hasLetterRef = keys.some(k => /cả\s+[A-D]\s+và\s+[A-D]/i.test(q.options[k]));
+        if (hasLetterRef) {
+            return { ...q, options: { ...q.options } };
+        }
+
+        // 2. Kiểm tra phương án cuối dạng "Tất cả các phương án trên", "Cả ba phương án trên"
+        const lastKey = keys[keys.length - 1];
+        const lastText = q.options[lastKey] || '';
+        const isAboveRef = /(phương án|đáp án|câu|ý|cả ba|cả 3).*(trên|dưới)/i.test(lastText)
+            || /(tất cả|các phương án trên|cả ba)/i.test(lastText);
+
+        if (isAboveRef) {
+            // Giữ nguyên phương án cuối (D), đảo ngẫu nhiên các phương án phía trước (A, B, C)
+            const prefixKeys = keys.slice(0, keys.length - 1);
+            const prefixEntries = prefixKeys.map(k => ({
+                text: q.options[k],
+                isCorrect: k === q.answer
+            }));
+
+            let attempts = 0;
+            const originalTexts = prefixEntries.map(e => e.text);
+            while (attempts < 8) {
+                shuffleArray(prefixEntries);
+                if (prefixEntries.some((e, idx) => e.text !== originalTexts[idx])) break;
+                attempts++;
+            }
+
+            const newOptions = {};
+            let newAnswer = q.answer;
+
+            prefixKeys.forEach((key, idx) => {
+                newOptions[key] = prefixEntries[idx].text;
+                if (prefixEntries[idx].isCorrect) newAnswer = key;
+            });
+            newOptions[lastKey] = lastText;
+            if (q.answer === lastKey) newAnswer = lastKey;
+
+            return {
+                ...q,
+                options: newOptions,
+                answer: newAnswer
+            };
+        }
+
+        // 3. Trường hợp thông thường: Đảo toàn bộ các lựa chọn (A, B, C, D...)
+        const entries = keys.map(k => ({
+            origKey: k,
+            text: q.options[k],
+            isCorrect: k === q.answer
+        }));
+
+        const originalOrder = entries.map(e => e.origKey);
+        let attempts = 0;
+
+        // Đảm bảo không trùng lại thứ tự cũ (không bị lặp lại)
+        while (attempts < 12) {
+            shuffleArray(entries);
+            const isDifferent = entries.some((e, idx) => e.origKey !== originalOrder[idx]);
+            if (isDifferent) {
+                // Ưu tiên lần đảo mà đáp án đúng cũng di chuyển sang vị trí khác
+                if (keys.length >= 3 && attempts < 6) {
+                    const movedAnswer = entries.some((e, idx) => e.isCorrect && keys[idx] !== q.answer);
+                    if (movedAnswer) break;
+                } else {
+                    break;
+                }
+            }
+            attempts++;
+        }
 
         const newOptions = {};
         let newAnswer = q.answer;
 
         keys.forEach((key, idx) => {
-            const text = texts[idx];
-            newOptions[key] = text;
-            if (text === correctText) {
+            newOptions[key] = entries[idx].text;
+            if (entries[idx].isCorrect) {
                 newAnswer = key;
             }
         });
@@ -132,16 +208,45 @@
     }
 
     /**
-     * Trộn đề toàn diện:
+     * Trộn đề toàn diện & không bị lặp lại:
      * 1. Xáo trộn vị trí các đáp án (options) của từng câu hỏi.
-     * 2. Xáo trộn thứ tự các câu hỏi trong đề.
+     * 2. Xáo trộn thứ tự toàn bộ câu hỏi.
+     * 3. Cơ chế chống lặp: Đảm bảo câu đầu và thứ tự không trùng với lần làm trước.
      */
     function shuffleQuestions(list) {
-        if (!Array.isArray(list)) return [];
-        // Tạo câu hỏi mới với các đáp án được xáo trộn ngẫu nhiên
-        const copy = list.map(q => shuffleQuestionOptions(q));
-        // Xáo trộn thứ tự danh sách câu hỏi
+        if (!Array.isArray(list) || list.length === 0) return [];
+
+        // 1. Tạo bản sao và đảo đáp án của từng câu hỏi
+        let copy = list.map(q => shuffleQuestionOptions(q));
+
+        if (copy.length <= 1) return copy;
+
+        // 2. Xáo trộn danh sách câu hỏi bằng Fisher-Yates CSPRNG
         shuffleArray(copy);
+
+        // 3. Cơ chế chống lặp lại với lần làm gần nhất
+        try {
+            const storageKey = `last_q_seq_${currentSubjectCode || 'default'}`;
+            const rawPrev = sessionStorage.getItem(storageKey);
+            let prevFirstKeys = [];
+            if (rawPrev) {
+                prevFirstKeys = JSON.parse(rawPrev);
+            }
+
+            // Nếu câu đầu tiên trùng với câu đầu lần làm trước -> hoán đổi với vị trí khác
+            const newFirstKey = getQuestionKey(copy[0]);
+            if (prevFirstKeys.length > 0 && copy.length > 2 && newFirstKey === prevFirstKeys[0]) {
+                const swapIdx = 1 + Math.floor(getRandomFloat() * (copy.length - 1));
+                [copy[0], copy[swapIdx]] = [copy[swapIdx], copy[0]];
+            }
+
+            // Lưu 5 câu đầu tiên vào sessionStorage để so sánh lần tiếp theo
+            const currentFirstKeys = copy.slice(0, Math.min(5, copy.length)).map(q => getQuestionKey(q));
+            sessionStorage.setItem(storageKey, JSON.stringify(currentFirstKeys));
+        } catch (e) {
+            // Không ảnh hưởng nếu sessionStorage không khả dụng
+        }
+
         return copy;
     }
 
@@ -194,7 +299,68 @@
         return { correct, wrong, unanswered, total: activeQuestions.length };
     }
 
-    // ─── Visibility helpers ──────────────────────────────────────────────────────
+    // ─── Session Persistence ─────────────────────────────────────────────────────
+    const SESSION_KEY = 'quiz_session';
+    const SESSION_MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+    function saveSession() {
+        if (isReviewMode || activeQuestions.length === 0) return;
+        try {
+            const session = {
+                subjectCode: currentSubjectCode,
+                activeQuestions,
+                userAnswers,
+                currentPage,
+                isExamMode,
+                currentSessionMode,
+                timerRemaining: isExamMode ? timerRemaining : null,
+                savedAt: Date.now()
+            };
+            localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        } catch (e) { console.error('Lỗi lưu phiên:', e); }
+    }
+
+    function clearSession() {
+        try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+    }
+
+    function restoreSession(session) {
+        // Restore state
+        currentSubjectCode = session.subjectCode;
+        currentQuestions   = [...(subjectsData[session.subjectCode]?.questions || [])];
+        activeQuestions    = session.activeQuestions;
+        userAnswers        = session.userAnswers || {};
+        currentPage        = session.currentPage || 0;
+        isExamMode         = !!session.isExamMode;
+        isReviewMode       = false;
+        currentSessionMode = session.currentSessionMode || 'practice';
+        pinnedQuestionIds  = loadPinnedQuestions(session.subjectCode);
+
+        els.currentSubjectName.textContent = subjectsData[session.subjectCode]?.name || session.subjectCode;
+        els.homeScreen.classList.add('hidden');
+        els.quizApp.classList.remove('hidden');
+
+        hideAll();
+        els.quizArea.classList.remove('hidden');
+        els.sidebarArea.classList.remove('hidden');
+
+        if (isExamMode) {
+            els.timerBox.classList.remove('hidden');
+            els.submitBtn.classList.remove('hidden');
+            const remaining = (typeof session.timerRemaining === 'number' && session.timerRemaining > 0)
+                ? session.timerRemaining : 50 * 60;
+            startTimer(remaining);
+        } else {
+            els.shuffleBtn.classList.remove('hidden');
+        }
+
+        updatePaletteNote();
+        renderPalette();
+        renderPage();
+        scrollTop();
+    }
+
+
     function hideAll() {
         els.partSelection.classList.add('hidden');
         els.modeSelection.classList.add('hidden');
@@ -286,7 +452,8 @@
         els.sidebarArea.classList.remove('hidden');
         els.shuffleBtn.classList.remove('hidden');
         clearInterval(timerInterval);
-        startSession([...data]);
+        const shuffled = shuffleQuestions(data);
+        startSession(shuffled);
         scrollTop();
     }
 
@@ -318,6 +485,7 @@
         updatePaletteNote();
         renderPalette();
         renderPage();
+        saveSession();
     }
 
     // ─── Update palette legend ───────────────────────────────────────────────────
@@ -471,6 +639,7 @@
             Array.from(container.children).forEach(item => item.classList.remove('selected'));
             optionEl.classList.add('selected');
             updatePalette();
+            saveSession();
             return;
         }
 
@@ -487,6 +656,7 @@
         if (selectedKey !== question.answer) optionEl.classList.add('wrong');
 
         updatePalette();
+        saveSession();
 
         // Check if all questions answered → update next button on last page
         const totalPages = Math.ceil(activeQuestions.length / QUESTIONS_PER_PAGE);
@@ -609,19 +779,21 @@
     // ─── Timer ───────────────────────────────────────────────────────────────────
     function startTimer(duration) {
         clearInterval(timerInterval);
-        let remaining = duration;
+        timerRemaining = duration;
 
         function tick() {
-            const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-            const s = String(remaining % 60).padStart(2, '0');
+            const m = String(Math.floor(timerRemaining / 60)).padStart(2, '0');
+            const s = String(timerRemaining % 60).padStart(2, '0');
             els.timerText.textContent = `${m}:${s}`;
 
-            if (remaining <= 0) {
+            if (timerRemaining <= 0) {
                 clearInterval(timerInterval);
                 showAlert('⏰ Hết giờ! Bài thi sẽ được nộp tự động.').then(() => showResults());
                 return;
             }
-            remaining--;
+            timerRemaining--;
+            // Save session every 30 seconds to keep timer in sync
+            if (timerRemaining % 30 === 0) saveSession();
         }
 
         tick();
@@ -630,6 +802,7 @@
 
     // ─── Show comprehensive results ──────────────────────────────────────────────
     function showResults() {
+        clearSession();
         clearInterval(timerInterval);
         isReviewMode = true;
 
@@ -868,8 +1041,11 @@
         if (retryWrongBtn) {
             retryWrongBtn.addEventListener('click', () => {
                 els.resultModal.classList.add('hidden');
-                const wrongList = shuffleQuestions(wrongQuestions.map(w => w.question));
-                startPracticeMode(wrongList, 'retry-wrong');
+                const wrongPristine = wrongQuestions.map(w => {
+                    const orig = currentQuestions.find(cq => getQuestionKey(cq) === getQuestionKey(w.question));
+                    return orig || w.question;
+                });
+                startPracticeMode(wrongPristine, 'retry-wrong');
             });
         }
 
@@ -878,8 +1054,11 @@
         if (retryPinnedBtn) {
             retryPinnedBtn.addEventListener('click', () => {
                 els.resultModal.classList.add('hidden');
-                const pinnedList = shuffleQuestions(pinnedQuestions.map(p => p.question));
-                startPracticeMode(pinnedList, 'retry-pinned');
+                const pinnedPristine = pinnedQuestions.map(p => {
+                    const orig = currentQuestions.find(cq => getQuestionKey(cq) === getQuestionKey(p.question));
+                    return orig || p.question;
+                });
+                startPracticeMode(pinnedPristine, 'retry-pinned');
             });
         }
 
@@ -897,8 +1076,11 @@
                 startExamMode();
             } else {
                 isReviewMode = false;
-                const shuffled = shuffleQuestions(activeQuestions);
-                startSession(shuffled);
+                const pristineList = activeQuestions.map(aq => {
+                    const orig = currentQuestions.find(cq => getQuestionKey(cq) === getQuestionKey(aq));
+                    return orig || aq;
+                });
+                startPracticeMode(pristineList, currentSessionMode);
             }
         });
 
@@ -924,6 +1106,7 @@
 
     // ─── Go home ─────────────────────────────────────────────────────────────────
     function goHome() {
+        clearSession();
         clearInterval(timerInterval);
         els.quizApp.classList.add('hidden');
         els.homeScreen.classList.remove('hidden');
@@ -961,6 +1144,7 @@
         if (currentPage < totalPages - 1) {
             currentPage++;
             renderPage();
+            saveSession();
             return;
         }
 
@@ -984,13 +1168,18 @@
         if (currentPage > 0) {
             currentPage--;
             renderPage();
+            saveSession();
         }
     });
 
     els.shuffleBtn.addEventListener('click', () => {
         showConfirm('Trộn lại câu hỏi & xáo trộn toàn bộ vị trí các đáp án?').then(ok => {
             if (ok) {
-                const shuffled = shuffleQuestions(activeQuestions);
+                const pristineList = activeQuestions.map(aq => {
+                    const orig = currentQuestions.find(cq => getQuestionKey(cq) === getQuestionKey(aq));
+                    return orig || aq;
+                });
+                const shuffled = shuffleQuestions(pristineList);
                 startSession(shuffled);
             }
         });
@@ -1054,4 +1243,59 @@
 
     // ─── Init ────────────────────────────────────────────────────────────────────
     renderSubjects();
+
+    // Session restore on load
+    try {
+        const raw = localStorage.getItem(SESSION_KEY);
+        if (raw) {
+            const saved = JSON.parse(raw);
+            const age = Date.now() - (saved.savedAt || 0);
+            const answeredCount = Object.keys(saved.userAnswers || {}).length;
+            const isValid = saved.subjectCode
+                && subjectsData[saved.subjectCode]
+                && Array.isArray(saved.activeQuestions)
+                && saved.activeQuestions.length > 0
+                && answeredCount > 0
+                && age < SESSION_MAX_AGE_MS;
+
+            if (isValid) {
+                // Build a descriptive label for the session
+                const subjectName = subjectsData[saved.subjectCode]?.name || saved.subjectCode;
+                const modeLabel = saved.isExamMode ? 'thi thử' : (saved.currentSessionMode === 'retry-wrong' ? 'ôn câu sai' : (saved.currentSessionMode === 'retry-pinned' ? 'ôn câu ghim' : 'luyện tập'));
+                const totalCount = saved.activeQuestions.length;
+                const minutesAgo = Math.round(age / 60000);
+                const timeLabel = minutesAgo < 1 ? 'vừa xong' : `${minutesAgo} phút trước`;
+
+                // Show restore modal
+                const overlay = document.createElement('div');
+                overlay.className = 'result-modal confirm-overlay';
+                overlay.innerHTML = `
+                    <div class="result-content small-modal">
+                        <div class="restore-icon">🔄</div>
+                        <p class="exit-message" style="margin-top:0.5rem;">
+                            Bạn có <strong>phiên làm bài chưa hoàn thành</strong> (<em>${timeLabel}</em>).<br>
+                            <span style="font-size:0.85em;opacity:0.8;">
+                                ${subjectName} — Chế độ ${modeLabel} — ${answeredCount}/${totalCount} câu đã làm
+                            </span>
+                        </p>
+                        <div class="modal-buttons">
+                            <button class="btn-secondary restore-new" type="button">Bắt đầu mới</button>
+                            <button class="btn-primary restore-continue" type="button">▶️ Tiếp tục</button>
+                        </div>
+                    </div>`;
+                document.body.appendChild(overlay);
+
+                overlay.querySelector('.restore-continue').addEventListener('click', () => {
+                    overlay.remove();
+                    restoreSession(saved);
+                });
+                overlay.querySelector('.restore-new').addEventListener('click', () => {
+                    overlay.remove();
+                    clearSession();
+                });
+            }
+        }
+    } catch (e) {
+        console.error('Lỗi kiểm tra phiên đã lưu:', e);
+    }
 })();
