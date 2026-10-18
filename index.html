@@ -6,10 +6,181 @@
     <meta name="theme-color" content="#f4f4f6">
     <meta name="description" content="Ôn tập trắc nghiệm Giáo dục Quốc phòng và An ninh (GDQP & AN)">
     <title>GDQP và AN</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2.3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Critical Lock Screen Styles (Bảo đảm luôn hiển thị chuẩn tâm & phủ kín màn hình dù CSS chưa tải xong) */
+        .lock-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 999999 !important;
+            background: #f4f4f6 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+        }
+        [data-theme="dark"] .lock-overlay {
+            background: #09090b !important;
+        }
+        .lock-overlay.hidden {
+            display: none !important;
+        }
+        .lock-card {
+            width: min(92vw, 420px) !important;
+            background: #ffffff !important;
+            border: 1px solid #e4e4e7 !important;
+            border-radius: 20px !important;
+            padding: 34px 26px 26px !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        }
+        [data-theme="dark"] .lock-card {
+            background: #18181b !important;
+            border-color: #27272a !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6) !important;
+        }
+        .lock-icon-wrap {
+            width: 72px !important;
+            height: 72px !important;
+            border-radius: 50% !important;
+            background: #e0e7ff !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 14px !important;
+            font-size: 2rem !important;
+        }
+        [data-theme="dark"] .lock-icon-wrap {
+            background: rgba(99, 102, 241, 0.2) !important;
+        }
+        .lock-title {
+            font-size: 1.45rem !important;
+            font-weight: 800 !important;
+            color: #18181b !important;
+            margin: 0 0 6px 0 !important;
+        }
+        [data-theme="dark"] .lock-title {
+            color: #fafafa !important;
+        }
+        .lock-desc {
+            font-size: 0.92rem !important;
+            color: #71717a !important;
+            line-height: 1.5 !important;
+            margin: 0 0 22px 0 !important;
+        }
+        [data-theme="dark"] .lock-desc {
+            color: #a1a1aa !important;
+        }
+        .lock-form {
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+        }
+        .lock-input-group {
+            position: relative !important;
+            width: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        .lock-input {
+            width: 100% !important;
+            padding: 13px 44px 13px 16px !important;
+            font-size: 1.05rem !important;
+            font-family: inherit !important;
+            border-radius: 12px !important;
+            border: 2px solid #e4e4e7 !important;
+            background: #f4f4f6 !important;
+            color: #18181b !important;
+            box-sizing: border-box !important;
+            outline: none !important;
+            letter-spacing: 2px !important;
+            text-align: center !important;
+            transition: all 0.2s ease !important;
+        }
+        [data-theme="dark"] .lock-input {
+            background: #27272a !important;
+            border-color: #3f3f46 !important;
+            color: #fafafa !important;
+        }
+        .lock-input:focus {
+            border-color: #4f46e5 !important;
+            background: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15) !important;
+        }
+        [data-theme="dark"] .lock-input:focus {
+            border-color: #6366f1 !important;
+            background: #18181b !important;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25) !important;
+        }
+        .lock-toggle-pwd {
+            position: absolute !important;
+            right: 12px !important;
+            background: transparent !important;
+            border: none !important;
+            cursor: pointer !important;
+            font-size: 1.15rem !important;
+            padding: 4px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .lock-error {
+            background: #fef2f2 !important;
+            color: #dc2626 !important;
+            border: 1px solid #fecaca !important;
+            border-radius: 10px !important;
+            padding: 8px 12px !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+        }
+        [data-theme="dark"] .lock-error {
+            background: rgba(239, 68, 68, 0.15) !important;
+            border-color: rgba(239, 68, 68, 0.3) !important;
+            color: #f87171 !important;
+        }
+        .lock-submit-btn {
+            width: 100% !important;
+            padding: 13px !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            background: #4f46e5 !important;
+            color: #ffffff !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+        .lock-submit-btn:hover {
+            background: #4338ca !important;
+            transform: translateY(-1px) !important;
+        }
+        .lock-hint {
+            font-size: 0.78rem !important;
+            color: #a1a1aa !important;
+            margin: 16px 0 0 0 !important;
+            line-height: 1.4 !important;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Chuyển chế độ sáng/tối" title="Chuyển giao diện sáng / tối">
@@ -43,7 +214,7 @@
         </div>
     </div>
 
-    <div id="home-screen" class="container home-container">
+    <div id="home-screen" class="container home-container hidden">
         <div class="brand-badge">
             <span class="badge-check">✓</span>
             <span>GDQP & AN Ôn thi trắc nghiệm</span>
@@ -177,7 +348,7 @@
         </div>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="data.js?v=2.3"></script>
+    <script src="script.js?v=2.3"></script>
 </body>
 </html>

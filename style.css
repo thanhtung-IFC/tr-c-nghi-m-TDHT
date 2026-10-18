@@ -179,6 +179,12 @@ button:focus-visible {
 
 .lock-overlay {
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     inset: 0;
     z-index: 99999;
     background: var(--bg-main);
@@ -186,6 +192,7 @@ button:focus-visible {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    box-sizing: border-box;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 

@@ -358,11 +358,13 @@
         if (isExamMode) {
             els.timerBox.classList.remove('hidden');
             els.submitBtn.classList.remove('hidden');
+            if (els.progressTracker) els.progressTracker.classList.add('hidden');
             const remaining = (typeof session.timerRemaining === 'number' && session.timerRemaining > 0)
                 ? session.timerRemaining : 50 * 60;
             startTimer(remaining);
         } else {
             els.shuffleBtn.classList.remove('hidden');
+            if (els.progressTracker) els.progressTracker.classList.remove('hidden');
         }
 
         updatePaletteNote();
@@ -382,6 +384,7 @@
         if (els.changeModeBtn) els.changeModeBtn.classList.add('hidden');
         els.timerBox.classList.add('hidden');
         els.submitBtn.classList.add('hidden');
+        if (els.progressTracker) els.progressTracker.classList.add('hidden');
         els.resultModal.classList.add('hidden');
         els.summaryBtn.classList.add('hidden');
     }
@@ -502,6 +505,7 @@
         els.quizArea.classList.remove('hidden');
         els.sidebarArea.classList.remove('hidden');
         els.shuffleBtn.classList.remove('hidden');
+        if (els.progressTracker) els.progressTracker.classList.remove('hidden');
         if (els.changeModeBtn) els.changeModeBtn.classList.remove('hidden');
         clearInterval(timerInterval);
         const shuffled = shuffleQuestions(data);
@@ -521,6 +525,7 @@
         els.sidebarArea.classList.remove('hidden');
         els.timerBox.classList.remove('hidden');
         els.submitBtn.classList.remove('hidden');
+        if (els.progressTracker) els.progressTracker.classList.add('hidden');
         if (els.changeModeBtn) els.changeModeBtn.classList.remove('hidden');
 
         startTimer(EXAM_DURATION_SECONDS);
@@ -781,6 +786,15 @@
 
     // ─── Progress Tracker ────────────────────────────────────────────────────────
     function updateProgressTracker() {
+        // Trong chế độ thi thử (Exam Mode), hoàn toàn ẩn bảng tiến trình và KHÔNG tính toán/cập nhật thanh đúng-sai để chống gian lận
+        if (isExamMode) {
+            if (els.progressTracker) els.progressTracker.classList.add('hidden');
+            if (els.summaryBtn) els.summaryBtn.classList.add('hidden');
+            return;
+        }
+
+        if (els.progressTracker) els.progressTracker.classList.remove('hidden');
+
         const stats = getStats();
         const total = stats.total || 1;
         const correctPct = (stats.correct / total) * 100;
@@ -791,40 +805,27 @@
 
         const pinnedCount = activeQuestions.filter(q => pinnedQuestionIds.has(getQuestionKey(q))).length;
 
-        if (!isExamMode || isReviewMode) {
-            // Practice / Review: show detailed breakdown
-            els.trackerStats.innerHTML = `
-                <div class="tracker-stat-item">
-                    <span class="stat-dot stat-dot-correct"></span>
-                    <span>${stats.correct} đúng</span>
-                </div>
-                <div class="tracker-stat-item">
-                    <span class="stat-dot stat-dot-wrong"></span>
-                    <span>${stats.wrong} sai</span>
-                </div>
-                <div class="tracker-stat-item">
-                    <span class="stat-dot stat-dot-skip"></span>
-                    <span>${stats.unanswered} chưa làm</span>
-                </div>
-                <div class="tracker-stat-item">
-                    <span>📌 ${pinnedCount} đã ghim</span>
-                </div>
-            `;
-        } else {
-            // Exam mode (before submit): only show answered count
-            const answered = stats.correct + stats.wrong;
-            els.trackerStats.innerHTML = `
-                <div class="tracker-stat-item">
-                    <span>${answered}/${total} đã làm</span>
-                </div>
-                <div class="tracker-stat-item">
-                    <span>📌 ${pinnedCount} đã ghim</span>
-                </div>
-            `;
-        }
+        // Practice / Review: show detailed breakdown
+        els.trackerStats.innerHTML = `
+            <div class="tracker-stat-item">
+                <span class="stat-dot stat-dot-correct"></span>
+                <span>${stats.correct} đúng</span>
+            </div>
+            <div class="tracker-stat-item">
+                <span class="stat-dot stat-dot-wrong"></span>
+                <span>${stats.wrong} sai</span>
+            </div>
+            <div class="tracker-stat-item">
+                <span class="stat-dot stat-dot-skip"></span>
+                <span>${stats.unanswered} chưa làm</span>
+            </div>
+            <div class="tracker-stat-item">
+                <span>📌 ${pinnedCount} đã ghim</span>
+            </div>
+        `;
 
         // Show summary button in practice mode when at least 1 question answered
-        if (!isExamMode && !isReviewMode && (stats.correct + stats.wrong) > 0) {
+        if (!isReviewMode && (stats.correct + stats.wrong) > 0) {
             els.summaryBtn.classList.remove('hidden');
         } else {
             els.summaryBtn.classList.add('hidden');
@@ -1401,6 +1402,9 @@
                 els.lockScreen.classList.add('hidden');
                 els.lockScreen.classList.remove('unlocking');
             }, 300);
+        }
+        if (els.homeScreen) {
+            els.homeScreen.classList.remove('hidden');
         }
         initApp();
     }
