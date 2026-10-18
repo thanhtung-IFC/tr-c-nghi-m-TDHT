@@ -1,5 +1,7 @@
 (() => {
-    const QUESTIONS_PER_PAGE = 10;
+    const QUESTIONS_PER_PAGE   = 10;
+    const EXAM_QUESTION_COUNT  = 60;
+    const EXAM_DURATION_SECONDS = 50 * 60; // 50 phút = 3000 giây
 
     // ─── DOM Cache ───────────────────────────────────────────────────────────────
     const els = {
@@ -20,6 +22,9 @@
         timerText:          document.getElementById('timer-text'),
         submitBtn:          document.getElementById('submit-now-btn'),
         shuffleBtn:         document.getElementById('shuffle-btn'),
+        changeModeBtn:      document.getElementById('change-mode-btn'),
+        backHomeModeBtn:    document.getElementById('back-home-mode-btn'),
+        modeSubjectDesc:    document.getElementById('mode-subject-desc'),
         currentSubjectName: document.getElementById('current-subject-name'),
         pageIndicator:      document.getElementById('page-indicator'),
         scoreDisplay:       document.getElementById('score-display'),
@@ -368,6 +373,7 @@
         els.quizArea.classList.add('hidden');
         els.sidebarArea.classList.add('hidden');
         els.shuffleBtn.classList.add('hidden');
+        if (els.changeModeBtn) els.changeModeBtn.classList.add('hidden');
         els.timerBox.classList.add('hidden');
         els.submitBtn.classList.add('hidden');
         els.resultModal.classList.add('hidden');
@@ -379,14 +385,35 @@
         const fragment = document.createDocumentFragment();
         Object.entries(subjectsData).forEach(([code, subject]) => {
             const totalQuestions = Array.isArray(subject?.questions) ? subject.questions.length : 0;
-            const card = document.createElement('button');
-            card.type = 'button';
+            const card = document.createElement('div');
             card.className = 'subject-card';
             card.innerHTML = `
                 <span class="subject-icon">${subject.icon}</span>
                 <span class="subject-name">${subject.name || code}</span>
-                <span class="subject-count">${totalQuestions} câu hỏi</span>
+                <span class="subject-count">${totalQuestions} câu hỏi ôn tập</span>
+                <div class="subject-card-actions">
+                    <button class="btn-subject-action btn-sub-practice" type="button" title="Ôn tập luyện tập theo chương hoặc tất cả">
+                        📚 Luyện tập
+                    </button>
+                    <button class="btn-subject-action btn-sub-exam" type="button" title="Thi thử 60 câu ngẫu nhiên trong 50 phút">
+                        ⏱️ Thi thử (60 câu)
+                    </button>
+                </div>
             `;
+
+            // Bấm trực tiếp vào nút "Luyện tập"
+            card.querySelector('.btn-sub-practice').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openSubject(code, 'practice');
+            });
+
+            // Bấm trực tiếp vào nút "Thi thử (60 câu)"
+            card.querySelector('.btn-sub-exam').addEventListener('click', (e) => {
+                e.stopPropagation();
+                openSubject(code, 'exam');
+            });
+
+            // Bấm vào thân thẻ môn học -> mở bảng chọn chế độ
             card.addEventListener('click', () => openSubject(code));
             fragment.appendChild(card);
         });
@@ -395,14 +422,27 @@
     }
 
     // ─── Open subject ────────────────────────────────────────────────────────────
-    function openSubject(code) {
+    function openSubject(code, autoMode = null) {
         currentSubjectCode = code;
         pinnedQuestionIds  = loadPinnedQuestions(code);
         currentQuestions   = [...(subjectsData[code]?.questions || [])];
-        els.currentSubjectName.textContent = subjectsData[code].name;
+        const subjectName  = subjectsData[code]?.name || code;
+        els.currentSubjectName.textContent = subjectName;
+
+        if (els.modeSubjectDesc) {
+            els.modeSubjectDesc.textContent = `${subjectName} — Tổng cộng ${currentQuestions.length} câu hỏi`;
+        }
+
         els.homeScreen.classList.add('hidden');
         els.quizApp.classList.remove('hidden');
-        startPracticeMode(currentQuestions, 'practice');
+
+        if (autoMode === 'exam') {
+            startExamMode();
+        } else if (autoMode === 'practice') {
+            showChapterSelection();
+        } else {
+            showModeSelection();
+        }
         scrollTop();
     }
 
@@ -411,6 +451,10 @@
         hideAll();
         els.modeSelection.classList.remove('hidden');
         clearInterval(timerInterval);
+        const subjectName = subjectsData[currentSubjectCode]?.name || currentSubjectCode;
+        if (els.modeSubjectDesc) {
+            els.modeSubjectDesc.textContent = `${subjectName} — Tổng cộng ${currentQuestions.length} câu hỏi`;
+        }
         scrollTop();
     }
 
@@ -420,7 +464,7 @@
 
         const allBtn = document.createElement('div');
         allBtn.className = 'chapter-card';
-        allBtn.innerHTML = `<span class="chapter-title">🔥 Tất cả</span><span class="chapter-count">${currentQuestions.length} câu</span>`;
+        allBtn.innerHTML = `<span class="chapter-title">🔥 Tất cả (${currentQuestions.length} câu)</span><span class="chapter-count">Toàn bộ đề</span>`;
         allBtn.addEventListener('click', () => startPracticeMode(currentQuestions, 'practice'));
         fragment.appendChild(allBtn);
 
@@ -438,6 +482,7 @@
 
         hideAll();
         els.chapterSelection.classList.remove('hidden');
+        if (els.changeModeBtn) els.changeModeBtn.classList.remove('hidden');
         els.sidebarArea.classList.remove('hidden');
         scrollTop();
     }
@@ -451,6 +496,7 @@
         els.quizArea.classList.remove('hidden');
         els.sidebarArea.classList.remove('hidden');
         els.shuffleBtn.classList.remove('hidden');
+        if (els.changeModeBtn) els.changeModeBtn.classList.remove('hidden');
         clearInterval(timerInterval);
         const shuffled = shuffleQuestions(data);
         startSession(shuffled);
@@ -461,15 +507,17 @@
         isExamMode = true;
         isReviewMode = false;
         currentSessionMode = 'exam';
-        const examSet = shuffleQuestions(currentQuestions).slice(0, Math.min(100, currentQuestions.length));
+        const count = Math.min(EXAM_QUESTION_COUNT, currentQuestions.length);
+        const examSet = shuffleQuestions(currentQuestions).slice(0, count);
 
         hideAll();
         els.quizArea.classList.remove('hidden');
         els.sidebarArea.classList.remove('hidden');
         els.timerBox.classList.remove('hidden');
         els.submitBtn.classList.remove('hidden');
+        if (els.changeModeBtn) els.changeModeBtn.classList.remove('hidden');
 
-        startTimer(50 * 60);
+        startTimer(EXAM_DURATION_SECONDS);
         startSession(examSet);
         scrollTop();
     }
@@ -516,9 +564,10 @@
 
         // Score display text
         if (isReviewMode) {
-            els.scoreDisplay.textContent = 'Xem lại bài';
+            els.scoreDisplay.textContent = 'Xem lại bài thi';
         } else if (isExamMode) {
-            els.scoreDisplay.textContent = 'Thi thử';
+            const answered = Object.keys(userAnswers).length;
+            els.scoreDisplay.textContent = `Thi thử: ${answered}/${activeQuestions.length} câu`;
         } else if (currentSessionMode === 'retry-wrong') {
             const stats = getStats();
             els.scoreDisplay.textContent = `Ôn câu sai: ${stats.correct + stats.wrong}/${stats.total}`;
@@ -808,7 +857,8 @@
 
         const stats       = getStats();
         const total       = stats.total || 1;
-        const scaledScore = Number(((stats.correct / total) * 10).toFixed(1));
+        const rawScore    = (stats.correct / total) * 10;
+        const scaledScore = Number(rawScore.toFixed(rawScore % 1 === 0 ? 1 : (Number.isInteger(rawScore * 10) ? 1 : 2)));
         const correctPct  = Math.round((stats.correct / total) * 100);
         const wrongPct    = Math.round((stats.wrong / total) * 100);
         const skipPct     = Math.max(0, 100 - correctPct - wrongPct);
@@ -842,10 +892,18 @@
 
         // Feedback
         let feedbackText;
-        if (scaledScore >= 9)      feedbackText = '🎉 Xuất sắc! Bạn nắm rất vững kiến thức!';
-        else if (scaledScore >= 7) feedbackText = '👍 Rất tốt! Hãy phát huy ở các phần tiếp theo!';
-        else if (scaledScore >= 5) feedbackText = '💪 Khá ổn! Hãy luyện lại các câu bị sai để nhớ sâu hơn nhé.';
-        else                       feedbackText = '📚 Cần ôn tập kỹ hơn! Hãy luyện lại các câu sai và câu đã ghim ngay.';
+        if (isExamMode) {
+            if (scaledScore >= 9.0)      feedbackText = '🏆 Xuất sắc! Bạn nắm rất vững toàn bộ kiến thức đề thi!';
+            else if (scaledScore >= 8.0) feedbackText = '🎉 Giỏi! Kết quả thi thử rất tốt, tự tin bước vào kỳ thi thật!';
+            else if (scaledScore >= 6.5) feedbackText = '👍 Khá! Bạn đã vượt qua bài thi, hãy ôn thêm các câu sai để bứt phá điểm số.';
+            else if (scaledScore >= 5.0) feedbackText = '💪 Trung bình (Đạt)! Bạn vừa đủ điểm qua môn, hãy luyện thêm để chắc chắn.';
+            else                        feedbackText = '⚠️ Chưa đạt (Dưới 5.0)! Hãy xem lại các câu bị sai và thi thử lại ngay nhé.';
+        } else {
+            if (scaledScore >= 9.0)      feedbackText = '🎉 Xuất sắc! Bạn nắm rất vững kiến thức!';
+            else if (scaledScore >= 7.0) feedbackText = '👍 Rất tốt! Hãy phát huy ở các phần tiếp theo!';
+            else if (scaledScore >= 5.0) feedbackText = '💪 Khá ổn! Hãy luyện lại các câu bị sai để nhớ sâu hơn nhé.';
+            else                        feedbackText = '📚 Cần ôn tập kỹ hơn! Hãy luyện lại các câu sai và câu đã ghim ngay.';
+        }
 
         // Wrong questions list HTML
         let wrongListHtml = '';
@@ -973,8 +1031,16 @@
         }
 
         // Build full result HTML
+        const subjectTitle = subjectsData[currentSubjectCode]?.name || currentSubjectCode;
+        const resultTitle = isExamMode ? '⏱️ Kết quả bài thi thử' : '📊 Tổng hợp kết quả';
+        const resultSubtitleHtml = isExamMode
+            ? `<p class="result-subtitle-mode">${subjectTitle} — Đề thi ${activeQuestions.length} câu ngẫu nhiên (50 phút)</p>`
+            : '';
+        const restartLabel = isExamMode ? '🔄 Thi lại đề 60 câu mới' : '🔄 Làm lại toàn bộ';
+
         els.resultContent.innerHTML = `
-            <h3 class="result-title-text">📊 Tổng hợp kết quả</h3>
+            <h3 class="result-title-text">${resultTitle}</h3>
+            ${resultSubtitleHtml}
 
             <div class="score-ring-wrap">
                 <div class="score-ring ${scoreColorClass}" style="--correct-pct:${correctPct}%;--wrong-pct:${wrongPct}%;">
@@ -1029,7 +1095,7 @@
                     </button>
                 ` : ''}
                 <button class="btn-secondary" id="review-btn" type="button">🔍 Xem lại bài</button>
-                <button class="btn-secondary" id="restart-result-btn" type="button">🔄 Làm lại toàn bộ</button>
+                <button class="btn-secondary" id="restart-result-btn" type="button">${restartLabel}</button>
                 <button class="btn-secondary" id="home-result-btn2" type="button">🏠 Trang chủ</button>
             </div>
         `;
@@ -1130,6 +1196,22 @@
     document.getElementById('confirm-exit-btn').addEventListener('click', goHome);
 
     document.getElementById('back-mode-btn').addEventListener('click', showModeSelection);
+
+    if (els.backHomeModeBtn) {
+        els.backHomeModeBtn.addEventListener('click', goHome);
+    }
+
+    if (els.changeModeBtn) {
+        els.changeModeBtn.addEventListener('click', () => {
+            if (isExamMode && !isReviewMode) {
+                showConfirm('Bạn đang trong bài thi thử. Chuyển chế độ sẽ hủy bài thi hiện tại. Bạn có chắc chắn không?').then(ok => {
+                    if (ok) showModeSelection();
+                });
+            } else {
+                showModeSelection();
+            }
+        });
+    }
 
     document.querySelectorAll('[data-mode]').forEach(card => {
         card.addEventListener('click', () => {

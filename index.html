@@ -32,6 +32,7 @@
             <div class="top-bar">
                 <div class="top-actions">
                     <button id="back-home-btn" class="btn-icon" type="button">🏠 Trang chủ</button>
+                    <button id="change-mode-btn" class="btn-icon hidden" type="button">🎯 Đổi chế độ</button>
                     <button id="shuffle-btn" class="btn-icon hidden" type="button">🔀 Trộn đề</button>
                 </div>
                 <h3 id="current-subject-name">Môn học</h3>
@@ -43,15 +44,31 @@
             </div>
 
             <div id="mode-selection" class="hidden">
-                <h2 class="mode-title">Chọn chế độ học</h2>
+                <div class="mode-header">
+                    <h2 class="mode-title">Chọn chế độ học</h2>
+                    <p class="mode-subtitle" id="mode-subject-desc">Học phần</p>
+                </div>
                 <div class="mode-grid">
                     <div class="mode-card practice-card" data-mode="practice">
                         <div class="mode-icon">📚</div>
                         <div class="mode-info">
-                            <h3>Luyện tập</h3>
-                            <p>Ôn tập theo chủ đề.</p>
+                            <h3>Luyện tập tự do</h3>
+                            <p>Ôn tập theo từng chương hoặc toàn bộ câu hỏi. Hiển thị đáp án đúng/sai ngay lập tức khi chọn.</p>
                         </div>
+                        <button class="btn-mode-action" type="button">Vào luyện tập ➡️</button>
                     </div>
+                    <div class="mode-card exam-card" data-mode="exam">
+                        <span class="mode-badge-tag">Đề thi chuẩn</span>
+                        <div class="mode-icon">⏱️</div>
+                        <div class="mode-info">
+                            <h3>Thi thử</h3>
+                            <p>60 câu ngẫu nhiên bốc từ bộ đề, thời gian 50 phút. Chấm điểm thang 10 &amp; tổng hợp đúng/sai.</p>
+                        </div>
+                        <button class="btn-mode-action btn-mode-exam" type="button">Bắt đầu thi 📝</button>
+                    </div>
+                </div>
+                <div class="mode-actions">
+                    <button id="back-home-mode-btn" class="btn-secondary" type="button">🏠 Về danh sách môn học</button>
                 </div>
             </div>
 
