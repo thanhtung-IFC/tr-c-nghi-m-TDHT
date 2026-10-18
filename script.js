@@ -41,6 +41,12 @@
         resultModal:        document.getElementById('result-modal'),
         resultContent:      document.getElementById('result-content'),
         exitModal:          document.getElementById('exit-modal'),
+        // Lock screen
+        lockScreen:         document.getElementById('lock-screen'),
+        lockForm:           document.getElementById('lock-form'),
+        lockInput:          document.getElementById('lock-password-input'),
+        lockTogglePwd:      document.getElementById('lock-toggle-pwd'),
+        lockError:          document.getElementById('lock-error'),
     };
 
     // ─── State ───────────────────────────────────────────────────────────────────
@@ -1323,61 +1329,118 @@
         });
     }
 
-    // ─── Init ────────────────────────────────────────────────────────────────────
-    renderSubjects();
+    // ─── Security Lock Screen & Init ──────────────────────────────────────────────
+    const APP_PASSWORD = '203001';
+    let isUnlocked = false;
 
-    // Session restore on load
-    try {
-        const raw = localStorage.getItem(SESSION_KEY);
-        if (raw) {
-            const saved = JSON.parse(raw);
-            const age = Date.now() - (saved.savedAt || 0);
-            const answeredCount = Object.keys(saved.userAnswers || {}).length;
-            const isValid = saved.subjectCode
-                && subjectsData[saved.subjectCode]
-                && Array.isArray(saved.activeQuestions)
-                && saved.activeQuestions.length > 0
-                && answeredCount > 0
-                && age < SESSION_MAX_AGE_MS;
+    function checkSessionRestore() {
+        try {
+            const raw = localStorage.getItem(SESSION_KEY);
+            if (raw) {
+                const saved = JSON.parse(raw);
+                const age = Date.now() - (saved.savedAt || 0);
+                const answeredCount = Object.keys(saved.userAnswers || {}).length;
+                const isValid = saved.subjectCode
+                    && subjectsData[saved.subjectCode]
+                    && Array.isArray(saved.activeQuestions)
+                    && saved.activeQuestions.length > 0
+                    && answeredCount > 0
+                    && age < SESSION_MAX_AGE_MS;
 
-            if (isValid) {
-                // Build a descriptive label for the session
-                const subjectName = subjectsData[saved.subjectCode]?.name || saved.subjectCode;
-                const modeLabel = saved.isExamMode ? 'thi thử' : (saved.currentSessionMode === 'retry-wrong' ? 'ôn câu sai' : (saved.currentSessionMode === 'retry-pinned' ? 'ôn câu ghim' : 'luyện tập'));
-                const totalCount = saved.activeQuestions.length;
-                const minutesAgo = Math.round(age / 60000);
-                const timeLabel = minutesAgo < 1 ? 'vừa xong' : `${minutesAgo} phút trước`;
+                if (isValid) {
+                    const subjectName = subjectsData[saved.subjectCode]?.name || saved.subjectCode;
+                    const modeLabel = saved.isExamMode ? 'thi thử' : (saved.currentSessionMode === 'retry-wrong' ? 'ôn câu sai' : (saved.currentSessionMode === 'retry-pinned' ? 'ôn câu ghim' : 'luyện tập'));
+                    const totalCount = saved.activeQuestions.length;
+                    const minutesAgo = Math.round(age / 60000);
+                    const timeLabel = minutesAgo < 1 ? 'vừa xong' : `${minutesAgo} phút trước`;
 
-                // Show restore modal
-                const overlay = document.createElement('div');
-                overlay.className = 'result-modal confirm-overlay';
-                overlay.innerHTML = `
-                    <div class="result-content small-modal">
-                        <div class="restore-icon">🔄</div>
-                        <p class="exit-message" style="margin-top:0.5rem;">
-                            Bạn có <strong>phiên làm bài chưa hoàn thành</strong> (<em>${timeLabel}</em>).<br>
-                            <span style="font-size:0.85em;opacity:0.8;">
-                                ${subjectName} — Chế độ ${modeLabel} — ${answeredCount}/${totalCount} câu đã làm
-                            </span>
-                        </p>
-                        <div class="modal-buttons">
-                            <button class="btn-secondary restore-new" type="button">Bắt đầu mới</button>
-                            <button class="btn-primary restore-continue" type="button">▶️ Tiếp tục</button>
-                        </div>
-                    </div>`;
-                document.body.appendChild(overlay);
+                    // Show restore modal
+                    const overlay = document.createElement('div');
+                    overlay.className = 'result-modal confirm-overlay';
+                    overlay.innerHTML = `
+                        <div class="result-content small-modal">
+                            <div class="restore-icon">🔄</div>
+                            <p class="exit-message" style="margin-top:0.5rem;">
+                                Bạn có <strong>phiên làm bài chưa hoàn thành</strong> (<em>${timeLabel}</em>).<br>
+                                <span style="font-size:0.85em;opacity:0.8;">
+                                    ${subjectName} — Chế độ ${modeLabel} — ${answeredCount}/${totalCount} câu đã làm
+                                </span>
+                            </p>
+                            <div class="modal-buttons">
+                                <button class="btn-secondary restore-new" type="button">Bắt đầu mới</button>
+                                <button class="btn-primary restore-continue" type="button">▶️ Tiếp tục</button>
+                            </div>
+                        </div>`;
+                    document.body.appendChild(overlay);
 
-                overlay.querySelector('.restore-continue').addEventListener('click', () => {
-                    overlay.remove();
-                    restoreSession(saved);
-                });
-                overlay.querySelector('.restore-new').addEventListener('click', () => {
-                    overlay.remove();
-                    clearSession();
-                });
+                    overlay.querySelector('.restore-continue').addEventListener('click', () => {
+                        overlay.remove();
+                        restoreSession(saved);
+                    });
+                    overlay.querySelector('.restore-new').addEventListener('click', () => {
+                        overlay.remove();
+                        clearSession();
+                    });
+                }
             }
+        } catch (e) {
+            console.error('Lỗi kiểm tra phiên đã lưu:', e);
         }
-    } catch (e) {
-        console.error('Lỗi kiểm tra phiên đã lưu:', e);
+    }
+
+    function initApp() {
+        renderSubjects();
+        checkSessionRestore();
+    }
+
+    function unlockApp() {
+        isUnlocked = true;
+        if (els.lockScreen) {
+            els.lockScreen.classList.add('unlocking');
+            setTimeout(() => {
+                els.lockScreen.classList.add('hidden');
+                els.lockScreen.classList.remove('unlocking');
+            }, 300);
+        }
+        initApp();
+    }
+
+    function checkPassword() {
+        if (!els.lockInput) return;
+        const val = els.lockInput.value.trim();
+        if (val === APP_PASSWORD) {
+            if (els.lockError) els.lockError.classList.add('hidden');
+            unlockApp();
+        } else {
+            if (els.lockError) els.lockError.classList.remove('hidden');
+            els.lockInput.classList.remove('shake');
+            void els.lockInput.offsetWidth;
+            els.lockInput.classList.add('shake');
+            els.lockInput.select();
+        }
+    }
+
+    if (els.lockForm) {
+        els.lockForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            checkPassword();
+        });
+    }
+
+    if (els.lockTogglePwd && els.lockInput) {
+        els.lockTogglePwd.addEventListener('click', () => {
+            const isPassword = els.lockInput.type === 'password';
+            els.lockInput.type = isPassword ? 'text' : 'password';
+            els.lockTogglePwd.textContent = isPassword ? '🙈' : '👁️';
+            els.lockInput.focus();
+        });
+    }
+
+    if (els.lockInput) {
+        els.lockInput.addEventListener('input', () => {
+            if (els.lockError) els.lockError.classList.add('hidden');
+            els.lockInput.classList.remove('shake');
+        });
+        setTimeout(() => els.lockInput.focus(), 150);
     }
 })();

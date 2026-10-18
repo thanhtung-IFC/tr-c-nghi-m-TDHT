@@ -17,6 +17,32 @@
         <span class="theme-text">Giao diện tối</span>
     </button>
 
+    <!-- ─── Lock Screen (Security Authentication) ─── -->
+    <div id="lock-screen" class="lock-overlay">
+        <div class="lock-card">
+            <div class="lock-icon-wrap">
+                <span class="lock-icon">🔒</span>
+            </div>
+            <div class="brand-badge" style="margin-bottom: 12px;">
+                <span class="badge-check">✓</span>
+                <span>Bảo mật hệ thống</span>
+            </div>
+            <h2 class="lock-title">Yêu cầu xác thực</h2>
+            <p class="lock-desc">Vui lòng nhập mật khẩu để truy cập vào hệ thống trắc nghiệm GDQP &amp; AN.</p>
+            
+            <form id="lock-form" class="lock-form" onsubmit="return false;">
+                <div class="lock-input-group">
+                    <input type="password" id="lock-password-input" class="lock-input" placeholder="Nhập mật khẩu..." autocomplete="current-password" autofocus required>
+                    <button type="button" id="lock-toggle-pwd" class="lock-toggle-pwd" aria-label="Hiện/Ẩn mật khẩu" title="Hiện / Ẩn mật khẩu">👁️</button>
+                </div>
+                <div id="lock-error" class="lock-error hidden">❌ Mật khẩu không chính xác. Vui lòng thử lại!</div>
+                <button type="submit" id="lock-submit-btn" class="btn-primary lock-submit-btn">Xác nhận truy cập ➡️</button>
+            </form>
+
+            <p class="lock-hint">💡 Mật khẩu chỉ có hiệu lực trong phiên này. Thoát tab hoặc F5 sẽ cần xác thực lại.</p>
+        </div>
+    </div>
+
     <div id="home-screen" class="container home-container">
         <div class="brand-badge">
             <span class="badge-check">✓</span>

@@ -146,7 +146,7 @@ button:focus-visible {
     position: fixed;
     top: 20px;
     right: 24px;
-    z-index: 90;
+    z-index: 100000;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -171,6 +171,178 @@ button:focus-visible {
 .theme-icon {
     font-size: 1rem;
     line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOCK SCREEN (SECURITY AUTHENTICATION)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.lock-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lock-overlay.hidden {
+    display: none !important;
+}
+
+.lock-overlay.unlocking {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lock-card {
+    width: min(92vw, 420px);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 34px 26px 26px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: lockCardAppear 0.35s ease;
+}
+
+@keyframes lockCardAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.lock-icon-wrap {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.lock-icon {
+    font-size: 1.9rem;
+    line-height: 1;
+}
+
+.lock-title {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.lock-desc {
+    margin: 0 0 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.lock-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lock-input-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.lock-input {
+    width: 100%;
+    padding: 12px 46px 12px 16px;
+    background: var(--surface-subtle);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lock-input:focus {
+    border-color: var(--border-hover);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .lock-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.lock-toggle-pwd {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.lock-toggle-pwd:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.lock-error {
+    color: var(--danger);
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-align: left;
+    margin-top: -2px;
+}
+
+.lock-submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.lock-hint {
+    margin: 18px 0 0;
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+@keyframes lockShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+.lock-input.shake {
+    animation: lockShake 0.4s ease;
+    border-color: var(--danger) !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
